@@ -14,8 +14,9 @@ import { QuestionComponent } from './questions/question/question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './index/menu/menu.component';
 import { IndexComponent } from './index/index.component';
-import { PatientListComponent } from './patient-list/patient-list.component';
+import { PatientListComponent } from './patients/patient-list/patient-list.component';
 import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component';
+import { PatientComponent } from './patients/patient/patient.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component
     MenuComponent,
     IndexComponent,
     PatientListComponent,
-    CreateQuizComponent
+    CreateQuizComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,
