@@ -15,6 +15,7 @@ import { QuestionComponent } from './questions/question/question.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './index/menu/menu.component';
 import { IndexComponent } from './index/index.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { IndexComponent } from './index/index.component';
     QuestionFormComponent,
     QuestionComponent,
     MenuComponent,
-    IndexComponent
+    IndexComponent,
+    PatientListComponent
   ],
   imports: [
     BrowserModule,
