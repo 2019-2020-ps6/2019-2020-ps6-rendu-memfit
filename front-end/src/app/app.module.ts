@@ -13,7 +13,8 @@ import { QuestionListComponent } from './questions/question-list/question-list.c
 import { QuestionFormComponent } from './questions/question-form/question-form.component';
 import { QuestionComponent } from './questions/question/question.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './index/menu/menu.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MenuComponent } from './menu/menu.component';
     QuestionListComponent,
     QuestionFormComponent,
     QuestionComponent,
-    MenuComponent
+    MenuComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
