@@ -29,11 +29,8 @@ import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component
     QuestionComponent,
     MenuComponent,
     IndexComponent,
-<<<<<<< HEAD
-    PatientListComponent
-=======
+    PatientListComponent,
     CreateQuizComponent
->>>>>>> 54eaeca6b13cfb3c3ae99ee1c5ec8b19a3ff8390
   ],
   imports: [
     BrowserModule,
