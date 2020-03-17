@@ -12,12 +12,15 @@ import { QuestionListComponent } from './questions/question-list/question-list.c
 import { QuestionFormComponent } from './questions/question-form/question-form.component';
 import { QuestionComponent } from './questions/question/question.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MenuComponent } from './index/menu/menu.component';
 import { IndexComponent } from './index/index.component';
 import { PatientListComponent } from './patients/patient-list/patient-list.component';
 import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component';
 import { PatientComponent } from './patients/patient/patient.component';
+import { LogoComponent } from './logo/logo.component';
 
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,11 +31,13 @@ import { PatientComponent } from './patients/patient/patient.component';
     QuestionListComponent,
     QuestionFormComponent,
     QuestionComponent,
-    MenuComponent,
     IndexComponent,
     PatientListComponent,
     CreateQuizComponent,
-    PatientComponent
+    PatientComponent,
+    CreateQuizComponent,
+    IndexComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,4 +48,6 @@ import { PatientComponent } from './patients/patient/patient.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
