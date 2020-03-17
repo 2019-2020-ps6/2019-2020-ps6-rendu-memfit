@@ -1,0 +1,33 @@
+<h1>Paramètres du quiz</h1>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="form-group photo-form">
+        <div style="height:100%;background-color: #5BC0EB; border-radius: 10px">
+          <i class="fas fa-camera camera-form"></i>
+        </div>
+        <br>
+        <input type="text" class="form-control" placeholder="Nom du quiz" id="QuizName">
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="form-group">
+        <label class="col-form-label" for="PatientName">Patient</label>
+        <select class="custom-select" id="PatientName">
+          <option selected="">Denis</option>
+          <option value="1">Eric</option>
+          <option value="2">Alphonse</option>
+          <option value="3">Martine</option>
+        </select>
+        <button class="btn btn-info">+</button>
+        <button class="btn btn-info">Listes patients</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<a routerLink="/edit-quiz" routerLinkActive="active">
+  <button class="btn btn-info" style="float: right;">Editer les questions</button>
+</a>
