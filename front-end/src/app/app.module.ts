@@ -12,9 +12,9 @@ import { QuestionListComponent } from './questions/question-list/question-list.c
 import { QuestionFormComponent } from './questions/question-form/question-form.component';
 import { QuestionComponent } from './questions/question/question.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MenuComponent } from './index/menu/menu.component';
 import { IndexComponent } from './index/index.component';
 import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component';
+import { LogoComponent } from './logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -26,9 +26,10 @@ import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component
     QuestionListComponent,
     QuestionFormComponent,
     QuestionComponent,
-    MenuComponent,
     IndexComponent,
-    CreateQuizComponent
+    CreateQuizComponent,
+    IndexComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,

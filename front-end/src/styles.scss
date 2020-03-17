@@ -1,6 +1,10 @@
-@import './styles/variables.scss';
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import './styles/variables.scss';
 @import url('https://fonts.googleapis.com/css?family=Sarina&display=swap');
+
+$success: #B3EFB2;
+$warning: #FDE74C;
+$danger: #FA7921;
 
 /* You can add global styles to this file, and also import other style files */
 html {
@@ -10,13 +14,4 @@ html {
 body {
   margin: 0;
   background-color: $app-background-color;
-}
-
-.brand {
-  background: $blue;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
-  font-family: 'Sarina', cursive;
-  color: $yellow;
-  text-shadow:0 0 6px #000000;
-  font-size: 1.7em;
 }
