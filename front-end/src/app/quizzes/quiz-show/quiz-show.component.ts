@@ -12,9 +12,13 @@ import {QUESTION_ACTOR, QUESTION_ACTORS, QUIZ_LIST} from "../../../mocks/quiz-li
 })
 export class QuizShowComponent implements OnInit {
 
+  QUESTION = 0;
+  VOULIEZ_VOUS_DIRE = 1;
+  SUPER_BIEN_JOUE = 2;
+
   quiz: Quiz;
   currentQuestion: Question;
-  vouliezVousDire = false;
+  currentHandleCode = this.QUESTION;
   ended = false;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
@@ -27,7 +31,7 @@ export class QuizShowComponent implements OnInit {
   }
 
   toggleNextQuestion(){
-    this.vouliezVousDire = false;
+    this.currentHandleCode = this.QUESTION;
     if(this.hasNextQuestion()){
      this.currentQuestion = this.quiz.questions.shift();
     }else{
@@ -46,9 +50,9 @@ export class QuizShowComponent implements OnInit {
 
   handleResponse(answer) {
     if(answer.valid){
-      this.toggleNextQuestion();
+      this.currentHandleCode = this.SUPER_BIEN_JOUE;
     }else{
-      this.vouliezVousDire = true;
+      this.currentHandleCode = this.VOULIEZ_VOUS_DIRE;
     }
   }
 }

@@ -8,7 +8,7 @@
       </h2>
 
 
-      <ng-container *ngIf="!vouliezVousDire; else vouliezVousDireModal">
+      <ng-container *ngIf="currentHandleCode == QUESTION; else (currentHandleCode == SUPER_BIEN_JOUE && superBienJoueModal) || (currentHandleCode == VOULIEZ_VOUS_DIRE && vouliezVousDireModal)">
         <div class="row pb-4 justify-content-between">
           <ng-container *ngFor="let answer of currentQuestion.answers">
             <div class="col-3" (click)="handleResponse(answer)">
@@ -17,6 +17,18 @@
           </ng-container>
         </div>
       </ng-container>
+
+
+      <ng-template #superBienJoueModal>
+        <div class="row align-items-center d-flex justify-content-between">
+          <div class="col-12 col-md-8">
+            <h3 class="text-center">Super ! On passe à la question suivante ?</h3>
+          </div>
+          <div class="col-12 col-md-4">
+            <button class="btn btn-success w-100 m-1" (click)="toggleNextQuestion()">C'est parti !</button>
+          </div>
+        </div>
+      </ng-template>
 
 
       <ng-template #vouliezVousDireModal>

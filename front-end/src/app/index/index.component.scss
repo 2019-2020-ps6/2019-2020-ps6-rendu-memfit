@@ -1,8 +1,13 @@
 @import '../../styles/variables.scss';
-body {
-  background: #0c5460;
-  background-image: url("../../assets/logo.svg") !important;
-}
+//body {
+//  background: #0c5460;
+//  background-image: url("../../assets/logo.svg") !important;
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//}
+
+
 
 .menu-body{
   margin: auto auto;
@@ -10,6 +15,11 @@ body {
   background: #5BC0EB;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: $dark-blue 2px solid;
 }
 
 .menu-body .btn{

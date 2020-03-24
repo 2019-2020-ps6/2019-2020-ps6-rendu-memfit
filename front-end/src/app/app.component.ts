@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NavigationStart, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'starter-quiz';
+  showHeader: boolean = true;
+  constructor(private router: Router) {
+    router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        if (event['url'] != '/') {
+          this.showHeader = true;
+        } else {
+          this.showHeader = false;
+        }
+      }
+    });
+  }
 }
