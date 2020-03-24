@@ -12,24 +12,28 @@ import {QUESTION_ACTOR, QUESTION_ACTORS, QUIZ_LIST} from "../../../mocks/quiz-li
 })
 export class QuizShowComponent implements OnInit {
 
-  public quiz: Quiz = QUIZ_LIST[1];
-  currentQuestion: Question;
+  public quiz: Quiz;
+  public currentQuestion: Question;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
-    // this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
+    this.quizService.quizSelected$.subscribe((quiz) => this.quizInit(quiz));
   }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('quizId');
     this.quizService.setSelectedQuiz(id);
-    this.toggleNextQuestion();
   }
 
   toggleNextQuestion(){
-    // console.log(this.currentQuestion);
+    console.log(this.currentQuestion);
     if(this.quiz.questions.length > 0){
-     this.currentQuestion = this.quiz.questions.pop();
+     this.currentQuestion = this.quiz.questions.shift();
       console.log(this.currentQuestion);
     }
+  }
+
+  private quizInit(quiz) {
+    this.quiz = quiz;
+    this.toggleNextQuestion();
   }
 }
