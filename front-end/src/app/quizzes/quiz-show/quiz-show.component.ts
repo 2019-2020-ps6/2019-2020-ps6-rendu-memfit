@@ -26,10 +26,9 @@ export class QuizShowComponent implements OnInit {
   }
 
   toggleNextQuestion(){
-    console.log(this.currentQuestion);
+    this.vouliezVousDire = false;
     if(this.hasNextQuestion()){
      this.currentQuestion = this.quiz.questions.shift();
-      console.log(this.currentQuestion);
     }
   }
 

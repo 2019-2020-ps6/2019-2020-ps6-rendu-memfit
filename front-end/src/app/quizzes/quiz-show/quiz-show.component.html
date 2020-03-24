@@ -1,11 +1,13 @@
 <ng-container *ngIf="quiz">
 
-  <ng-container *ngIf="!vouliezVousDire; else vouliezVousDireModal">
-    <div class="container">
-      <!--  <h1>{{quiz.name}}</h1>-->
-      <h2 class="text-center">
-        {{currentQuestion.statement}}
-      </h2>
+  <div class="container">
+    <!--  <h1>{{quiz.name}}</h1>-->
+    <h2 class="text-center">
+      {{currentQuestion.statement}}
+    </h2>
+
+
+    <ng-container *ngIf="!vouliezVousDire; else vouliezVousDireModal">
       <div class="row pb-4">
         <ng-container *ngFor="let answer of currentQuestion.answers">
           <div class="col-3" (click)="handleResponse(answer)">
@@ -13,20 +15,28 @@
           </div>
         </ng-container>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
 
 
-  <ng-template #vouliezVousDireModal>
-    <div class="row align-items-center">
-      <div class="col-12 col-md-4">
-        <h3 class="text-center">Vouliez vous dire</h3>
-      </div>
-      <ng-container *ngFor="let answer of currentQuestion.answers">
-        <ng-container *ngIf="answer.valid">
-          <app-answers class="col-12 col-md-8" [answer]="answer"></app-answers>
+
+    <ng-template #vouliezVousDireModal>
+      <div class="row align-items-center d-flex justify-content-between">
+        <div class="col-12 col-md-4">
+          <h3 class="text-center">Vouliez vous dire</h3>
+        </div>
+        <ng-container *ngFor="let answer of currentQuestion.answers">
+          <ng-container *ngIf="answer.valid">
+            <app-answers class="col-12 col-md-4" [answer]="answer"></app-answers>
+          </ng-container>
         </ng-container>
-      </ng-container>
-    </div>
-  </ng-template>
+        <div class="col-12 col-md-4 text-right">
+          <button class="btn btn-success w-50 m-1" (click)="toggleNextQuestion()">Oui</button>
+          <button class="btn btn-warning w-50 m-1" (click)="toggleNextQuestion()">Non</button>
+        </div>
+      </div>
+    </ng-template>
+
+
+  </div>
 </ng-container>
+
