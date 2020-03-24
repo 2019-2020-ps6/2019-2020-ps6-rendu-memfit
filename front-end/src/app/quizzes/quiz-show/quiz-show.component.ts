@@ -12,9 +12,10 @@ import {QUESTION_ACTOR, QUESTION_ACTORS, QUIZ_LIST} from "../../../mocks/quiz-li
 })
 export class QuizShowComponent implements OnInit {
 
-  public quiz: Quiz;
-  public currentQuestion: Question;
-  vouliezVousDire: boolean = false;
+  quiz: Quiz;
+  currentQuestion: Question;
+  vouliezVousDire = false;
+  ended = false;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizInit(quiz));
@@ -29,6 +30,8 @@ export class QuizShowComponent implements OnInit {
     this.vouliezVousDire = false;
     if(this.hasNextQuestion()){
      this.currentQuestion = this.quiz.questions.shift();
+    }else{
+      this.ended = true;
     }
   }
 
