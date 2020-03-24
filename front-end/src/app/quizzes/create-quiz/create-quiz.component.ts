@@ -15,8 +15,7 @@ export class CreateQuizComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
     this.quizForm = this.formBuilder.group({
       quizName: [''],
-      quizTheme: [''],
-      patientId: ['']
+      quizTheme: ['']
     });
   }
 
@@ -25,6 +24,13 @@ export class CreateQuizComponent implements OnInit {
 
   addQuiz() {
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
+    const dateNow = Date.now();
+    quizToCreate.id = dateNow;
     this.quizService.addQuiz(quizToCreate);
+    return dateNow;
+  }
+
+  selectPatientSup() {
+    alert('Fonction en cours d\'implémentation.');
   }
 }

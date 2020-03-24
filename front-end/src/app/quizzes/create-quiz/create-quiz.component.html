@@ -1,44 +1,42 @@
 <h1>Paramètres du quiz</h1>
 <br>
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <div class="form-group photo-form">
-        <div style="height:100%;background-color: #5BC0EB; border-radius: 10px">
-          <i class="fas fa-camera camera-form"></i>
+<form [formGroup]="quizForm">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group photo-form">
+          <div style="height:100%;background-color: #5BC0EB; border-radius: 10px">
+            <i class="fas fa-camera camera-form"></i>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm">
+      <div class="col-sm">
 
-      <form [formGroup]="quizForm">
+          <label class="col-form-label" for="quizName">Nom du Quiz</label>
+          <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'quizName'" required>
+          <div class="form-group">
+            <label class="col-form-label" for="quizTheme">Thème du Quiz</label>
+            <select class="custom-select" id="quizTheme" [formControlName]="'quizTheme'">
+              <option selected="" value="Moto">Moto</option>
+              <option value="Objets de la vie de tous les jours">Objets de la vie de tous les jours</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="patientId">Patient</label>
+            <select class="custom-select" id="patientId" [formControlName]="'patientId'">
+              <option selected="" value="Denis">Denis</option>
+              <option value="Eric">Eric</option>
+              <option value="Alphonse">Alphonse</option>
+              <option value="Martine">Martine</option>
+              <option value="ALL">Tous les patients</option>
+            </select>
+            <button class="btn btn-info" (click)="selectPatientSup()">+</button>
+            &nbsp;<button class="btn btn-info">Listes patients</button>
 
-        <label class="col-form-label" for="quizName">Nom du Quiz</label>
-        <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'quizName'">
-        <div class="form-group">
-          <label class="col-form-label" for="quizTheme">Thème du Quiz</label>
-          <select class="custom-select" id="quizTheme" [formControlName]="'quizTheme'">
-            <option selected="" >Moto</option>
-            <option value="1">Objets de la vie de tous les jours</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="col-form-label" for="patientId">Patient</label>
-          <select class="custom-select" id="patientId" [formControlName]="'patientId'">
-            <option selected="">Denis</option>
-            <option value="1">Eric</option>
-            <option value="2">Alphonse</option>
-            <option value="3">Martine</option>
-          </select>
-          <button class="btn btn-info">+</button>
-          &nbsp;<button class="btn btn-info">Listes patients</button>
-
-        </div>
-      </form>
+          </div>
+      </div>
     </div>
   </div>
-</div>
 
-<a routerLink="/edit-quiz" routerLinkActive="active">
-  <button class="btn btn-info" style="float: right; margin-top: 5em" (click)="addQuiz()">Editer les questions</button>
-</a>
+  <button type="submit" class="btn btn-info" style="float: right; margin-top: 5em" (click)="addQuiz()">Editer les questions</button>
+</form>
