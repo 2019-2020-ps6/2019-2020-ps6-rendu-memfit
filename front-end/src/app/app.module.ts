@@ -18,6 +18,7 @@ import { PatientListComponent } from './patients/patient-list/patient-list.compo
 import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component';
 import { PatientComponent } from './patients/patient/patient.component';
 import { LogoComponent } from './logo/logo.component';
+import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -40,6 +41,8 @@ import { LogoComponent } from './logo/logo.component';
     CreateQuizComponent,
     IndexComponent,
     LogoComponent,
+
+    QuizShowComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,4 @@ import { LogoComponent } from './logo/logo.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-}
+export class AppModule { }

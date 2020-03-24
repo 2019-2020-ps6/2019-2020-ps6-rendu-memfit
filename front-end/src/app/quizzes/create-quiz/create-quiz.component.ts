@@ -28,7 +28,7 @@ export class CreateQuizComponent implements OnInit {
     const dateNow = Date.now();
     quizToCreate.id = dateNow;
     this.quizService.addQuiz(quizToCreate);
-    this.router.navigate(['/edit-quiz/' + dateNow]);
+    this.router.navigate(['/quiz/edit/' + dateNow]);
   }
 
   selectPatientSup() {

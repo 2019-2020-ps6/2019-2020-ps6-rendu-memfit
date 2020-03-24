@@ -1,0 +1,13 @@
+<ng-container *ngIf="quiz">
+<div class="card">
+  <h1>{{quiz.name}}</h1>
+  <h2>
+    <i class="fab fa-leanpub"></i>
+    {{currentQuestion.statement}}
+  </h2>
+  <div *ngFor="let answer of currentQuestion.answers">
+      {{answer.statement}}
+  </div>
+  <button (click)="toggleNextQuestion()">Question suivante</button>
+</div>
+</ng-container>

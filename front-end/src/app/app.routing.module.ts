@@ -5,12 +5,14 @@ import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { IndexComponent } from './index/index.component';
 import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component';
 import { PatientListComponent } from './patients/patient-list/patient-list.component';
+import {QuizShowComponent} from "./quizzes/quiz-show/quiz-show.component";
 
 const routes: Routes = [
-    {path: 'quiz-list', component: QuizListComponent},
-    {path: 'edit-quiz/:id', component: EditQuizComponent},
+    {path: 'quiz/', component: QuizListComponent},
+    {path: 'quiz/show/:quizId', component: QuizShowComponent},
+    {path: 'quiz/edit/:id', component: EditQuizComponent},
     {path: '', component: IndexComponent},
-    {path: 'create-quiz', component: CreateQuizComponent},
+    {path: 'quiz/create', component: CreateQuizComponent},
     {path: 'select-patient', component: PatientListComponent},
 ];
 
