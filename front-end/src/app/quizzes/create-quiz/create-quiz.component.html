@@ -13,10 +13,10 @@
       <div class="col-sm">
 
           <label class="col-form-label" for="quizName">Nom du Quiz</label>
-          <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'quizName'" required>
+          <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
           <div class="form-group">
             <label class="col-form-label" for="quizTheme">Thème du Quiz</label>
-            <select class="custom-select" id="quizTheme" [formControlName]="'quizTheme'">
+            <select class="custom-select" id="quizTheme" [formControlName]="'theme'">
               <option selected="" value="Moto">Moto</option>
               <option value="Objets de la vie de tous les jours">Objets de la vie de tous les jours</option>
             </select>

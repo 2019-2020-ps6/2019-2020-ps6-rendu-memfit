@@ -15,8 +15,8 @@ export class CreateQuizComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, private router: Router) {
     this.quizForm = this.formBuilder.group({
-      quizName: [''],
-      quizTheme: ['']
+      name: [''],
+      theme: ['']
     });
   }
 
