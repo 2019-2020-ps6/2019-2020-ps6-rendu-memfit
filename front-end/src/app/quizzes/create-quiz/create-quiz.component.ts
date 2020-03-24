@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Quiz} from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-quiz',
@@ -12,7 +13,7 @@ export class CreateQuizComponent implements OnInit {
 
   public quizForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService) {
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, private router: Router) {
     this.quizForm = this.formBuilder.group({
       quizName: [''],
       quizTheme: ['']
@@ -27,7 +28,7 @@ export class CreateQuizComponent implements OnInit {
     const dateNow = Date.now();
     quizToCreate.id = dateNow;
     this.quizService.addQuiz(quizToCreate);
-    return dateNow;
+    this.router.navigate(['/edit-quiz/' + dateNow]);
   }
 
   selectPatientSup() {
