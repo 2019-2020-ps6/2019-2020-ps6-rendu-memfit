@@ -8,6 +8,8 @@
   <div *ngFor="let answer of currentQuestion.answers">
       {{answer.statement}}
   </div>
+  <ng-container *ngIf="hasNextQuestion()">
   <button (click)="toggleNextQuestion()">Question suivante</button>
+  </ng-container>
 </div>
 </ng-container>

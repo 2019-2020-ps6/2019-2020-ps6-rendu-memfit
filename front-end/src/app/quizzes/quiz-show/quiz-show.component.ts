@@ -26,7 +26,7 @@ export class QuizShowComponent implements OnInit {
 
   toggleNextQuestion(){
     console.log(this.currentQuestion);
-    if(this.quiz.questions.length > 0){
+    if(this.hasNextQuestion()){
      this.currentQuestion = this.quiz.questions.shift();
       console.log(this.currentQuestion);
     }
@@ -35,5 +35,9 @@ export class QuizShowComponent implements OnInit {
   private quizInit(quiz) {
     this.quiz = quiz;
     this.toggleNextQuestion();
+  }
+
+  private hasNextQuestion() {
+    return this.quiz.questions.length > 0;
   }
 }
