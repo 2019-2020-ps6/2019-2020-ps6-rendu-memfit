@@ -14,6 +14,7 @@ export class QuizShowComponent implements OnInit {
 
   public quiz: Quiz;
   public currentQuestion: Question;
+  vouliezVousDire: boolean = false;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizInit(quiz));
@@ -39,5 +40,13 @@ export class QuizShowComponent implements OnInit {
 
   private hasNextQuestion() {
     return this.quiz.questions.length > 0;
+  }
+
+  handleResponse(answer) {
+    if(answer.valid){
+      this.toggleNextQuestion();
+    }else{
+      this.vouliezVousDire = true;
+    }
   }
 }
