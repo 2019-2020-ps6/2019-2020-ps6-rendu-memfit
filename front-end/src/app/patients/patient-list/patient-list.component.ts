@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Patient } from '../../../models/patient.model';
+import { PatientService } from '../../../services/patient.service'
 
 @Component({
   selector: 'app-patient-list',
@@ -8,9 +10,19 @@ import { Patient } from '../../../models/patient.model';
 })
 export class PatientListComponent implements OnInit {
 
-  constructor() { }
+  public patientList: Patient[] = [];
+
+  constructor(private router: Router, public patientService: PatientService) {
+    this.patientService.patients$.subscribe((patients: Patient[]) => {
+      this.patientList = patients;
+    });
+  }
 
   ngOnInit() {
+  }
+
+  selectPatient(patient: Patient) {
+    this.router.navigate(['/patients/' + patient.id]);
   }
 
 }
