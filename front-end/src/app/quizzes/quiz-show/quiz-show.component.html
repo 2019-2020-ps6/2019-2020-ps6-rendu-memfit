@@ -1,4 +1,4 @@
-<ng-container *ngIf="quiz">
+<ng-container *ngIf="quiz; else loadingModal">
 
   <div class="container">
     <ng-container *ngIf="!ended; else endModal">
@@ -45,4 +45,6 @@
 
   </div>
 </ng-container>
-
+<ng-template #loadingModal>
+  <h1 class="text-center">Chargement en cours...</h1>
+</ng-template>

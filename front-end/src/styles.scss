@@ -1,5 +1,5 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
 @import './styles/variables.scss';
+@import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Sarina&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
@@ -11,4 +11,8 @@ html {
 body {
   margin: 0;
   background-color: $app-background-color;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color: $dark-blue;
 }
