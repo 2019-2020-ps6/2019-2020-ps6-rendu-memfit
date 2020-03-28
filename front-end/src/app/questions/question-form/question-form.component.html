@@ -1,9 +1,9 @@
 <div class="card">
   <h2>Create a new question</h2>
   <form class="quiz-form" [formGroup]="questionForm">
-    <label for="label">
-      Title <br>
-      <input class="input-custom" type="text" id="label" [formControlName]="'label'">
+    <label for="statement">
+      Titre de la question <br>
+      <input class="input-custom" type="text" id="statement" [formControlName]="'statement'">
     </label>
     <br>
     <button class="button-card" (click)="addAnswer()">Add Answer</button>

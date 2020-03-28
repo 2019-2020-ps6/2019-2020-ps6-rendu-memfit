@@ -23,7 +23,7 @@ export class QuestionFormComponent implements OnInit {
 
   private initializeQuestionForm() {
     this.questionForm = this.formBuilder.group({
-      label: ['', Validators.required],
+      statement: ['', Validators.required],
       answers: this.formBuilder.array([])
     });
   }

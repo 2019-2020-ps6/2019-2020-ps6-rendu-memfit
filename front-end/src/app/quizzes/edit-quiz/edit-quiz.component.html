@@ -1,7 +1,33 @@
-<button class="button-card" routerLink="/quiz-list">Back</button>
+<div class="container mr-auto">
+  <div class="row">
+    <div class="col-sm-auto">
+      <button class="button-card" routerLink="/quiz-list"> < Retour </button>
+    </div>
+    <div class="col-sm-auto">
+      <h1>Édition du quiz</h1>
+    </div>
+  </div>
+</div>
+
+<hr>
 
 <ng-container *ngIf="quiz">
-    <h2>{{quiz.name}}</h2>
-    <app-question-form [quiz]="quiz"></app-question-form>
-    <app-question-list [quiz]="quiz"></app-question-list>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">{{quiz.name}}</h2>
+              <hr>
+              <p class="card-text"><app-question-list [quiz]="quiz"></app-question-list></p>
+              <a href="#" class="btn btn-primary">Ajouter une question</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <app-question-form [quiz]="quiz"></app-question-form>
+        </div>
+      </div>
+    </div>
 </ng-container>

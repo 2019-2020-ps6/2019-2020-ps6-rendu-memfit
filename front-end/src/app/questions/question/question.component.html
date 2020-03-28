@@ -1,10 +1,19 @@
 <div class="card">
-    <h2>
-        <i class="fab fa-leanpub"></i>
-        {{question.label}}
-    </h2>
-    <div class="answer" *ngFor="let answer of question.answers; let i=index">
-        {{i}} - {{answer.value}} <ng-container *ngIf="answer.isCorrect"><i class="far fa-check-square"></i></ng-container> <br>
+  <div class="card-body">
+    <h5 class="card-title">
+      <i class="fab fa-leanpub"></i>
+      {{question.statement}}
+    </h5>
+
+    <hr id="dividerTitle">
+
+    <div class="card-text">
+      <div class="answer" *ngFor="let answer of question.answers; let i=index">
+        {{i}} - {{answer.statement}} <ng-container *ngIf="answer.valid"><i class="far fa-check-square"></i></ng-container><br>
+        <hr>
+      </div>
     </div>
-    <button class="button-card" (click)="delete()">Delete</button>
+
+    <button class="button-card" (click)="delete()">Supprimer</button>
+  </div>
 </div>
