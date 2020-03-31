@@ -1,21 +1,21 @@
 const { Router } = require('express')
 
-const { User } = require('../../models')
+const { Patient } = require('../../models')
 const manageAllErrors = require('../../utils/routes/error-management')
 
 const router = new Router()
 
 router.get('/', (req, res) => {
   try {
-    res.status(200).json(User.get())
+    res.status(200).json(Patient.get())
   } catch (err) {
     manageAllErrors(res, err)
   }
 })
 
-router.get('/:userId', (req, res) => {
+router.get('/:patientId', (req, res) => {
   try {
-    res.status(200).json(User.getById(req.params.userId))
+    res.status(200).json(Patient.getById(req.params.patientId))
   } catch (err) {
     manageAllErrors(res, err)
   }
@@ -23,24 +23,24 @@ router.get('/:userId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    const user = User.create({ ...req.body })
-    res.status(201).json(user)
+    const patient = Patient.create({ ...req.body })
+    res.status(201).json(patient)
   } catch (err) {
     manageAllErrors(res, err)
   }
 })
 
-router.put('/:userId', (req, res) => {
+router.put('/:patientId', (req, res) => {
   try {
-    res.status(200).json(User.update(req.params.userId, req.body))
+    res.status(200).json(Patient.update(req.params.patientId, req.body))
   } catch (err) {
     manageAllErrors(res, err)
   }
 })
 
-router.delete('/:userId', (req, res) => {
+router.delete('/:patientId', (req, res) => {
   try {
-    User.delete(req.params.userId)
+    Patient.delete(req.params.patientId)
     res.status(204).end()
   } catch (err) {
     manageAllErrors(res, err)
