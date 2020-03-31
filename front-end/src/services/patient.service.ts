@@ -4,7 +4,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { Patient } from '../models/patient.model';
 import { PATIENT_LIST } from '../mocks/patient-list.mock';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
-import {Quiz} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +20,7 @@ export class PatientService {
   public patientSelected$: Subject<Patient> = new Subject();
 
   private httpOptions = httpOptionsBase;
-  private patientUrl = serverUrl + '/quizzes';
+  private patientUrl = serverUrl + '/patients';
 
 
   constructor(private http: HttpClient) {
@@ -29,8 +28,8 @@ export class PatientService {
   }
 
   setPatientsFromUrl() {
-    this.http.get<Patient[]>(this.patientUrl).subscribe((quizList) => {
-      this.patients = quizList;
+    this.http.get<Patient[]>(this.patientUrl).subscribe((patientList) => {
+      this.patients = patientList;
       this.patients$.next(this.patients);
     });
   }
