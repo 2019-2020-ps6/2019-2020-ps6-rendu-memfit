@@ -1,5 +1,7 @@
 export interface Patient {
-  name: string;
   id: number;
+  firstName?: string;
+  lastName?: string;
   photo?: string;
+  quizzesId: number[];
 }

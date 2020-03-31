@@ -5,7 +5,7 @@
     <img *ngIf="patient.photo != ''" src="{{patient.photo}}" class="img-thumbnail" alt="patient image">
   </label>
 
-  <button id="{{patient.id}}" routerLink="/{{patient.id}}/quizzes" (click)="selectPatient(this.patient)">{{patient.name}}</button>
+  <button id="{{patient.id}}" routerLink="/{{patient.id}}/quizzes" (click)="selectPatient(this.patient)">{{patient.firstName + " " + patient.lastName}}</button>
 </div>
 
 

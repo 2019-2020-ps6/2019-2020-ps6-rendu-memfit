@@ -1,9 +1,9 @@
-const { Router } = require('express')
+const { Router } = require('express');
 
-const { Patient } = require('../../models')
-const manageAllErrors = require('../../utils/routes/error-management')
+const { Patient } = require('../../models/patient.model');
+const manageAllErrors = require('../../utils/routes/error-management');
 
-const router = new Router()
+const router = new Router();
 
 router.get('/', (req, res) => {
   try {
@@ -23,10 +23,13 @@ router.get('/:patientId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    const patient = Patient.create({ ...req.body })
-    res.status(201).json(patient)
+    const test = Patient;
+    console.log(test);
+    const patient = Patient.create({ ...req.body });
+    res.status(201).json(patient);
   } catch (err) {
-    manageAllErrors(res, err)
+    console.log(err);
+    manageAllErrors(res, err);
   }
 })
 
