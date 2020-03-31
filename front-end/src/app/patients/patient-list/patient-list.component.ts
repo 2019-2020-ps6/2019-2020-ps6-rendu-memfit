@@ -20,9 +20,4 @@ export class PatientListComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  selectPatient(patient: Patient) {
-    this.router.navigate(['/patients/' + patient.id]);
-  }
-
 }

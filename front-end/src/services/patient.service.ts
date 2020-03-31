@@ -16,8 +16,7 @@ export class PatientService {
   /**
    * Observable which contains the list of the patients.
    */
-  public patients$: BehaviorSubject<Patient[]>
-    = new BehaviorSubject(this.patients);
+  public patients$: BehaviorSubject<Patient[]> = new BehaviorSubject(this.patients);
 
   public patientSelected$: Subject<Patient> = new Subject();
 

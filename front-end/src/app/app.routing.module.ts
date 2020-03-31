@@ -14,6 +14,7 @@ const routes: Routes = [
     {path: '', component: IndexComponent},
     {path: 'quiz/create', component: CreateQuizComponent},
     {path: 'select-patient', component: PatientListComponent},
+    {path: 'select-patient/patients', component: IndexComponent},
 ];
 
 @NgModule({
