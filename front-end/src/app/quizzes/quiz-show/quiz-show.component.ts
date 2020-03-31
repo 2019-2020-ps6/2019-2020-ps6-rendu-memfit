@@ -16,6 +16,7 @@ export class QuizShowComponent implements OnInit {
   VOULIEZ_VOUS_DIRE = 1;
   SUPER_BIEN_JOUE = 2;
 
+  started = false;
   quiz: Quiz;
   currentQuestion: Question;
   currentHandleCode = this.QUESTION;
@@ -30,18 +31,21 @@ export class QuizShowComponent implements OnInit {
     this.quizService.setSelectedQuiz(id);
   }
 
-  toggleNextQuestion(){
+  toggleNextQuestion() {
+    if (!this.started) {
+      this.started = true;
+    }
+
     this.currentHandleCode = this.QUESTION;
-    if(this.hasNextQuestion()){
-     this.currentQuestion = this.quiz.questions.shift();
-    }else{
+    if (this.hasNextQuestion()) {
+      this.currentQuestion = this.quiz.questions.shift();
+    } else {
       this.ended = true;
     }
   }
 
   private quizInit(quiz) {
     this.quiz = quiz;
-    this.toggleNextQuestion();
   }
 
   private hasNextQuestion() {
@@ -49,9 +53,9 @@ export class QuizShowComponent implements OnInit {
   }
 
   handleResponse(answer) {
-    if(answer.valid){
+    if (answer.valid) {
       this.currentHandleCode = this.SUPER_BIEN_JOUE;
-    }else{
+    } else {
       this.currentHandleCode = this.VOULIEZ_VOUS_DIRE;
     }
   }
