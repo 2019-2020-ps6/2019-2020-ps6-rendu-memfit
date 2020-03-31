@@ -1,14 +1,15 @@
 <ng-container *ngIf="quiz; else loadingModal">
 
   <div class="container">
-    <ng-container *ngIf="!ended; else endModal">
+    <ng-container *ngIf="started && !ended; else (ended && endModal) || startModal">
       <!--  <h1>{{quiz.name}}</h1>-->
       <h2 class="text-center mb-4">
         {{currentQuestion.statement}}
       </h2>
 
 
-      <ng-container *ngIf="currentHandleCode == QUESTION; else (currentHandleCode == SUPER_BIEN_JOUE && superBienJoueModal) || (currentHandleCode == VOULIEZ_VOUS_DIRE && vouliezVousDireModal)">
+      <ng-container
+        *ngIf="started && currentHandleCode == QUESTION; else (currentHandleCode == SUPER_BIEN_JOUE && superBienJoueModal) || (currentHandleCode == VOULIEZ_VOUS_DIRE && vouliezVousDireModal)">
         <div class="row pb-4 justify-content-between">
           <ng-container *ngFor="let answer of currentQuestion.answers">
             <div class="col-3" (click)="handleResponse(answer)">
@@ -53,7 +54,16 @@
 
     <ng-template #endModal>
       <h1 class="text-center">Quiz Terminé !!!</h1>
-      <p class="text-center">Vous pouvez désormais appeler Giselle</p>
+      <p class="text-center">Vous pouvez désormais appeler l'assistante</p>
+    </ng-template>
+
+
+    <ng-template #startModal>
+      <div class="middle-screen">
+        <h1 class="text-center">Quiz {{quiz.name}}</h1>
+        <p class="text-center"></p>
+        <button class="btn btn-warning w-100 m-1" (click)="toggleNextQuestion()">Commencer</button>
+      </div>
     </ng-template>
 
   </div>
