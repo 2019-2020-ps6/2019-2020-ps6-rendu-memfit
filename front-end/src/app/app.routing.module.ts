@@ -8,13 +8,13 @@ import { PatientListComponent } from './patients/patient-list/patient-list.compo
 import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 
 const routes: Routes = [
+    {path: '', component: IndexComponent},
     {path: 'quiz/', component: QuizListComponent},
     {path: 'quiz/show/:quizId', component: QuizShowComponent},
     {path: 'quiz/edit/:id', component: EditQuizComponent},
-    {path: '', component: IndexComponent},
     {path: 'quiz/create', component: CreateQuizComponent},
     {path: 'select-patient', component: PatientListComponent},
-    {path: 'select-patient/patients', component: IndexComponent},
+    {path: 'select-patient/patient/:patientId', component: IndexComponent},
 ];
 
 @NgModule({

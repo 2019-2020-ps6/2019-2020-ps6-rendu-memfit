@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const { Patient } = require('../../models/patient.model');
+const { Patient } = require('../../models');
 const manageAllErrors = require('../../utils/routes/error-management');
 
 const router = new Router();
@@ -23,19 +23,16 @@ router.get('/:patientId', (req, res) => {
 
 router.post('/', (req, res) => {
   try {
-    const test = Patient;
-    console.log(test);
     const patient = Patient.create({ ...req.body });
     res.status(201).json(patient);
   } catch (err) {
-    console.log(err);
     manageAllErrors(res, err);
   }
 })
 
 router.put('/:patientId', (req, res) => {
   try {
-    res.status(200).json(Patient.update(req.params.patientId, req.body))
+    res.status(200).json(Patient.update(req.params.id, req.body))
   } catch (err) {
     manageAllErrors(res, err)
   }
