@@ -45,8 +45,8 @@
             </ng-container>
           </ng-container>
           <div class="col-12 col-md-4">
-            <button class="btn btn-success w-100 m-1" (click)="toggleNextQuestion()">Oui</button>
-            <button class="btn btn-warning w-100 m-1" (click)="toggleNextQuestion()">Non</button>
+            <button class="btn btn-success w-100 m-1" (click)="handleCorrection(true)">Oui</button>
+            <button class="btn btn-warning w-100 m-1" (click)="handleCorrection(false)">Non</button>
           </div>
         </div>
       </ng-template>

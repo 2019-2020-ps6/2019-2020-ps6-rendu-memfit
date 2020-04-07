@@ -59,4 +59,14 @@ export class QuizShowComponent implements OnInit {
       this.currentHandleCode = this.VOULIEZ_VOUS_DIRE;
     }
   }
+
+  handleCorrection(acceptedCorrection){
+    if(acceptedCorrection){ // He accepted that his answer was wrong
+
+    }else{
+
+    }
+
+    this.toggleNextQuestion(); // Then, we go to the next question !
+  }
 }
