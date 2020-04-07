@@ -1,6 +1,7 @@
 
 export class QuizRecord {
     id: any;
+    patientId: any;
     name: string;
     theme?: string;
     records: AnswerRecord[];
