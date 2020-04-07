@@ -5,7 +5,6 @@ export const QUIZ_RECORDS: QuizRecord[] = [
     id: 5486564,
     patientId: 51,
     name: "Quiz #1",
-    theme: "des barres",
     records: [
       {
         question: 'pourquoi ?',
@@ -19,7 +18,6 @@ export const QUIZ_RECORDS: QuizRecord[] = [
     id: 4652146,
     patientId: 51,
     name: "Quiz #2",
-    theme: "des barres LE NUMERO 2",
     records: [
       {
         question: 'pourquoi ?',
