@@ -22,7 +22,7 @@ import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 import { AnswersComponent } from './answers/answers.component';
 import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.component';
-import { QuizSelecterComponent } from './quizzes/quiz-selection/quiz-selecter/quiz-selecter.component';
+import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selecter/quiz-selector.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -54,7 +54,7 @@ import { QuizSelecterComponent } from './quizzes/quiz-selection/quiz-selecter/qu
 
     QuizCardComponent,
 
-    QuizSelecterComponent,
+    QuizSelectorComponent,
 
   ],
   imports: [

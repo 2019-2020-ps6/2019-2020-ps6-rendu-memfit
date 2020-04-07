@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import {Patient} from "../../../models/patient.model";
-import {PatientService} from "../../../services/patient.service";
 
 @Component({
   selector: 'app-patient',
@@ -34,9 +33,4 @@ export class PatientComponent implements OnInit {
 
   @Output()
   patientSelected: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-    selectPatient(patient: Patient) {
-    this.router.navigate(['/' + patient.id]);
-    this.patientSelected.emit(true);
-  }
 }

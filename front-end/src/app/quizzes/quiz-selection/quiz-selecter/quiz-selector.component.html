@@ -1,0 +1,4 @@
+<p>Patient {{this.patientId}}</p>
+<div class="patient-list" *ngFor="let q of quizList">
+  <app-quiz-card [quiz]="q"></app-quiz-card>
+</div>

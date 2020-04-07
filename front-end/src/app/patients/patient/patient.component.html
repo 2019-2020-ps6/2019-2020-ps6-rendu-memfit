@@ -4,8 +4,8 @@
     <img src="{{this.photoUrl}}" class="img-thumbnail" alt="patient image">
   </label>
   <div>
-    <a routerLink="select-patient,{{this.patient.id}}" routerLinkActive="active">
-      <button id="{{this.patient.id}}" (click)="selectPatient(this.patient)">{{this.nameString}}</button>
+    <a routerLink="{{this.patient.id}}" routerLinkActive="active">
+      <button id="{{this.patient.id}}">{{this.nameString}}</button>
     </a>
   </div>
 </div>
