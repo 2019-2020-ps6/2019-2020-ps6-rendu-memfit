@@ -1,6 +1,7 @@
 import {Component, ComponentFactoryResolver, Input, OnInit, OnDestroy} from '@angular/core';
 import {Quiz} from "../../../models/quiz.model";
 import {Question} from "../../../models/question.model";
+import {QuizRecord, AnswerRecord} from "../../../models/quizrecord.model";
 import {QuizService} from "../../../services/quiz.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {QUESTION_ACTOR, QUESTION_ACTORS, QUIZ_LIST} from "../../../mocks/quiz-list.mock";
@@ -22,6 +23,10 @@ export class QuizShowComponent implements OnInit {
   currentHandleCode = this.QUESTION;
   ended = false;
 
+  // Track user choices in a quiz
+  quizRecord: QuizRecord;
+  answerRecord: AnswerRecord;
+
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizInit(quiz));
   }
@@ -29,6 +34,12 @@ export class QuizShowComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('quizId');
     this.quizService.setSelectedQuiz(id);
+  }
+
+  private quizInit(quiz) {
+    this.quiz = quiz;
+    this.quizRecord = new QuizRecord();
+    this.quizRecord.name = this.quiz.name;
   }
 
   toggleNextQuestion() {
@@ -39,13 +50,11 @@ export class QuizShowComponent implements OnInit {
     this.currentHandleCode = this.QUESTION;
     if (this.hasNextQuestion()) {
       this.currentQuestion = this.quiz.questions.shift();
+      this.answerRecord = new AnswerRecord();
+      this.answerRecord.question = this.currentQuestion.statement;
     } else {
       this.ended = true;
     }
-  }
-
-  private quizInit(quiz) {
-    this.quiz = quiz;
   }
 
   private hasNextQuestion() {
@@ -58,15 +67,15 @@ export class QuizShowComponent implements OnInit {
     } else {
       this.currentHandleCode = this.VOULIEZ_VOUS_DIRE;
     }
+    this.answerRecord.correct = answer.valid;
   }
 
   handleCorrection(acceptedCorrection){
     if(acceptedCorrection){ // He accepted that his answer was wrong
-
+      this.answerRecord.rectified = true;
     }else{
-
+      this.answerRecord.rectified = false;
     }
-
     this.toggleNextQuestion(); // Then, we go to the next question !
   }
 }

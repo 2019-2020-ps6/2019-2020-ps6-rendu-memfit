@@ -5,6 +5,7 @@ import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {AnswerRecord, QuizRecord} from "../models/quizrecord.model";
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +36,18 @@ export class QuizService {
 
   private httpOptions = httpOptionsBase;
 
+  private quizRecords: QuizRecord[];
+
+  public quizRecords$: BehaviorSubject<QuizRecord[]>
+    = new BehaviorSubject(this.quizRecords);
+
+  public quizRecordSelected$: Subject<QuizRecord> = new Subject();
+  private quizRecordPath = 'quizRecord';
+
+
   constructor(private http: HttpClient) {
     this.setQuizzesFromUrl();
+    this.setQuizRecordsFromUrl();
   }
 
   setQuizzesFromUrl() {
@@ -70,5 +81,32 @@ export class QuizService {
   deleteQuestion(quiz: Quiz, question: Question) {
     const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id;
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
+  }
+
+
+
+
+
+  setQuizRecordsFromUrl() {
+    this.http.get<QuizRecord[]>(this.quizUrl+ "/" + this.quizRecordPath).subscribe((quizRecordList) => {
+      this.quizRecords = quizRecordList;
+      this.quizRecords$.next(this.quizRecords);
+    });
+  }
+
+  startQuizRecord(quizRecord: QuizRecord){
+    this.http.post<QuizRecord>(this.quizUrl+ "/" + this.quizRecordPath, quizRecord, this.httpOptions).subscribe(() => this.setQuizRecordsFromUrl());
+  }
+
+  addAnswerRecord(quizRecord: QuizRecord, answerRecord: AnswerRecord) {
+    const questionUrl = this.quizUrl + '/' + this.quizRecordPath + '/' + quizRecord.id + '/' + this.questionsPath;
+    this.http.post<Question>(questionUrl, answerRecord, this.httpOptions).subscribe(() => this.setSelectedQuizRecord(quizRecord.id));
+  }
+
+  setSelectedQuizRecord(quizRecordId: string) {
+    const urlWithId = this.quizUrl+ "/" + this.quizRecordPath + "/" + quizRecordId;
+    this.http.get<QuizRecord>(urlWithId).subscribe((quizRecord) => {
+      this.quizRecordSelected$.next(quizRecord);
+    });
   }
 }
