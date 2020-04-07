@@ -1,28 +1,32 @@
-/*
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
-}
-
- */
 
 .patient {
   float: left;
+  height: 100%;
 }
 
 .card {
   width: 20%;
+  max-width: 20%;
+  max-height: 400px;
   margin-top : 6%;
   margin-right: 5%;
 }
 
 .img-thumbnail {
   width : 100%;
+  //TODO responsive problem on height
+  height: 230px;
+  object-fit: cover;
+  object-position: center center;
 }
 
 button {
+  width: 100%;
   background-color: white;
   border: none;
   font-size: large;
   font-weight: bolder;
-  margin : 4px;
+  padding : 4px;
+  padding-top: 0;
+  padding-bottom: 8px;
 }

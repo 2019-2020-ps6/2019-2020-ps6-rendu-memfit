@@ -21,6 +21,8 @@ import { LogoComponent } from './logo/logo.component';
 import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 import { AnswersComponent } from './answers/answers.component';
 import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
+import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.component';
+import { QuizSelecterComponent } from './quizzes/quiz-selection/quiz-selecter/quiz-selecter.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -49,6 +51,11 @@ import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component'
     AnswersComponent,
 
     ReplayquizComponent,
+
+    QuizCardComponent,
+
+    QuizSelecterComponent,
+
   ],
   imports: [
     BrowserModule,

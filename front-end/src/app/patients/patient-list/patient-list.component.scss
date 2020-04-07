@@ -1,5 +1,9 @@
+html, body { height: 100%; }
+
 .patient-list {
   width: 80%;
+  height: 100%;
   margin: auto;
   flex-wrap: wrap;
+  background-color: #1b1e21;
 }
