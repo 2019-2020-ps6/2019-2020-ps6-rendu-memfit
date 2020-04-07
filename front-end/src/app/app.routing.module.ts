@@ -15,12 +15,8 @@ const routes: Routes = [
     {path: 'quiz/edit/:id', component: EditQuizComponent},
     {path: 'quiz/create', component: CreateQuizComponent},
     {path: 'select-patient', component: PatientListComponent},
-<<<<<<< HEAD
-    {path: 'select-patient/patient/:patientId', component: IndexComponent},
-=======
     {path: 'select-patient/patients', component: IndexComponent},
     {path: 'patients/:patientId/quizReplay/:quizReplayId', component: ReplayquizComponent},
->>>>>>> 2b6d652f5952ea2db9b0df6f6bf9df0461313c64
 ];
 
 @NgModule({
