@@ -1,20 +1,44 @@
 import {QuizRecord} from "../models/quizrecord.model";
 
-export const PATIENT_LIST: QuizRecord[] = [
+export const QUIZ_RECORDS: QuizRecord[] = [
   {
     id: 5486564,
-    patientId,
+    patientId: 51,
     name: "Quiz #1",
     theme: "des barres",
     records: [
-
+      {
+        question: 'pourquoi ?',
+        answer: 'ok',
+        correct: true,
+        rectified: false
+      }
     ]
   },
   {
-    firstName: 'Foo',
-    lastName: 'Bar',
-    id: 1,
-    photo: "",
-    quizzesId: [],
+    id: 4652146,
+    patientId: 51,
+    name: "Quiz #2",
+    theme: "des barres LE NUMERO 2",
+    records: [
+      {
+        question: 'pourquoi ?',
+        answer: 'ok',
+        correct: true,
+        rectified: false
+      },
+      {
+        question: 'pourquoi #2 ?',
+        answer: 'ok2',
+        correct: false,
+        rectified: false
+      },
+      {
+        question: 'pourquoi #3 ?',
+        answer: 'ok3',
+        correct: false,
+        rectified: true
+      },
+    ]
   }
 ];
