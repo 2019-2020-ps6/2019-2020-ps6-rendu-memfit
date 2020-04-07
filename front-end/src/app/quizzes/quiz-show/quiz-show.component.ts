@@ -40,6 +40,7 @@ export class QuizShowComponent implements OnInit {
     this.quiz = quiz;
     this.quizRecord = new QuizRecord();
     this.quizRecord.name = this.quiz.name;
+    this.quizRecord.patientId = 0; // TODO: Change with pedro's patientId
   }
 
   toggleNextQuestion() {

@@ -20,6 +20,7 @@ import { PatientComponent } from './patients/patient/patient.component';
 import { LogoComponent } from './logo/logo.component';
 import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 import { AnswersComponent } from './answers/answers.component';
+import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -46,6 +47,8 @@ import { AnswersComponent } from './answers/answers.component';
     QuizShowComponent,
 
     AnswersComponent,
+
+    ReplayquizComponent,
   ],
   imports: [
     BrowserModule,
