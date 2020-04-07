@@ -6,6 +6,7 @@ import { IndexComponent } from './index/index.component';
 import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component';
 import { PatientListComponent } from './patients/patient-list/patient-list.component';
 import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
+import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 
 const routes: Routes = [
     {path: 'quiz/', component: QuizListComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
     {path: 'quiz/create', component: CreateQuizComponent},
     {path: 'select-patient', component: PatientListComponent},
     {path: 'select-patient/patients', component: IndexComponent},
+    {path: 'patients/:patientId/quizReplay/:quizReplayId', component: ReplayquizComponent},
 ];
 
 @NgModule({
