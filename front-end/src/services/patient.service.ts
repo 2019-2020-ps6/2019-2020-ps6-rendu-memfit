@@ -34,4 +34,14 @@ export class PatientService {
     });
   }
 
+  getNameString(patient: Patient) {
+    let nameString = "";
+
+    if(patient.firstName == undefined && patient.lastName == undefined) nameString = patient.id;
+    else if(patient.firstName == undefined && patient.lastName != undefined) nameString = patient.lastName;
+    else if(patient.firstName != undefined && patient.lastName == undefined) nameString = patient.firstName;
+    else nameString = patient.firstName + " " + patient.lastName;
+
+    return nameString;
+  }
 }

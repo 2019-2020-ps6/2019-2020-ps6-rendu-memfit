@@ -7,7 +7,7 @@ import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component
 import { PatientListComponent } from './patients/patient-list/patient-list.component';
 import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
-import { QuizSelectorComponent } from "./quizzes/quiz-selection/quiz-selecter/quiz-selector.component";
+import { QuizSelectorComponent } from "./quizzes/quiz-selection/quiz-selector/quiz-selector.component";
 
 const routes: Routes = [
     {path: '', component: IndexComponent},

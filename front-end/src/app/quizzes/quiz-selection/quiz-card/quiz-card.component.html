@@ -1,8 +1,9 @@
 <div class="card">
 
   <h2>{{this.quiz.name}}</h2>
+  <h6>{{this.quiz.theme}}</h6>
   <div>
-    <a routerLink="/" routerLinkActive="active">
+    <a routerLink="/quiz/show/{{this.quiz.id}}" routerLinkActive="active">
       <button id="{{this.quiz.id}}">Lancer le quiz</button>
     </a>
   </div>

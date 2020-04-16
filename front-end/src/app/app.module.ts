@@ -22,7 +22,7 @@ import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 import { AnswersComponent } from './answers/answers.component';
 import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.component';
-import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selecter/quiz-selector.component';
+import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selector/quiz-selector.component';
 
 // @ts-ignore
 // @ts-ignore
