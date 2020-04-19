@@ -10,6 +10,8 @@ import {Quiz} from '../../../models/quiz.model';
 })
 export class ReplayquizComponent implements OnInit {
 
+  quizId: any;
+  patientId: any;
   quiz: Quiz;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
@@ -17,9 +19,9 @@ export class ReplayquizComponent implements OnInit {
   }
 
   ngOnInit() {
-    const quizId = this.route.snapshot.paramMap.get('quizId');
-    this.quizService.setSelectedQuiz(quizId);
-    const patientId = this.route.snapshot.paramMap.get('quizReplayId');
+    this.quizId = this.route.snapshot.paramMap.get('quizReplayId');
+    this.quizService.setSelectedQuiz(this.quizId);
+    this.patientId = this.route.snapshot.paramMap.get('patientId');
   }
 
   private quizInit(quiz) {

@@ -3,6 +3,8 @@ import {Quiz} from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
+import {Patient} from '../../../models/patient.model';
+import {PatientService} from '../../../services/patient.service';
 
 @Component({
   selector: 'app-create-quiz',
@@ -11,12 +13,18 @@ import {Router} from '@angular/router';
 })
 export class CreateQuizComponent implements OnInit {
 
+  public photoURL: string;
   public quizForm: FormGroup;
+  public patientList: Patient[] = [];
 
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService, private router: Router) {
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public patientService: PatientService, private router: Router) {
+    this.photoURL = "assets/quiz-logo.png";
     this.quizForm = this.formBuilder.group({
       name: [''],
       theme: ['']
+    });
+    this.patientService.patients$.subscribe((patients: Patient[]) => {
+      this.patientList = patients;
     });
   }
 
@@ -33,5 +41,12 @@ export class CreateQuizComponent implements OnInit {
 
   selectPatientSup() {
     alert('Fonction en cours d\'implémentation.');
+  }
+
+  syncImg(value: string) {
+    if(value == "") {
+      this.photoURL = "assets/quiz-logo.png";
+    }
+    else this.photoURL = value;
   }
 }
