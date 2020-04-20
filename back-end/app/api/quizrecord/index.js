@@ -5,7 +5,7 @@ const manageAllErrors = require('../../utils/routes/error-management')
 const AnswerRecordRouter = require('./answerrecord')
 const {buildQuizRecord, buildQuizRecords} = require('./manager')
 
-const router = new Router()
+const router = new Router({ mergeParams: true })
 
 router.use('/:quizRecordId/answerrecord', AnswerRecordRouter)
 
@@ -19,6 +19,8 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:quizRecordId', (req, res) => {
+
+  console.log('FILS DE GET')
   try {
     const quizRecord = buildQuizRecord(req.params.quizRecordId)
     res.status(200).json(quizRecord)
@@ -38,7 +40,7 @@ router.post('/', (req, res) => {
 
 router.put('/:quizRecordId', (req, res) => {
   try {
-    res.status(200).json(Quiz.update(req.params.quizRecordId, req.body))
+    res.status(200).json(QuizRecord.update(req.params.quizRecordId, req.body))
   } catch (err) {
     manageAllErrors(res, err)
   }

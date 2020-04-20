@@ -6,6 +6,8 @@ const { filterAnswerRecordsFromQuizRecord } = require('./manager')
 const router = new Router({ mergeParams: true })
 
 router.get('/', (req, res) => {
+
+  console.log('FILS DE GET')
   try {
     const answers = filterAnswerRecordsFromQuizRecord(req.params.quizRecordId)
     res.status(200).json(answers)
@@ -32,13 +34,16 @@ router.get('/', (req, res) => {
 // })
 
 router.post('/', (req, res) => {
+
+  console.log(req.body)
   try {
-    const answer = AnswerRecord.create({ ...req.body, questionId: req.params.quizRecordId })
+    const answer = AnswerRecord.create({ ...req.body, quizRecordId: req.params.quizRecordId })
     res.status(201).json(answer)
   } catch (err) {
     if (err.name === 'NotFoundError') {
       res.status(404).end()
     } else if (err.name === 'ValidationError') {
+      console.log("OBESE")
       res.status(400).json(err.extra)
     } else {
       res.status(500).json(err)

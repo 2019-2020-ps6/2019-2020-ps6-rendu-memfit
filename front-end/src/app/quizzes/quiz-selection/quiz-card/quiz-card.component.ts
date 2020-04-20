@@ -14,6 +14,9 @@ export class QuizCardComponent implements OnInit {
   }
 
   @Input()
+  patientId : number;
+
+  @Input()
   quiz: Quiz;
 
   @Output()

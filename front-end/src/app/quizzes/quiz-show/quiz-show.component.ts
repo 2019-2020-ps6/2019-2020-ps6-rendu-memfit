@@ -17,15 +17,16 @@ export class QuizShowComponent implements OnInit {
   VOULIEZ_VOUS_DIRE = 1;
   SUPER_BIEN_JOUE = 2;
 
-  started = false;
   quiz: Quiz;
   currentQuestion: Question;
+
   currentHandleCode = this.QUESTION;
+  started = false;
   ended = false;
 
   // Track user choices in a quiz
   quizRecord: QuizRecord;
-  answerRecord: AnswerRecord;
+  answerRecord: AnswerRecord = null;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quizInit(quiz));
@@ -38,20 +39,27 @@ export class QuizShowComponent implements OnInit {
 
   private quizInit(quiz) {
     this.quiz = quiz;
-    this.quizRecord = new QuizRecord();
-    this.quizRecord.name = this.quiz.name;
-    this.quizRecord.patientId = 0; // TODO: Change with pedro's patientId
   }
 
   toggleNextQuestion() {
     if (!this.started) {
       this.started = true;
+
+      this.quizRecord = new QuizRecord();
+      this.quizRecord.id =  Date.now();
+      this.quizRecord.name = this.quiz.name;
+      this.quizRecord.patientId = this.route.snapshot.paramMap.get('patientId'); // TODO: Change with pedro's patientId
+
+      this.quizService.startQuizRecord(this.quizRecord);
     }
 
     this.currentHandleCode = this.QUESTION;
     if (this.hasNextQuestion()) {
       this.currentQuestion = this.quiz.questions.shift();
+
       this.answerRecord = new AnswerRecord();
+      this.answerRecord.id = Date.now();
+      this.answerRecord.quizRecordId =  this.quizRecord.id;
       this.answerRecord.question = this.currentQuestion.statement;
     } else {
       this.ended = true;
@@ -64,10 +72,12 @@ export class QuizShowComponent implements OnInit {
 
   handleResponse(answer) {
     if (answer.valid) {
+      this.quizService.addAnswerRecord(this.quizRecord, this.answerRecord); // Answer right, send it to SERVER
       this.currentHandleCode = this.SUPER_BIEN_JOUE;
     } else {
       this.currentHandleCode = this.VOULIEZ_VOUS_DIRE;
     }
+    this.answerRecord.answer = answer.statement;
     this.answerRecord.correct = answer.valid;
   }
 
@@ -77,6 +87,9 @@ export class QuizShowComponent implements OnInit {
     }else{
       this.answerRecord.rectified = false;
     }
+
+    this.quizService.addAnswerRecord(this.quizRecord, this.answerRecord); // Answer was not right, add rectify information!
+
     this.toggleNextQuestion(); // Then, we go to the next question !
   }
 }
