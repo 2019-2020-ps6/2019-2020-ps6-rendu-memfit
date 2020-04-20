@@ -71,14 +71,14 @@ export class QuizShowComponent implements OnInit {
   }
 
   handleResponse(answer) {
+    this.answerRecord.answer = answer.statement;
+    this.answerRecord.correct = answer.valid;
     if (answer.valid) {
       this.quizService.addAnswerRecord(this.quizRecord, this.answerRecord); // Answer right, send it to SERVER
       this.currentHandleCode = this.SUPER_BIEN_JOUE;
     } else {
       this.currentHandleCode = this.VOULIEZ_VOUS_DIRE;
     }
-    this.answerRecord.answer = answer.statement;
-    this.answerRecord.correct = answer.valid;
   }
 
   handleCorrection(acceptedCorrection){
