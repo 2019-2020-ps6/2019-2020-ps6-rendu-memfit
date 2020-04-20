@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
@@ -23,6 +23,7 @@ import { AnswersComponent } from './answers/answers.component';
 import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.component';
 import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selector/quiz-selector.component';
+import { ManageComponent } from './patients/manage/manage.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -56,12 +57,15 @@ import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selector/qu
 
     QuizSelectorComponent,
 
+    ManageComponent,
+
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

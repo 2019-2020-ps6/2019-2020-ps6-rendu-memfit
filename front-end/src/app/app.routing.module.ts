@@ -8,6 +8,7 @@ import { PatientListComponent } from './patients/patient-list/patient-list.compo
 import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 import { QuizSelectorComponent } from "./quizzes/quiz-selection/quiz-selector/quiz-selector.component";
+import { ManageComponent } from "./patients/manage/manage.component";
 
 const routes: Routes = [
     {path: '', component: IndexComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path: 'select-patient', component: PatientListComponent},
     {path: 'select-patient/:patientId', component: QuizSelectorComponent},
     {path: 'patients/:patientId/quizReplay/:quizReplayId', component: ReplayquizComponent},
+    {path: 'patients/manage', component: ManageComponent},
 ];
 
 @NgModule({

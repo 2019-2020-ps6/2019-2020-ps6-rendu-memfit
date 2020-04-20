@@ -44,4 +44,13 @@ export class PatientService {
 
     return nameString;
   }
+
+  public addPatient(patient: Patient) {
+    this.http.post<Patient>(this.patientUrl, patient, this.httpOptions).subscribe(() => this.setPatientsFromUrl());
+  }
+
+  public deletePatient(patient: Patient) {
+    const urlWithId = this.patientUrl + '/' + patient.id;
+    this.http.delete<Patient>(urlWithId, this.httpOptions).subscribe(() => this.setPatientsFromUrl());
+  }
 }

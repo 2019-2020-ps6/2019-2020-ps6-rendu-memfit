@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.first-column{
+  width: 80%;
+  margin-left: 2em;
+}
+
+#info-patients {
+  border: 1px #1b1e21 solid;
+  border-radius: .5em;
+  padding: 2em;
+}
+
+.btn-patients {
+  float: right;
+  margin-right: 2em;
+  width: 28% !important;
+}
+
+.clickable {
+  cursor: pointer;
+}

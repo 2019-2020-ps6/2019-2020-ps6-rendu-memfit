@@ -1,0 +1,46 @@
+<h1>Liste des patients</h1>
+
+<div class="row">
+
+  <div class="column">
+
+    <ul class="list-group first-column">
+      <li *ngFor="let p of patientList; let index = index;" class="list-group-item d-flex justify-content-between align-items-center clickable" value="'index'" (click)="onClick(index)">
+        <div *ngIf="index == indexSelected">
+          <b>{{p.firstName}} {{p.lastName}}</b>
+          <span style="text-align: right"><i class="fas fa-caret-right"></i></span>
+        </div>
+        <span *ngIf="index != indexSelected">{{p.firstName}} {{p.lastName}}</span>
+      </li>
+    </ul>
+
+    <br>
+
+    <div class="form-group first-column">
+      <form [formGroup]="patientForm" (ngSubmit)="addPatient()">
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <input [formControlName]="'firstName'" type="text" class="form-control" placeholder="Nouveau patient">
+            <div class="input-group-append">
+              <button style="margin-left: .75em" class="btn btn-info">+</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="column">
+    <div id="info-patients">
+      <h3>Dernier quiz joué :</h3>
+      <h5>Taux de réussite moyen :</h5>
+      <br>
+      <div>
+        <button class="btn btn-danger w-100 btn-patients" (click)="deletePatient()">Supprimer patient</button>
+        <button class="btn btn-info w-100 btn-patients">Revoir le dernier quiz</button>
+      </div><br>
+    </div>
+  </div>
+</div>
+
+
