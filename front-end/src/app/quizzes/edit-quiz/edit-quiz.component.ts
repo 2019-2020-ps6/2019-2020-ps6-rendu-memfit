@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
-import {QUIZ_LIST} from "../../../mocks/quiz-list.mock";
 
 @Component({
   selector: 'app-edit-quiz',

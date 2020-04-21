@@ -23,7 +23,7 @@ export class QuestionFormComponent implements OnInit {
 
   private initializeQuestionForm() {
     this.questionForm = this.formBuilder.group({
-      statement: ['', Validators.required],
+      statement: [''],
       answers: this.formBuilder.array([])
     });
   }
@@ -37,8 +37,8 @@ export class QuestionFormComponent implements OnInit {
 
   private createAnswer() {
     return this.formBuilder.group({
-      value: '',
-      isCorrect: false,
+      statement: [''],
+      valid: false,
     });
   }
 
@@ -47,10 +47,11 @@ export class QuestionFormComponent implements OnInit {
   }
 
   addQuestion() {
-    if(this.questionForm.valid) {
-      const question = this.questionForm.getRawValue() as Question;
-      this.quizService.addQuestion(this.quiz, question);
-      this.initializeQuestionForm();
-    }
+    const question = this.questionForm.getRawValue() as Question;
+    const dateNow = Date.now();
+    question.id = dateNow;
+    console.log(question);
+    this.quizService.addQuestion(this.quiz, question);
+    this.initializeQuestionForm();
   }
 }

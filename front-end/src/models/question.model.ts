@@ -1,5 +1,5 @@
 export interface Question {
-  id: any;
+  id?: any;
   statement: string;
   answers: Answer[];
 }
