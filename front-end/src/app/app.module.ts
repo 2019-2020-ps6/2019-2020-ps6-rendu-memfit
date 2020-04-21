@@ -24,6 +24,7 @@ import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component'
 import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.component';
 import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selector/quiz-selector.component';
 import { ManageComponent } from './patients/manage/manage.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // @ts-ignore
 // @ts-ignore
@@ -66,6 +67,7 @@ import { ManageComponent } from './patients/manage/manage.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
