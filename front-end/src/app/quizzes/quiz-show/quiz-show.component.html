@@ -71,7 +71,9 @@
         <div *ngIf="quiz.theme">
           <h5 class="text-center">{{quiz.theme}}</h5>
         </div>
-        <p class="text-center"></p>
+        <div *ngIf="quiz.image">
+          <img class="img-fluid" src="{{this.imgService.getImgUrl(quiz.image)}}" alt="answer">
+        </div>
         <button class="btn btn-warning w-100 m-1" (click)="toggleNextQuestion()">Commencer</button>
       </div>
     </ng-template>

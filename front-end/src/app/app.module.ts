@@ -60,6 +60,7 @@ import { ImageUploaderComponent } from './image-uploader/image-uploader.componen
     QuizSelectorComponent,
 
     ManageComponent,
+    ImageUploaderComponent,
 
   ],
   imports: [
