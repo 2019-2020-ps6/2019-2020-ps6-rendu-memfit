@@ -1,17 +1,15 @@
 <div class="card">
 
-  <div *ngIf="this.quiz.image">
-  <img  src="{{this.quiz.image}}" alt="quiz image"/>
-  </div>
-
-  <h2>{{this.quiz.name}}</h2>
-  <h6>{{this.quiz.theme}}</h6>
+  <label for="{{this.quiz.id}}">
+  <img *ngIf="this.quiz.image" src="{{this.quiz.image}}" alt="quiz image"/>
+  <img *ngIf="!this.quiz.image" src="assets/quiz.jpeg" alt="quiz image"/>
+  </label>
   <div>
     <a *ngIf="this.option == 'launch'" routerLink="/quiz/show/{{this.patientId}}/{{this.quiz.id}}" routerLinkActive="active">
-      <button class="{{this.quiz.id}}">Lancer le quiz</button>
+      <button id="{{this.quiz.id}}">{{this.quiz.name}}</button>
     </a>
     <a *ngIf="this.option == 'update'" routerLink="/quiz/edit/{{this.quiz.id}}" routerLinkActive="active">
-      <button class="{{this.quiz.id}}">Modifier le quiz</button>
+      <button id="{{this.quiz.id}}">{{this.quiz.name}}</button>
     </a>
   </div>
 </div>

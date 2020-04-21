@@ -19,5 +19,20 @@
     "question": "Pourquoi",
     "answer": "parce que",
     "correct": true
+  },
+  {
+    "id": 1587481106487,
+    "quizRecordId": "1587481106479",
+    "question": "Pourquoi",
+    "answer": "parce que",
+    "correct": true
+  },
+  {
+    "id": 1587483886723,
+    "quizRecordId": "1587483886719",
+    "question": "Sélectionnez le phare de la moto",
+    "answer": "La roue avant",
+    "correct": false,
+    "rectified": true
   }
 ]

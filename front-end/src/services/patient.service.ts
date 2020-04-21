@@ -55,7 +55,7 @@ export class PatientService {
 
   getPhotoUrl(patient: Patient) {
     if(patient.photo == undefined) {
-      return  "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png";
+      return  "assets/user.png";
     }
     else return patient.photo;
   }
