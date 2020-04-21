@@ -9,7 +9,7 @@
             <img id="photoQuiz" [src]="photoURL">
           </div><br>
           <label class="col-form-label" for="imgURL">URL de l'image</label>
-          <input #urlInput type="text" class="form-control" placeholder="URL" id="imgURL" (keyup)="syncImg(urlInput.value)" required>
+          <input #urlInput type="text" class="form-control" placeholder="URL" id="imgURL" (keyup)="syncImg(urlInput.value)">
         </div>
       </div>
       <div class="col-sm">
@@ -18,19 +18,24 @@
           <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
           <div class="form-group">
             <label class="col-form-label" for="quizTheme">Thème du Quiz</label>
+
             <select class="custom-select" id="quizTheme" [formControlName]="'theme'">
               <option selected="" value="Moto">Moto</option>
               <option value="Objets de la vie de tous les jours">Objets de la vie de tous les jours</option>
             </select>
+
           </div>
           <div class="form-group">
             <label class="col-form-label" for="patientId">Patient</label>
-            <select class="custom-select" id="patientId">
-              <option *ngFor="let p of patientList" value="{{p.id}}">{{p.firstName}} {{p.lastName}}</option>
+
+            <select class="custom-select" id="patientId" (change)="selected($event)" formControlName="selectedPatient">
+              <option value="" disabled>Choisir un patient</option>
+              <option *ngFor="let p of patientList" [ngValue]="p.id" >{{p.firstName}} {{p.lastName}}</option>
               <option value="ALL">Tous les patients</option>
             </select>
+
             <button class="btn btn-info" (click)="selectPatientSup()">+</button>
-            &nbsp;<button class="btn btn-info">Listes patients</button>
+            &nbsp;<button routerLink="/patients/manage" class="btn btn-info">Listes patients</button>
 
           </div>
       </div>

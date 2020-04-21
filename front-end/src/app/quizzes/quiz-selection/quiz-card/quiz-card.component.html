@@ -3,8 +3,11 @@
   <h2>{{this.quiz.name}}</h2>
   <h6>{{this.quiz.theme}}</h6>
   <div>
-    <a routerLink="/quiz/show/{{this.patientId}}/{{this.quiz.id}}" routerLinkActive="active">
-      <button id="{{this.quiz.id}}">Lancer le quiz</button>
+    <a *ngIf="this.option == 'launch'" routerLink="/quiz/show/{{this.patientId}}/{{this.quiz.id}}" routerLinkActive="active">
+      <button class="{{this.quiz.id}}">Lancer le quiz</button>
+    </a>
+    <a *ngIf="this.option == 'update'" routerLink="/quiz/edit/{{this.quiz.id}}" routerLinkActive="active">
+      <button class="{{this.quiz.id}}">Modifier le quiz</button>
     </a>
   </div>
 </div>

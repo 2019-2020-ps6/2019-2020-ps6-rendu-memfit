@@ -47,4 +47,22 @@ router.delete('/:patientId', (req, res) => {
   }
 })
 
+router.post('/:patientId/addQuiz/:quizId', (req, res) => {
+  try {
+    const patient = Patient.getById(req.params.patientId);
+    let patientUpdated = new Patient;
+    patientUpdated.firstName = patient.firstName;
+    patientUpdated.lastName = patient.lastName;
+    patientUpdated.id = patient.id;
+    patientUpdated.photo = patient.photo;
+    patientUpdated.quizzesId = [2, 3];
+
+    const updatedPatient = Patient.update(req.params.patientId, patientUpdated)
+    res.status(200).json(updatedPatient)
+  } catch (err) {
+    manageAllErrors(res, err)
+  }
+})
+
+
 module.exports = router

@@ -14,8 +14,11 @@ import {PatientService} from '../../../services/patient.service';
 export class CreateQuizComponent implements OnInit {
 
   public photoURL: string;
-  public quizForm: FormGroup;
+  public quizForm: any;
   public patientList: Patient[] = [];
+  imgURL: string;
+  patientId: number;
+  selectedP: number;
 
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, public patientService: PatientService, private router: Router) {
     this.photoURL = "assets/quiz-logo.png";
@@ -35,7 +38,9 @@ export class CreateQuizComponent implements OnInit {
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
     const dateNow = Date.now();
     quizToCreate.id = dateNow;
+    quizToCreate.image = this.imgURL;
     this.quizService.addQuiz(quizToCreate);
+    this.patientService.addQuizToPatient(dateNow, this.selectedP);
     this.router.navigate(['/quiz/edit/' + dateNow]);
   }
 
@@ -48,5 +53,11 @@ export class CreateQuizComponent implements OnInit {
       this.photoURL = "assets/quiz-logo.png";
     }
     else this.photoURL = value;
+  }
+
+
+  selected(e) {
+    this.selectedP = e.target.value.split(" ")[1];
+    console.warn(this.selectedP)
   }
 }

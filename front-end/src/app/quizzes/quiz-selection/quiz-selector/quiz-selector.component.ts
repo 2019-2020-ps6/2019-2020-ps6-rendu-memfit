@@ -33,9 +33,7 @@ export class QuizSelectorComponent implements OnInit {
 
     //then we set up his display name with PatientService
     this.patientStringName = this.patientService.getNameString(this.patient);
-
-    //TODO get patient(patientId) and get quizzes form it
-    // .filter(quiz => this.patient.quizzesId.includes(quiz.id))
+    this.patient.photo = this.patientService.getPhotoUrl(this.patient);
 
     //we get the quizzes
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
