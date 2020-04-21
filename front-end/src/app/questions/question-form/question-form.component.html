@@ -7,6 +7,12 @@
       <input class="input-custom" type="text" id="statement" [formControlName]="'statement'">
     </label>
     <br>
+    <label for="image">
+      <b>URL illustration (optionnel) : </b><br>
+      <input class="input-custom" type="text" id="image" [formControlName]="'image'">
+    </label>
+
+    <hr>
     <button class="button-card btn-sm" (click)="addAnswer()"> + Ajouter une réponse</button>
     <div class="answer" formArrayName="answers">
       <div *ngIf="answers.length > 0">
@@ -18,11 +24,14 @@
           <label>
             <b>Réponse {{ i + 1 }}</b>
             <br>
-            Intitulé de la réponse :
+            <b>Intitulé de la réponse :</b>
             <input type="text" [formControlName]="'statement'">
+            Ajouter l'URL d'une illustration (optionnel) :
+            <input class="input-custom" type="text" id="image2" [formControlName]="'image'">
             <br>
             <b>Est elle correcte ? </b>
             <input type="checkbox" [formControlName]="'valid'">
+
           </label>
         </div>
       </div>

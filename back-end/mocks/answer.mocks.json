@@ -23,10 +23,6 @@
     "statement": "La roue avant",
     "valid": false
   },
-
-
-
-
   {
     "id": 1,
     "questionId": 2,
@@ -44,5 +40,12 @@
     "questionId": 2,
     "statement": "Le Piaggio Ciao",
     "valid": true
+  },
+  {
+    "statement": "Test image réponse",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTfgzXovpS1nvDHExBDazICUGr1QeRcqTQYHRBAuHx0chja1zYm&usqp=CAU",
+    "valid": false,
+    "questionId": 1587459033777,
+    "id": 1587459033779
   }
 ]

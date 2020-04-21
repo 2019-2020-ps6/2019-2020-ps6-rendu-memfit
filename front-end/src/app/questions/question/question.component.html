@@ -7,13 +7,23 @@
 
     <hr id="dividerTitle">
 
-    <div class="card-text">
-      <div class="answer" *ngFor="let answer of question.answers; let i=index">
-        {{i}} - {{answer.statement}} <ng-container *ngIf="answer.valid"><i class="far fa-check-square"></i></ng-container><br>
-        <hr>
-      </div>
+    <div *ngIf="question.image">
+      <img [src]="question.image" class="rounded mx-auto d-block" height="100px" width="100px">
+      <hr>
+      <br>
     </div>
 
-    <button class="button-card btn-danger" (click)="delete()">Supprimer</button>
+
+    <div class="card-text">
+        <div class="answer" *ngFor="let answer of question.answers; let i=index">
+            <div *ngIf="answer.image">
+              <img [src]="answer.image" class="rounded mx-auto d-block" height="100px" width="100px">
+            </div>
+            {{i + 1}} - {{answer.statement}} <ng-container *ngIf="answer.valid"><i class="far fa-check-square"></i></ng-container><br>
+            <hr>
+        </div>
+    </div>
+
+    <button class="button-card" (click)="delete()">Supprimer</button>
   </div>
 </div>

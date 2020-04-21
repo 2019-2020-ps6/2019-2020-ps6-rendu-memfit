@@ -24,6 +24,7 @@ export class QuestionFormComponent implements OnInit {
   private initializeQuestionForm() {
     this.questionForm = this.formBuilder.group({
       statement: [''],
+      image: [''],
       answers: this.formBuilder.array([])
     });
   }
@@ -38,6 +39,7 @@ export class QuestionFormComponent implements OnInit {
   private createAnswer() {
     return this.formBuilder.group({
       statement: [''],
+      image: [''],
       valid: false,
     });
   }
