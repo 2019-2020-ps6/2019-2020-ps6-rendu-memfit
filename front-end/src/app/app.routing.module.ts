@@ -13,7 +13,7 @@ import { ManageComponent } from "./patients/manage/manage.component";
 const routes: Routes = [
     {path: '', component: IndexComponent},
     {path: 'quiz/', component: QuizListComponent},
-    {path: 'quiz/show/:quizId', component: QuizShowComponent},
+    {path: 'quiz/show/:patientId/:quizId', component: QuizShowComponent},
     {path: 'quiz/edit/:id', component: EditQuizComponent},
     {path: 'quiz/create', component: CreateQuizComponent},
     {path: 'select-patient', component: PatientListComponent},

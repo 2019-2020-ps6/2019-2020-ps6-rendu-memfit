@@ -4,7 +4,8 @@ const { filterAnswerRecordsFromQuizRecord } = require('./answerrecord/manager')
 const buildQuizRecord = (quizRecordId) => {
   const quizRecord = QuizRecord.getById(quizRecordId);
   const answerRecords = filterAnswerRecordsFromQuizRecord(quizRecord.id);
-  return { ...quizRecord, questions: answerRecords }
+
+  return { ...quizRecord, records: answerRecords }
 }
 
 /**
