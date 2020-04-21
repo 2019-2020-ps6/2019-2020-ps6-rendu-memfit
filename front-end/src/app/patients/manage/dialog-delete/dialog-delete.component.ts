@@ -6,14 +6,14 @@ interface DialogData {
 }
 
 @Component({
-  selector: 'dialog-component.component',
-  templateUrl: './dialog-component.component.html',
-  styleUrls: ['./dialog-component.component.scss']
+  selector: 'dialog-delete.component',
+  templateUrl: './dialog-delete.component.html',
+  styleUrls: ['./dialog-delete.component.scss']
 })
-export class DialogComponentComponent implements OnInit {
+export class DialogDeleteComponent implements OnInit {
 
   constructor(
-    public dialogRef: MatDialogRef<DialogComponentComponent>,
+    public dialogRef: MatDialogRef<DialogDeleteComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {
@@ -21,9 +21,5 @@ export class DialogComponentComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  onYesClick() {
-    this.dialogRef.close();
   }
 }

@@ -3,9 +3,20 @@ h1 {
 }
 
 .photo-form {
-  width: 300px;
-  height: 300px;
+  width: 70%;
+}
+
+#cadre-photo {
+  width: 100%;
+  background-color: #5BC0EB;
+  padding: .5em;
+  border-radius: 10px;
   border: black 1px solid;
+  margin: auto;
+}
+
+#photoQuiz {
+  width: 100%;
   border-radius: 10px;
 }
 
@@ -18,8 +29,4 @@ h1 {
   border-left: black 1px solid;
   border-top-left-radius: 10px;
   padding: 10px;
-}
-
-#photoQuiz {
-  width: 298px;
 }

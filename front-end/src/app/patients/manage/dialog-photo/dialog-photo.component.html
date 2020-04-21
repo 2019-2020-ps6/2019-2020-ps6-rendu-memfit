@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Importer une photo</h1>
+<div mat-dialog-content>
+  <app-image-uploader (uploaded)="onUpload($event)"></app-image-uploader>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Enregistrer</button>
+</div>
