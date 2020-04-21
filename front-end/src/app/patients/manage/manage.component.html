@@ -31,8 +31,8 @@
     <div id="info-patients">
 
       <div id="photoPatient">
-        <img src="https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="Avatar" class="photoProfile">
-        <div class="overlay">
+        <img src="http://localhost:9428/api/uploads/profile_default.png" alt="Avatar" class="photoProfile" >
+        <div class="overlay" (click)="openDialogPhoto()">
           <button class="text" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
             <mat-icon>add_a_photo</mat-icon>
           </button>
@@ -44,7 +44,7 @@
       <h5>Taux de réussite moyen :</h5>
       <br>
       <div>
-        <button class="btn btn-danger w-100 btn-patients" (click)="openDialog()">Supprimer patient</button>
+        <button class="btn btn-danger w-100 btn-patients" (click)="openDialogDelete()">Supprimer patient</button>
         <button class="btn btn-info w-100 btn-patients">Revoir le dernier quiz</button>
       </div><br>
     </div>

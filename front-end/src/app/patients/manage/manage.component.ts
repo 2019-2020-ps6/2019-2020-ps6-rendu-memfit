@@ -3,7 +3,8 @@ import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient.service';
 import {FormBuilder} from '@angular/forms';
 import {MatDialog, MatDialogConfig} from "@angular/material";
-import {DialogComponentComponent} from './dialog-component/dialog-component.component';
+import {DialogDeleteComponent} from './dialog-delete/dialog-delete.component';
+import {DialogPhotoComponent} from './dialog-photo/dialog-photo.component';
 
 @Component({
   selector: 'app-manage',
@@ -17,7 +18,7 @@ export class ManageComponent implements OnInit {
   patientSelected: Patient;
   deleteConf: boolean;
 
-  constructor(public formBuilder: FormBuilder, public patientService: PatientService, private dialog: MatDialog) {
+  constructor(public formBuilder: FormBuilder, public patientService: PatientService, private dialogDelete: MatDialog, private dialogPhoto: MatDialog) {
     this.indexSelected = 0;
     this.deleteConf = false;
     this.patientService.patients$.subscribe((patients: Patient[]) => {
@@ -60,8 +61,8 @@ export class ManageComponent implements OnInit {
     return this.patientService.getNameString(patient);
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(DialogComponentComponent, {
+  openDialogDelete(): void {
+    const dialogRef = this.dialogDelete.open(DialogDeleteComponent, {
       width: '500px'
     });
 
@@ -71,7 +72,13 @@ export class ManageComponent implements OnInit {
     });
   }
 
-  onUpload(uploadedFile: string) {
-    console.log(uploadedFile); // "uploads/fzipfjiszjhfizjdfi.jpg"
+  openDialogPhoto(): void {
+    const dialogRef = this.dialogPhoto.open(DialogPhotoComponent, {
+      width: '500px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
 }

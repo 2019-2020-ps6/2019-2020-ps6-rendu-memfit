@@ -27,7 +27,8 @@ import { ManageComponent } from './patients/manage/manage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRippleModule} from '@angular/material';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
-import { DialogComponentComponent } from './patients/manage/dialog-component/dialog-component.component';
+import { DialogDeleteComponent } from './patients/manage/dialog-delete/dialog-delete.component';
+import { DialogPhotoComponent } from './patients/manage/dialog-photo/dialog-photo.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -57,7 +58,8 @@ import { DialogComponentComponent } from './patients/manage/dialog-component/dia
     QuizSelectorComponent,
     ImageUploaderComponent,
     ManageComponent,
-    DialogComponentComponent
+    DialogDeleteComponent,
+    DialogPhotoComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +78,6 @@ import { DialogComponentComponent } from './patients/manage/dialog-component/dia
   exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponentComponent]
+  entryComponents: [DialogDeleteComponent, DialogPhotoComponent]
 })
 export class AppModule { }
