@@ -1,27 +1,32 @@
 <ng-container *ngIf="quiz; else loadingModal">
 
-  <div class="container">
+  <div class="container position-relative" style="height: 80vh">
     <ng-container *ngIf="started && !ended; else (ended && endModal) || startModal">
       <!--  <h1>{{quiz.name}}</h1>-->
       <h2 class="text-center mb-4">
-        {{currentQuestion.statement}}
+        <h4>{{currentQuestion.statement}}</h4>
+        <div *ngIf="currentQuestion.image">
+          <img class="img-fluid" src="{{this.imgService.getImgUrl(currentQuestion.image)}}" alt="answer">
+        </div>
       </h2>
 
 
       <ng-container
         *ngIf="started && currentHandleCode == QUESTION; else (currentHandleCode == SUPER_BIEN_JOUE && superBienJoueModal) || (currentHandleCode == VOULIEZ_VOUS_DIRE && vouliezVousDireModal)">
-        <div class="row pb-4 justify-content-between">
-          <ng-container *ngFor="let answer of currentQuestion.answers">
-            <div class="col-3" (click)="handleResponse(answer)">
-              <app-answers [answer]="answer"></app-answers>
-            </div>
-          </ng-container>
+        <div class="middle-screen w-100">
+          <div class="row pb-4 justify-content-between">
+            <ng-container *ngFor="let answer of currentQuestion.answers">
+              <div class="col" (click)="handleResponse(answer)">
+                <app-answers [answer]="answer"></app-answers>
+              </div>
+            </ng-container>
+          </div>
         </div>
       </ng-container>
 
 
       <ng-template #superBienJoueModal>
-        <div class="row align-items-center d-flex justify-content-between">
+        <div class="row align-items-center d-flex justify-content-between middle-screen">
           <div class="col-12 col-md-8">
             <h3 class="text-center">Super ! On passe à la question suivante ?</h3>
           </div>
@@ -53,14 +58,19 @@
     </ng-container>
 
     <ng-template #endModal>
-      <h1 class="text-center">Quiz Terminé !!!</h1>
-      <p class="text-center">Vous pouvez désormais appeler l'assistante</p>
+      <div class="middle-screen">
+        <h1 class="text-center">Quiz Terminé !!!</h1>
+        <p class="text-center">Vous pouvez désormais appeler l'assistante</p>
+      </div>
     </ng-template>
 
 
     <ng-template #startModal>
       <div class="middle-screen">
         <h1 class="text-center">Quiz {{quiz.name}}</h1>
+        <div *ngIf="quiz.theme">
+          <h5 class="text-center">{{quiz.theme}}</h5>
+        </div>
         <p class="text-center"></p>
         <button class="btn btn-warning w-100 m-1" (click)="toggleNextQuestion()">Commencer</button>
       </div>
