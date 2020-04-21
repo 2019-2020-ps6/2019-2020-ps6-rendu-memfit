@@ -12,5 +12,12 @@
     "question": "Lequel de ces deux roues est un cyclomoteur ?",
     "answer": "Le Piaggio Ciao",
     "correct": true
+  },
+  {
+    "id": 1587478278320,
+    "quizRecordId": "1587478278318",
+    "question": "Pourquoi",
+    "answer": "parce que",
+    "correct": true
   }
 ]

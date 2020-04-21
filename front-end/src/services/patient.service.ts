@@ -79,6 +79,6 @@ export class PatientService {
     //we add the new quizId to his quizzesId tab
     patient.quizzesId.push(quizId);
     //then we update it in the back-end
-    this.http.put<Patient>(patientUrl, this.httpOptions).subscribe();
+    this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
   }
 }
