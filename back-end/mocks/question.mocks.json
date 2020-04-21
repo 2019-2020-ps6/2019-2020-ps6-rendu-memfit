@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "quizId": 2,
+    "statement": "Sélectionnez le phare de la moto"
+  },
+  {
+    "id": 2,
+    "quizId": 2,
+    "statement": "Lequel de ces deux roues est un cyclomoteur ?"
+  }
+]

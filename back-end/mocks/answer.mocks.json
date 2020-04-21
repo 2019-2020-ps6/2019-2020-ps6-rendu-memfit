@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "questionId": 1,
+    "statement": "La béquille",
+    "valid": false
+  },
+  {
+    "id": 2,
+    "questionId": 1,
+    "statement": "Le phare",
+    "valid": true
+  },
+  {
+    "id": 3,
+    "questionId": 1,
+    "statement": "Le pot d'échappement",
+    "valid": false
+  },
+  {
+    "id": 4,
+    "questionId": 1,
+    "statement": "La roue avant",
+    "valid": false
+  },
+
+
+
+
+  {
+    "id": 1,
+    "questionId": 2,
+    "statement": "La Peugeot SX1198",
+    "valid": false
+  },
+  {
+    "id": 2,
+    "questionId": 2,
+    "statement": "La Ducati Sombrero",
+    "valid": false
+  },
+  {
+    "id": 3,
+    "questionId": 2,
+    "statement": "Le Piaggio Ciao",
+    "valid": true
+  }
+]
