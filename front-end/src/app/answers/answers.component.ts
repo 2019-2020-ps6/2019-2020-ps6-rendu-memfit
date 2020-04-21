@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Answer} from "../../models/question.model";
 import {Quiz} from "../../models/quiz.model";
+import {ImageService} from "../../services/image.service";
 
 @Component({
   selector: 'app-answers',
@@ -12,9 +13,8 @@ export class AnswersComponent implements OnInit {
   @Input()
   answer: Answer;
 
-  @Output() nextQuestionEvent = new EventEmitter<string>();
-
-  constructor() { }
+  constructor(private imgService: ImageService) {
+  }
 
   ngOnInit() {
   }

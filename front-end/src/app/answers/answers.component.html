@@ -1,1 +1,8 @@
-<div class="btn btn-primary w-100 rounded-0">{{answer.statement}}</div>
+<div class="answer btn btn-primary w-100 rounded-0">
+  <div class="answer-container">
+    <div *ngIf="answer.image">
+      <img class="img-fluid" src="{{this.imgService.getImgUrl(answer.image)}}" alt="answer">
+    </div>
+    <h4>{{answer.statement}}</h4>
+  </div>
+</div>
