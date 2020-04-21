@@ -9,9 +9,11 @@ import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 import { QuizSelectorComponent } from "./quizzes/quiz-selection/quiz-selector/quiz-selector.component";
 import { ManageComponent } from "./patients/manage/manage.component";
+import {ImageUploaderComponent} from "./image-uploader/image-uploader.component";
 
 const routes: Routes = [
     {path: '', component: IndexComponent},
+    {path: 'upload', component: ImageUploaderComponent},
     {path: 'quiz/', component: QuizListComponent},
     {path: 'quiz/show/:patientId/:quizId', component: QuizShowComponent},
     {path: 'quiz/edit/:id', component: EditQuizComponent},
