@@ -25,7 +25,9 @@ import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.
 import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selector/quiz-selector.component';
 import { ManageComponent } from './patients/manage/manage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRippleModule} from '@angular/material';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
+import { DialogComponentComponent } from './patients/manage/dialog-component/dialog-component.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -48,20 +50,14 @@ import { ImageUploaderComponent } from './image-uploader/image-uploader.componen
     CreateQuizComponent,
     IndexComponent,
     LogoComponent,
-
     QuizShowComponent,
-
     AnswersComponent,
-
     ReplayquizComponent,
-
     QuizCardComponent,
-
     QuizSelectorComponent,
-
-    ManageComponent,
     ImageUploaderComponent,
-
+    ManageComponent,
+    DialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -69,8 +65,17 @@ import { ImageUploaderComponent } from './image-uploader/image-uploader.componen
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    MatIconModule
   ],
+  exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogComponentComponent]
 })
 export class AppModule { }
