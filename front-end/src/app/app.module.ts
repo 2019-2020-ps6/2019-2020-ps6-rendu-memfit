@@ -24,6 +24,7 @@ import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component'
 import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.component';
 import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selector/quiz-selector.component';
 import { ManageComponent } from './patients/manage/manage.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 
 // @ts-ignore
@@ -59,8 +60,6 @@ import { ImageUploaderComponent } from './image-uploader/image-uploader.componen
     QuizSelectorComponent,
 
     ManageComponent,
-
-    ImageUploaderComponent,
 
   ],
   imports: [

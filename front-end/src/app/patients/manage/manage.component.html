@@ -3,14 +3,11 @@
 <div class="row">
 
   <div class="column">
-
     <ul class="list-group first-column">
       <li *ngFor="let p of patientList; let index = index;" class="list-group-item d-flex justify-content-between align-items-center clickable" value="'index'" (click)="onClick(index)">
-        <div *ngIf="index == indexSelected">
-          <b>{{p.firstName}} {{p.lastName}}</b>
-          <span style="text-align: right"><i class="fas fa-caret-right"></i></span>
-        </div>
-        <span *ngIf="index != indexSelected"> {{patientString(p)}}</span>
+          <b *ngIf="index == indexSelected">{{patientString(p)}}</b>
+          <span *ngIf="index == indexSelected" class="badge badge-primary badge-pill"><i class="fas fa-caret-right"></i></span>
+          <span *ngIf="index != indexSelected"> {{patientString(p)}}</span>
       </li>
     </ul>
 
@@ -32,6 +29,8 @@
   </div>
   <div class="column">
     <div id="info-patients">
+      <img src="https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="photoProfile">
+      <h2>{{patientString(patientSelected)}}</h2><br>
       <h3>Dernier quiz joué :</h3>
       <h5>Taux de réussite moyen :</h5>
       <br>

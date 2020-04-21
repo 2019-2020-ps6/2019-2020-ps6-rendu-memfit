@@ -39,7 +39,7 @@ export class QuestionFormComponent implements OnInit {
   private createAnswer() {
     return this.formBuilder.group({
       statement: [''],
-      image: [''],
+      image: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg',
       valid: false,
     });
   }

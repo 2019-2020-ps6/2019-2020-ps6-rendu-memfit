@@ -61,5 +61,31 @@
     "valid": true,
     "questionId": 1587460469638,
     "id": 1587460469639
+  },
+  {
+    "statement": "aaa",
+    "image": " ",
+    "valid": false,
+    "questionId": 1587462553171,
+    "id": 1587462553172
+  },
+  {
+    "statement": "zazaz",
+    "valid": false,
+    "questionId": 1587462583637,
+    "id": 1587462583639
+  },
+  {
+    "statement": "test",
+    "valid": false,
+    "questionId": 1587462664499,
+    "id": 1587462664501
+  },
+  {
+    "statement": "zzz",
+    "image": "https://moto-station.com/wp-content/uploads/2019/01/22/vignette-neige-moto-marquez.jpg",
+    "valid": false,
+    "questionId": 1587462688207,
+    "id": 1587462688207
   }
 ]

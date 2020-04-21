@@ -1,3 +1,8 @@
+.photoProfile {
+  width: 6em;
+  float: right;
+}
+
 .row {
   display: flex;
 }
@@ -6,7 +11,6 @@
 .column {
   flex: 50%;
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
 }
 
 .first-column{
@@ -28,4 +32,8 @@
 
 .clickable {
   cursor: pointer;
+}
+
+#info-patients {
+  margin-right: 1.5em !important;
 }
