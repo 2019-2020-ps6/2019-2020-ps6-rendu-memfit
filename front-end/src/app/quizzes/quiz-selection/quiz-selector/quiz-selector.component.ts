@@ -19,6 +19,8 @@ export class QuizSelectorComponent implements OnInit {
   public patient: Patient = null;
   public quizList: Quiz[] = [];
 
+  public option: string;
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public quizService: QuizService, public patientService: PatientService) {
     //we get the patient id from the url
     this.activatedRoute.params.subscribe( params => {
@@ -39,6 +41,14 @@ export class QuizSelectorComponent implements OnInit {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizList = quizzes.filter(quiz => this.patient.quizzesId.includes(quiz.id));
     });
+
+    //we set the option of the selector from the url
+    if(this.router.url.includes("launch")) {
+      this.option = "launch";
+    }
+    if(this.router.url.includes("update")) {
+      this.option = "update";
+    }
   }
 
   ngOnInit(): void {
