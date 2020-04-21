@@ -1,6 +1,8 @@
 <div class="card">
 
-  <img  src="" alt="quiz image"/>
+  <div *ngIf="this.quiz.image">
+  <img  src="{{this.quiz.image}}" alt="quiz image"/>
+  </div>
 
   <h2>{{this.quiz.name}}</h2>
   <h6>{{this.quiz.theme}}</h6>
