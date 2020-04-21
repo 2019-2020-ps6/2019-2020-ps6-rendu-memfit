@@ -10,7 +10,7 @@
           <b>{{p.firstName}} {{p.lastName}}</b>
           <span style="text-align: right"><i class="fas fa-caret-right"></i></span>
         </div>
-        <span *ngIf="index != indexSelected">{{p.firstName}} {{p.lastName}}</span>
+        <span *ngIf="index != indexSelected"> {{patientString(p)}}</span>
       </li>
     </ul>
 

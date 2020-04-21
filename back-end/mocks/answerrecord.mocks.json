@@ -76,5 +76,43 @@
     "answer": "La Peugeot SX1198",
     "correct": false,
     "rectified": false
+  },
+  {
+    "id": 1587457481204,
+    "quizRecordId": "1587457481202",
+    "question": "Sélectionnez le phare de la moto",
+    "answer": "Le phare",
+    "correct": true
+  },
+  {
+    "id": 1587457490990,
+    "quizRecordId": "1587457481202",
+    "question": "Lequel de ces deux roues est un cyclomoteur ?",
+    "answer": "La Ducati Sombrero",
+    "correct": false,
+    "rectified": true
+  },
+  {
+    "id": 1587457862130,
+    "quizRecordId": "1587457862126",
+    "question": "Sélectionnez le phare de la moto",
+    "answer": "Le pot d'échappement",
+    "correct": false,
+    "rectified": true
+  },
+  {
+    "id": 1587457863545,
+    "quizRecordId": "1587457862126",
+    "question": "Lequel de ces deux roues est un cyclomoteur ?",
+    "answer": "Le Piaggio Ciao",
+    "correct": true
+  },
+  {
+    "id": 1587457875110,
+    "quizRecordId": "1587457875108",
+    "question": "Sélectionnez le phare de la moto",
+    "answer": "Le pot d'échappement",
+    "correct": false,
+    "rectified": true
   }
 ]

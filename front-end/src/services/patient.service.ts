@@ -4,6 +4,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { Patient } from '../models/patient.model';
 import { PATIENT_LIST } from '../mocks/patient-list.mock';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {Quiz} from '../models/quiz.model';
+import {Question} from '../models/question.model';
 
 @Injectable({
   providedIn: 'root'
@@ -59,5 +61,10 @@ export class PatientService {
   public deletePatient(patient: Patient) {
     const urlWithId = this.patientUrl + '/' + patient.id;
     this.http.delete<Patient>(urlWithId, this.httpOptions).subscribe(() => this.setPatientsFromUrl());
+  }
+
+  addQuizToPatient(quizId: number, patientId: number) {
+    const patientUrl = this.patientUrl + '/' + patientId + '/addQuiz/' + quizId;
+    this.http.post<Patient>(patientUrl, this.httpOptions).subscribe();
   }
 }
