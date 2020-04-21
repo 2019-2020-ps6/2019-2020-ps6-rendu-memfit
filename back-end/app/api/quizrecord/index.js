@@ -19,8 +19,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:quizRecordId', (req, res) => {
-
-  console.log('FILS DE GET')
   try {
     const quizRecord = buildQuizRecord(req.params.quizRecordId)
     res.status(200).json(quizRecord)
