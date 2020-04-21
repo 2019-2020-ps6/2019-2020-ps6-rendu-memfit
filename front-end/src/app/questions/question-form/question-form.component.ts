@@ -39,7 +39,7 @@ export class QuestionFormComponent implements OnInit {
   private createAnswer() {
     return this.formBuilder.group({
       statement: [''],
-      image: [''],
+      image: '',
       valid: false,
     });
   }
@@ -52,6 +52,9 @@ export class QuestionFormComponent implements OnInit {
     const question = this.questionForm.getRawValue() as Question;
     const dateNow = Date.now();
     question.id = dateNow;
+    if (question.image === '') {
+      question.image = 'https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg';
+    }
     console.log(question);
     this.quizService.addQuestion(this.quiz, question);
     this.initializeQuestionForm();
