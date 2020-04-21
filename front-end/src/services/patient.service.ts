@@ -4,8 +4,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { Patient } from '../models/patient.model';
 import { PATIENT_LIST } from '../mocks/patient-list.mock';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
-import {Quiz} from '../models/quiz.model';
-import {Question} from '../models/question.model';
 
 @Injectable({
   providedIn: 'root'

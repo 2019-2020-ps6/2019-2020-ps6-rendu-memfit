@@ -1,8 +1,9 @@
 <div class="card">
 
+  <img  src="{{this.quiz.image}}" alt="quiz image"/>
+
   <h2>{{this.quiz.name}}</h2>
   <h6>{{this.quiz.theme}}</h6>
-  <img  src="{{this.quiz.image}}" />
   <div>
     <a *ngIf="this.option == 'launch'" routerLink="/quiz/show/{{this.patientId}}/{{this.quiz.id}}" routerLinkActive="active">
       <button class="{{this.quiz.id}}">Lancer le quiz</button>
