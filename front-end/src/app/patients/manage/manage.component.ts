@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient.service';
 import {FormBuilder} from '@angular/forms';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import {DialogComponentComponent} from './dialog-component/dialog-component.component';
 
 @Component({
   selector: 'app-manage',
@@ -13,9 +15,11 @@ export class ManageComponent implements OnInit {
   patientForm: any;
   indexSelected : number;
   patientSelected: Patient;
+  deleteConf: boolean;
 
-  constructor(public formBuilder: FormBuilder, public patientService: PatientService) {
+  constructor(public formBuilder: FormBuilder, public patientService: PatientService, private dialog: MatDialog) {
     this.indexSelected = 0;
+    this.deleteConf = false;
     this.patientService.patients$.subscribe((patients: Patient[]) => {
       this.patientList = patients;
     });
@@ -44,12 +48,30 @@ export class ManageComponent implements OnInit {
   }
 
   deletePatient() {
-    this.patientService.deletePatient(this.patientSelected);
-    this.indexSelected --;
-    this.onClick(this.indexSelected);
+    if(this.deleteConf) {
+      this.patientService.deletePatient(this.patientSelected);
+      this.indexSelected --;
+      this.onClick(this.indexSelected);
+    }
+    this.deleteConf = false;
   }
 
   patientString(patient: Patient) {
     return this.patientService.getNameString(patient);
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogComponentComponent, {
+      width: '500px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.deleteConf = result;
+      this.deletePatient();
+    });
+  }
+
+  onUpload(uploadedFile: string) {
+    console.log(uploadedFile); // "uploads/fzipfjiszjhfizjdfi.jpg"
   }
 }

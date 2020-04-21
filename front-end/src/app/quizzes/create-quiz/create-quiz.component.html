@@ -1,46 +1,57 @@
 <h1>Paramètres du quiz</h1>
 <br>
+
 <form [formGroup]="quizForm">
   <div class="container">
     <div class="row">
+
       <div class="col-sm">
+
         <div class="form-group photo-form">
           <div style="height:100%;background-color: #5BC0EB; border-radius: 10px">
             <img id="photoQuiz" [src]="photoURL">
-          </div><br>
+          </div>
+          <br>
           <label class="col-form-label" for="imgURL">URL de l'image</label>
           <input #urlInput type="text" class="form-control" placeholder="URL" id="imgURL" (keyup)="syncImg(urlInput.value)">
+          <p><i>ou</i></p>
+          <app-image-uploader (uploaded)="onUpload($event)"></app-image-uploader>
         </div>
+
       </div>
-      <div class="col-sm">
 
-          <label class="col-form-label" for="quizName">Nom du Quiz</label>
-          <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
-          <div class="form-group">
-            <label class="col-form-label" for="quizTheme">Thème du Quiz</label>
+    <div class="col-sm">
+      <div class="form-group">
 
-            <select class="custom-select" id="quizTheme" [formControlName]="'theme'">
-              <option selected="" value="Moto">Moto</option>
-              <option value="Objets de la vie de tous les jours">Objets de la vie de tous les jours</option>
-            </select>
+        <label class="col-form-label" for="quizName">Nom du Quiz</label>
+        <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
 
-          </div>
-          <div class="form-group">
-            <label class="col-form-label" for="patientId">Patient</label>
 
-            <select class="custom-select" id="patientId" (change)="selected($event)" formControlName="selectedPatient">
+        <label class="col-form-label" for="quizTheme">Thème du Quiz</label>
+        <select class="custom-select" id="quizTheme" [formControlName]="'theme'">
+          <option selected="" value="Moto">Moto</option>
+          <option value="Objets de la vie de tous les jours">Objets de la vie de tous les jours</option>
+        </select>
+
+        <label class="col-form-label" for="patientId">Patient</label>
+
+        <div class="input-group mb-3">
+          <div class="custom-file">
+            <select class="custom-select" id="patientId" (change)="selected($event)" formControlName="">
               <option value="" disabled>Choisir un patient</option>
               <option *ngFor="let p of patientList" [ngValue]="p.id" >{{p.firstName}} {{p.lastName}}</option>
               <option value="ALL">Tous les patients</option>
             </select>
-
-            <button class="btn btn-info" (click)="selectPatientSup()">+</button>
-            &nbsp;<button routerLink="/patients/manage" class="btn btn-info">Listes patients</button>
-
+            <div class="input-group-append">
+              <button style="margin-left: .75em" class="btn btn-info" (click)="selectPatientSup()">+</button>
+            </div>
           </div>
+        </div>
+
       </div>
     </div>
   </div>
+    <button type="submit" class="btn btn-info" style="float: right; margin-top: 1em" (click)="addQuiz()">Editer les questions</button>
+</div>
 
-  <button type="submit" class="btn btn-info" style="float: right; margin-top: 5em" (click)="addQuiz()">Editer les questions</button>
 </form>

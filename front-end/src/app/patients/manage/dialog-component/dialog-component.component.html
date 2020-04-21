@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Voulez-vous vraiment supprimer ce patient ?</h1>
+<div mat-dialog-content>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Non</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Oui</button>
+</div>

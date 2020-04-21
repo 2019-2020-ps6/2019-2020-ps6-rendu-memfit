@@ -45,7 +45,7 @@ export class CreateQuizComponent implements OnInit {
   }
 
   selectPatientSup() {
-    alert('Fonction en cours d\'implémentation.');
+
   }
 
   syncImg(value: string) {
@@ -59,5 +59,9 @@ export class CreateQuizComponent implements OnInit {
   selected(e) {
     this.selectedP = e.target.value.split(" ")[1];
     console.warn(this.selectedP)
+  }
+
+  onUpload(uploadedFile: string) {
+    this.photoURL = "http://localhost:9428/api/" + uploadedFile;
   }
 }

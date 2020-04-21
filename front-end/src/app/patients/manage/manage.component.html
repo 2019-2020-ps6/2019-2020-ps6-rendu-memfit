@@ -29,17 +29,25 @@
   </div>
   <div class="column">
     <div id="info-patients">
-      <img src="https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" class="photoProfile">
+
+      <div id="photoPatient">
+        <img src="https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" alt="Avatar" class="photoProfile">
+        <div class="overlay">
+          <button class="text" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+            <mat-icon>add_a_photo</mat-icon>
+          </button>
+        </div>
+      </div>
+
       <h2>{{patientString(patientSelected)}}</h2><br>
       <h3>Dernier quiz joué :</h3>
       <h5>Taux de réussite moyen :</h5>
       <br>
       <div>
-        <button class="btn btn-danger w-100 btn-patients" (click)="deletePatient()">Supprimer patient</button>
+        <button class="btn btn-danger w-100 btn-patients" (click)="openDialog()">Supprimer patient</button>
         <button class="btn btn-info w-100 btn-patients">Revoir le dernier quiz</button>
       </div><br>
     </div>
   </div>
 </div>
-
 
