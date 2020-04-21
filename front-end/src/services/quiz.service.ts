@@ -6,6 +6,7 @@ import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import {AnswerRecord, QuizRecord} from "../models/quizrecord.model";
+import {Patient} from "../models/patient.model";
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class QuizService {
 
   private httpOptions = httpOptionsBase;
 
-  private quizRecords: QuizRecord[];
+  private quizRecords: QuizRecord[] = [];
 
   public quizRecords$: BehaviorSubject<QuizRecord[]>
     = new BehaviorSubject(this.quizRecords);
@@ -89,8 +90,15 @@ export class QuizService {
   setQuizRecordsFromUrl() {
     this.http.get<QuizRecord[]>(this.quizRecordUrl).subscribe((quizRecordList) => {
       this.quizRecords = quizRecordList;
+      console.log(this.quizRecords)
       this.quizRecords$.next(this.quizRecords);
     });
+  }
+
+  getPatientRecords(patientId: any){
+    let res = null;
+    res = this.quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
+    return res;
   }
 
   startQuizRecord(quizRecord: QuizRecord){

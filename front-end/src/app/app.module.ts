@@ -27,8 +27,14 @@ import { ManageComponent } from './patients/manage/manage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRippleModule} from '@angular/material';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
+import { QuizRecordComponent } from './quiz-record/quiz-record.component';
 import { DialogDeleteComponent } from './patients/manage/dialog-delete/dialog-delete.component';
 import { DialogPhotoComponent } from './patients/manage/dialog-photo/dialog-photo.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+
+registerLocaleData(localeFr, 'fr');
+
 
 // @ts-ignore
 // @ts-ignore
@@ -58,6 +64,7 @@ import { DialogPhotoComponent } from './patients/manage/dialog-photo/dialog-phot
     QuizSelectorComponent,
     ImageUploaderComponent,
     ManageComponent,
+    QuizRecordComponent,
     DialogDeleteComponent,
     DialogPhotoComponent
   ],

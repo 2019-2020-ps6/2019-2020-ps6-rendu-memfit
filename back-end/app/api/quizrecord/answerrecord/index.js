@@ -6,8 +6,6 @@ const { filterAnswerRecordsFromQuizRecord } = require('./manager')
 const router = new Router({ mergeParams: true })
 
 router.get('/', (req, res) => {
-
-  console.log('FILS DE GET')
   try {
     const answers = filterAnswerRecordsFromQuizRecord(req.params.quizRecordId)
     res.status(200).json(answers)

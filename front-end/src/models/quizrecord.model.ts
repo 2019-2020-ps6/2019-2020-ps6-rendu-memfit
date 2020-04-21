@@ -1,16 +1,14 @@
-
 export class QuizRecord {
-    id: any;
-    patientId: any;
-    name: string;
-    theme?: string;
-    // records: AnswerRecord[]
-    ;
+  id: any;
+  name: string;
+  theme?: string;
+  records: AnswerRecord[];
+  patientId: number;
 }
 
 export class AnswerRecord {
   id: any;
-  quizRecordId: any;
+  quizRecordId: number;
   question: string;
   answer: string;
   correct: boolean;

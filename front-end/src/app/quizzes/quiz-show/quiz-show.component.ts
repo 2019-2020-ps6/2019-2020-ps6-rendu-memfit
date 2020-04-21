@@ -49,7 +49,7 @@ export class QuizShowComponent implements OnInit {
       this.quizRecord = new QuizRecord();
       this.quizRecord.id =  Date.now();
       this.quizRecord.name = this.quiz.name;
-      this.quizRecord.patientId = this.route.snapshot.paramMap.get('patientId'); // TODO: Change with pedro's patientId
+      this.quizRecord.patientId = parseInt(this.route.snapshot.paramMap.get('patientId')); // TODO: Change with pedro's patientId
 
       this.quizService.startQuizRecord(this.quizRecord);
     }
