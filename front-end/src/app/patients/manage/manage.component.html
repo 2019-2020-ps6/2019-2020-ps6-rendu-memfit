@@ -31,7 +31,7 @@
     <div id="info-patients">
 
       <div id="photoPatient">
-        <img src="http://localhost:9428/api/uploads/profile_default.png" alt="Avatar" class="photoProfile" >
+        <img [src]="profilePicture" alt="Avatar" class="photoProfile" >
         <div class="overlay" (click)="openDialogPhoto()">
           <button class="text" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
             <mat-icon>add_a_photo</mat-icon>

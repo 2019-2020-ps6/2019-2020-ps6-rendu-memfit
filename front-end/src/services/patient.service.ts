@@ -79,4 +79,12 @@ export class PatientService {
     //then we update it in the back-end
     this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
   }
+
+  changePatientPicture(picture: string, patientId: number) {
+    const patientUrl = this.patientUrl + '/' + patientId;
+    let patient = this.getPatient(patientId);
+    console.log(patientId);
+    patient.photo = picture;
+    this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
+  }
 }

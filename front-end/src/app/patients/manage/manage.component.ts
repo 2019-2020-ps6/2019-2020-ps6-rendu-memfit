@@ -17,8 +17,10 @@ export class ManageComponent implements OnInit {
   indexSelected : number;
   patientSelected: Patient;
   deleteConf: boolean;
+  profilePicture: string;
 
   constructor(public formBuilder: FormBuilder, public patientService: PatientService, private dialogDelete: MatDialog, private dialogPhoto: MatDialog) {
+    this.profilePicture = "http://localhost:9428/api/uploads/profile_default.png";
     this.indexSelected = 0;
     this.deleteConf = false;
     this.patientService.patients$.subscribe((patients: Patient[]) => {
@@ -74,11 +76,13 @@ export class ManageComponent implements OnInit {
 
   openDialogPhoto(): void {
     const dialogRef = this.dialogPhoto.open(DialogPhotoComponent, {
-      width: '500px'
+      width: '500px',
+      data: {'patientId': this.patientSelected.id}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
+      console.log("res: " + result);
+      //this.patientService.changePatientPicture(result.imageLink, this.patientSelected.id);
     });
   }
 }
