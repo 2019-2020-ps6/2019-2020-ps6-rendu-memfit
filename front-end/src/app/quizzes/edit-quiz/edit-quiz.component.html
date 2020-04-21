@@ -1,7 +1,7 @@
 <div class="container mr-auto">
   <div class="row">
     <div class="col-sm-auto">
-      <button class="button-card" routerLink="/quiz-list"> < Retour </button>
+      <button class="button-card" routerLink="/"> < Retour </button>
     </div>
     <div class="col-sm-auto">
       <h1>Édition du quiz</h1>
@@ -16,12 +16,11 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="card">
+          <div class="card rounded p-2">
             <div class="card-body">
               <h2 class="card-title">{{quiz.name}}</h2>
               <hr>
               <p class="card-text"><app-question-list [quiz]="quiz"></app-question-list></p>
-              <a href="#" class="btn btn-primary">Ajouter une question</a>
             </div>
           </div>
         </div>

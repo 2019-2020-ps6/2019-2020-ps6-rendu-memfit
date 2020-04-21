@@ -1,26 +1,35 @@
-<div class="card">
-  <h2>Create a new question</h2>
+<div class="card rounded p-2">
+  <h3>Créer une nouvelle question</h3>
+  <hr>
   <form class="quiz-form" [formGroup]="questionForm">
     <label for="statement">
-      Titre de la question <br>
+      <b>Titre de la question : </b><br>
       <input class="input-custom" type="text" id="statement" [formControlName]="'statement'">
     </label>
     <br>
-    <button class="button-card" (click)="addAnswer()">Add Answer</button>
+    <button class="button-card btn-sm" (click)="addAnswer()"> + Ajouter une réponse</button>
     <div class="answer" formArrayName="answers">
+      <div *ngIf="answers.length > 0">
+        <hr>
+        <b>Réponses : </b><br>
+      </div>
       <div *ngFor="let address of answers.controls; let i=index">
-        <div class="answer-form" [formGroupName]="i">
+        <div class="answer-form border rounded p-2" [formGroupName]="i">
           <label>
-            Answer
+            <b>Réponse {{ i + 1 }}</b>
+            <br>
+            Intitulé de la réponse :
             <input type="text" [formControlName]="'statement'">
             <br>
-            Correct
+            <b>Est elle correcte ? </b>
             <input type="checkbox" [formControlName]="'valid'">
           </label>
         </div>
       </div>
     </div>
-    <button type="submit" class="button-card" (click)="addQuestion()">Create</button>
+    <br>
+    <hr>
+    <button type="submit" class="button-card" (click)="addQuestion()">Créer</button>
   </form>
 </div>
 
