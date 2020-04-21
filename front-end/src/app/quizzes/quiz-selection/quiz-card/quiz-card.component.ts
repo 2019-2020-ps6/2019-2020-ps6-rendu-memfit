@@ -19,10 +19,6 @@ export class QuizCardComponent implements OnInit {
     if(this.router.url.includes("update")) {
       this.option = "update";
     }
-
-    if(this.quiz.image == undefined) {
-      this.quiz.image = "https://www.easyrecyclage.com/wp-content/uploads/2019/01/Easyrecyclage_Quiz_Recyclage.jpg";
-    }
   }
 
   ngOnInit() {
