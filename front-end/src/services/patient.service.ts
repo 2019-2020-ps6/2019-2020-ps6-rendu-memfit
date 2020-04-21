@@ -36,6 +36,14 @@ export class PatientService {
     });
   }
 
+  getPatient(patientId : number) {
+    let res = null;
+    this.patients$.subscribe((patients: Patient[]) => {
+      res = patients.filter(patient => patient.id == patientId)[0];
+    });
+    return res;
+  }
+
   getNameString(patient: Patient) {
     let nameString = "";
 
@@ -64,7 +72,13 @@ export class PatientService {
   }
 
   addQuizToPatient(quizId: number, patientId: number) {
-    const patientUrl = this.patientUrl + '/' + patientId + '/addQuiz/' + quizId;
-    this.http.post<Patient>(patientUrl, this.httpOptions).subscribe();
+    const patientUrl = this.patientUrl + '/' + patientId;
+
+    //we get the patient
+    let patient = this.getPatient(patientId);
+    //we add the new quizId to his quizzesId tab
+    patient.quizzesId.push(quizId);
+    //then we update it in the back-end
+    this.http.put<Patient>(patientUrl, this.httpOptions).subscribe();
   }
 }

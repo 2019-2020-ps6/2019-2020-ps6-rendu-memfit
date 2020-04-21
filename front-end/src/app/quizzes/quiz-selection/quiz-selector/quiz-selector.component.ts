@@ -29,9 +29,7 @@ export class QuizSelectorComponent implements OnInit {
     this.patientId = this.routeParams.patientId;
 
     //then we get the patient object from the PatientService
-    this.patientService.patients$.subscribe((patients: Patient[]) => {
-      this.patient = patients.filter(patient => patient.id == this.patientId)[0];
-    });
+    this.patient = this.patientService.getPatient(this.patientId);
 
     //then we set up his display name with PatientService
     this.patientStringName = this.patientService.getNameString(this.patient);
