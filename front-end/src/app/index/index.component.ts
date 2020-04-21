@@ -7,11 +7,8 @@ import {AfterViewInit, Component, ElementRef, OnInit} from '@angular/core';
 })
 export class IndexComponent implements AfterViewInit {
 
-  constructor(private elementRef: ElementRef){
 
-  }
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = '#224656';
   }
-
 }
