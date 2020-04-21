@@ -45,6 +45,8 @@ export class ManageComponent implements OnInit {
 
   deletePatient() {
     this.patientService.deletePatient(this.patientSelected);
+    this.indexSelected --;
+    this.onClick(this.indexSelected);
   }
 
   patientString(patient: Patient) {
