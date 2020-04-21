@@ -45,5 +45,36 @@
     "answer": "La Ducati Sombrero",
     "correct": false,
     "rectified": false
+  },
+  {
+    "id": 1587456097349,
+    "quizRecordId": "1587456097347",
+    "question": "Sélectionnez le phare de la moto",
+    "answer": "Le phare",
+    "correct": true
+  },
+  {
+    "id": 1587456101339,
+    "quizRecordId": "1587456097347",
+    "question": "Lequel de ces deux roues est un cyclomoteur ?",
+    "answer": "La Ducati Sombrero",
+    "correct": false,
+    "rectified": false
+  },
+  {
+    "id": 1587457091663,
+    "quizRecordId": "1587457091659",
+    "question": "Sélectionnez le phare de la moto",
+    "answer": "Le pot d'échappement",
+    "correct": false,
+    "rectified": false
+  },
+  {
+    "id": 1587457096206,
+    "quizRecordId": "1587457091659",
+    "question": "Lequel de ces deux roues est un cyclomoteur ?",
+    "answer": "La Peugeot SX1198",
+    "correct": false,
+    "rectified": false
   }
 ]

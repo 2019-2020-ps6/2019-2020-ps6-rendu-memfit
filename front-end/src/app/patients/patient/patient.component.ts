@@ -11,7 +11,6 @@ import {PatientService} from "../../../services/patient.service";
 export class PatientComponent implements OnInit {
 
   public nameString: String;
-  public photoUrl: String;
 
   constructor(private router: Router, public patientService : PatientService) {
 
@@ -19,11 +18,7 @@ export class PatientComponent implements OnInit {
 
   ngOnInit() {
     this.nameString = this.patientService.getNameString(this.patient);
-
-    if(this.patient.photo == undefined) {
-      this.photoUrl = "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png";
-    }
-    else this.photoUrl = this.patient.photo;
+    this.patient.photo = this.patientService.getPhotoUrl(this.patient);
   }
 
   @Input()

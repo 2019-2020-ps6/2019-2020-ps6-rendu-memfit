@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Quiz} from "../../../../models/quiz.model";
+import {Router} from "@angular/router";
+import {startWith} from "rxjs/operators";
 
 @Component({
   selector: 'app-quiz-card',
@@ -8,7 +10,16 @@ import {Quiz} from "../../../../models/quiz.model";
 })
 export class QuizCardComponent implements OnInit {
 
-  constructor() { }
+  public option : string;
+
+  constructor(private router: Router) {
+    if(this.router.url.includes("launch")) {
+      this.option = "launch";
+    }
+    if(this.router.url.includes("update")) {
+      this.option = "update";
+    }
+  }
 
   ngOnInit() {
   }

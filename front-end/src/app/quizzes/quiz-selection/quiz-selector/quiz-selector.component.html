@@ -1,4 +1,8 @@
-<p id="patient-name">{{this.patient.firstName}} {{this.patient.lastName}}</p>
+<div id="patient">
+  <img id="patient-photo" src="{{this.patient.photo}}" alt="patientPhoto"/>
+  <p id="patient-name">Lancer un quiz pour {{this.patient.firstName}} {{this.patient.lastName}}</p>
+</div>
+
 <div class="patient-list" *ngFor="let q of quizList">
   <app-quiz-card [patientId]="this.patientId" [quiz]="q"></app-quiz-card>
 </div>

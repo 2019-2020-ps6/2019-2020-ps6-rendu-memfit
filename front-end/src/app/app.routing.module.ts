@@ -16,8 +16,10 @@ const routes: Routes = [
     {path: 'quiz/show/:patientId/:quizId', component: QuizShowComponent},
     {path: 'quiz/edit/:id', component: EditQuizComponent},
     {path: 'quiz/create', component: CreateQuizComponent},
-    {path: 'select-patient', component: PatientListComponent},
-    {path: 'select-patient/:patientId', component: QuizSelectorComponent},
+    {path: 'select-patient-launch', component: PatientListComponent},
+    {path: 'select-patient-launch/:patientId', component: QuizSelectorComponent},
+    {path: 'select-patient-update', component: PatientListComponent},
+    {path: 'select-patient-update/:patientId', component: QuizSelectorComponent},
     {path: 'patients/:patientId/quizReplay/:quizReplayId', component: ReplayquizComponent},
     {path: 'patients/manage', component: ManageComponent},
 ];

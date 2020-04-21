@@ -45,6 +45,13 @@ export class PatientService {
     return nameString;
   }
 
+  getPhotoUrl(patient: Patient) {
+    if(patient.photo == undefined) {
+      return  "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png";
+    }
+    else return patient.photo;
+  }
+
   public addPatient(patient: Patient) {
     this.http.post<Patient>(this.patientUrl, patient, this.httpOptions).subscribe(() => this.setPatientsFromUrl());
   }
