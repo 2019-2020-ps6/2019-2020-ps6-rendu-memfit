@@ -10,24 +10,27 @@
     ],
     "firstName": "Antoine",
     "lastName": "facq",
-    "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
+    "photo": "http://localhost:9428/api/uploads\\RsSpq54LJlKY2mKp-TY-PiAp.jpg"
   },
   {
     "firstName": "Test Boi",
     "lastName": " ",
     "quizzesId": [],
-    "id": 1587450650733
+    "id": 1587450650733,
+    "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
   },
   {
     "firstName": "Antoine bis",
     "lastName": " ",
     "quizzesId": [],
-    "id": 1587459780541
+    "id": 1587459780541,
+    "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
   },
   {
     "firstName": "Patient Boi",
     "lastName": " ",
     "quizzesId": [],
-    "id": 1587480285481
+    "id": 1587480285481,
+    "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
   }
 ]

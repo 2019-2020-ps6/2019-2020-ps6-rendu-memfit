@@ -1,9 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {PatientService} from '../../../../services/patient.service';
 
-interface DialogData {
-  patientId: number;
+export interface DialogData {
+  profileImgURL: string;
 }
 
 @Component({
@@ -14,16 +13,14 @@ interface DialogData {
 export class DialogPhotoComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DialogPhotoComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: DialogData, public patientService: PatientService) { }
+              @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit() {
     console.log(this.data);
   }
 
   onUpload(uploadedFile: string) {
-    console.log(uploadedFile);
-    console.log("patientid : " + this.data.patientId)
-    this.patientService.changePatientPicture(uploadedFile, this.data.patientId);
+    this.data.profileImgURL = "http://localhost:9428/api/" + uploadedFile;
   }
 
   onNoClick(): void {

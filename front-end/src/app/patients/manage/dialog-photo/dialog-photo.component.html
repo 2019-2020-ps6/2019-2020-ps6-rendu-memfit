@@ -1,8 +1,13 @@
 <h1 mat-dialog-title>Importer une photo</h1>
 <div mat-dialog-content>
+  <mat-form-field style="width: 100%!important;" class="example-full-width">
+    <mat-label>À partir d'un URL</mat-label>
+    <input matInput placeholder="domain.com/ressource" [(ngModel)]="data.profileImgURL">
+  </mat-form-field>
+  <p><i>ou depuis mon appareil</i></p>
   <app-image-uploader (uploaded)="onUpload($event)"></app-image-uploader>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Annuler</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Enregistrer</button>
+  <button mat-button [mat-dialog-close]="data.profileImgURL" cdkFocusInitial>Enregistrer</button>
 </div>

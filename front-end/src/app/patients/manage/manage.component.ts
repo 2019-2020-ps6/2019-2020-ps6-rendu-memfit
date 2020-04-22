@@ -5,6 +5,7 @@ import {FormBuilder} from '@angular/forms';
 import {MatDialog, MatDialogConfig} from "@angular/material";
 import {DialogDeleteComponent} from './dialog-delete/dialog-delete.component';
 import {DialogPhotoComponent} from './dialog-photo/dialog-photo.component';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-manage',
@@ -13,26 +14,29 @@ import {DialogPhotoComponent} from './dialog-photo/dialog-photo.component';
 })
 export class ManageComponent implements OnInit {
   public patientList: Patient[] = [];
+  public patientListObs$: Observable<Patient[]>;
   patientForm: any;
-  indexSelected : number;
+  indexSelected : number = 0;
   patientSelected: Patient;
   deleteConf: boolean;
-  profilePicture: string;
+  profileImgURL: string;
 
   constructor(public formBuilder: FormBuilder, public patientService: PatientService, private dialogDelete: MatDialog, private dialogPhoto: MatDialog) {
-    this.profilePicture = "http://localhost:9428/api/uploads/profile_default.png";
-    this.indexSelected = 0;
+    this.profileImgURL = "http://localhost:9428/api/uploads/profile_default.png";
     this.deleteConf = false;
-    this.patientService.patients$.subscribe((patients: Patient[]) => {
-      this.patientList = patients;
-    });
     this.patientForm = this.formBuilder.group({
       firstName: ['']
     });
-    this.patientSelected = this.patientList[this.indexSelected];
+    this.patientListObs$ = patientService.patients$;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.patientService.patients$.subscribe((patients: Patient[]) => {
+      this.patientList = patients;
+    });
+    await new Promise(resolve => setTimeout(resolve, 20));
+    this.patientSelected = this.patientList[0];
+    this.profileImgURL = this.patientSelected.photo;
   }
 
   addPatient() {
@@ -48,12 +52,14 @@ export class ManageComponent implements OnInit {
   onClick(index: number) {
     this.indexSelected = index;
     this.patientSelected = this.patientList[index];
+    this.profileImgURL = this.patientSelected.photo;
   }
 
-  deletePatient() {
-    if(this.deleteConf) {
+  async deletePatient() {
+    if (this.deleteConf) {
       this.patientService.deletePatient(this.patientSelected);
-      this.indexSelected --;
+      if (this.indexSelected != 0) this.indexSelected--;
+      await new Promise(resolve => setTimeout(resolve, 10));
       this.onClick(this.indexSelected);
     }
     this.deleteConf = false;
@@ -76,13 +82,13 @@ export class ManageComponent implements OnInit {
 
   openDialogPhoto(): void {
     const dialogRef = this.dialogPhoto.open(DialogPhotoComponent, {
-      width: '500px',
-      data: {'patientId': this.patientSelected.id}
+      width: '600px',
+      data: {profileImgURL : this.profileImgURL}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("res: " + result);
-      //this.patientService.changePatientPicture(result.imageLink, this.patientSelected.id);
+      this.profileImgURL = result;
+      this.patientService.changePatientPicture(result, this.patientSelected.id);
     });
   }
 }

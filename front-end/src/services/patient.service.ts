@@ -10,7 +10,7 @@ import { serverUrl, httpOptionsBase } from '../configs/server.config';
 })
 export class PatientService {
 
-  private patients: Patient[] = PATIENT_LIST;
+  private patients: Patient[];
 
   /**
    * Observable which contains the list of the patients.

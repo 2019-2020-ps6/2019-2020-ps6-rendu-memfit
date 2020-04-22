@@ -11,6 +11,7 @@ import { serverUrl, httpOptionsBase } from './../../configs/server.config';
 export class ImageUploaderComponent implements OnInit {
 
   uploadedFiles: Array < File > ;
+  inputText: string = "Choisir un fichier";
 
 
   @Output() uploaded = new EventEmitter<string>();
@@ -25,6 +26,7 @@ export class ImageUploaderComponent implements OnInit {
 
   fileChange(element) {
     this.uploadedFiles = element.target.files;
+    this.inputText = this.uploadedFiles[0].name;
   }
 
   upload() {
