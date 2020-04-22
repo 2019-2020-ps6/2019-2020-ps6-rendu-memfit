@@ -87,8 +87,10 @@ export class ManageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.profileImgURL = result;
-      this.patientService.changePatientPicture(result, this.patientSelected.id);
+      if(result!=null) {
+        this.profileImgURL = result;
+        this.patientService.changePatientPicture(result, this.patientSelected.id);
+      }
     });
   }
 }
