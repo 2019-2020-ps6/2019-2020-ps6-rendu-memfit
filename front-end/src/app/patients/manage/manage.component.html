@@ -2,19 +2,20 @@
 <hr>
 <br>
 
-<div class="row">
+<div class="row" *ngIf="patientList">
 
   <div class="column">
     <ul class="list-group first-column">
-      <li *ngFor="let p of patientListObs$ | async; let index = index;"
-          class="list-group-item d-flex justify-content-between align-items-center clickable" value="{{index}}"
+      <li *ngFor="let p of patientList | async; let index = index;"
+          class="list-group-item d-flex justify-content-between align-items-center clickable" value="{{index}} "
           (click)="onClick(index)">
         <ng-container *ngIf="index == indexSelected; else elseBlock">
           <b>{{patientString(p)}}</b>
           <span class="badge badge-primary badge-pill"><i class="fas fa-caret-right"></i></span>
         </ng-container>
-        <ng-template #elseBlock></ng-template>
-        <span *ngIf="index != indexSelected"> {{patientString(p)}}</span>
+        <ng-template #elseBlock>
+        <span> {{patientString(p)}}</span>
+        </ng-template>
       </li>
     </ul>
 
@@ -47,15 +48,17 @@
         </div>
       </div>
 
-      <h2>{{patientString(patientSelected)}}</h2><br>
-      <h4>Dernier quiz joué : {{lastQuizzPassed}}</h4>
-      <h5>Taux de réussite moyen :</h5>
+      <h2>{{patientString(patientSelected)}}</h2>
+      <p><i>Profil créé le : {{myFormatDate(patientSelected.id)}}</i></p>
+      <h4>{{attribuedQuizNb}} quiz attribués</h4>
+      <h6>Dernier quiz joué : {{lastQuizzPassed}}</h6>
+      <h6>Taux de réussite moyen :</h6>
       <br>
       <div>
-        <a routerLink="/quiz-record/{{patientSelected.id}}" class="btn btn-info w-100 btn-patients">Historique des quiz</a>
-        <button class="btn btn-danger w-100 btn-patients" (click)="openDialogDelete()">Supprimer patient</button>
-      </div>
-      <br>
+          <button class="btn btn-success w-100 btn-patients" (click)="openDialogAttribution()">Attribuer des quiz</button>
+          <button [disabled]="!hasAnHistoric" routerLink="/quiz-record/{{patientSelected.id}}" class="btn btn-info w-100 btn-patients">Historique des quiz</button>
+          <button class="btn btn-danger w-100 btn-patients" (click)="openDialogDelete()">Supprimer patient</button>
+      </div><br>
     </div>
   </div>
   </ng-container>
