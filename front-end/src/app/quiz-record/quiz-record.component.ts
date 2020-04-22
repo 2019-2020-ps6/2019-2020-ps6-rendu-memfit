@@ -18,23 +18,21 @@ export class QuizRecordComponent implements OnInit {
   quizRecords: QuizRecord[];
 
   constructor(private route: ActivatedRoute, private patientService: PatientService, private quizService: QuizService) {
-    this.patientService.patients$.subscribe((patients) => this.updatePatients(patients));
-    this.quizService.quizRecords$.subscribe((quizs) => this.quizListRecordsUpdate(quizs));
+    this.patientService.patientSelected$.subscribe((patient) => this.updatePatient(patient));
   }
 
   ngOnInit() {
     this.patientId = this.route.snapshot.paramMap.get('patientId');
+    this.patientService.setSelectedPatient(this.patientId);
   };
 
 
   private quizListRecordsUpdate(quizs: QuizRecord[]) {
-    this.quizRecords = quizs;
     this.quizRecords = this.quizService.getPatientRecordsFromList(this.patientId, quizs);
   }
 
-  private updatePatients(patients: Patient[]) {
-    console.log(patients);
-    this.patient = this.patientService.getPatientFromList(this.patientId, patients);
-    console.log(this.patient)
+  private updatePatient(patient: Patient) {
+    this.patient = patient;
+    this.quizService.quizRecords$.subscribe((quizs) => this.quizListRecordsUpdate(quizs));
   }
 }

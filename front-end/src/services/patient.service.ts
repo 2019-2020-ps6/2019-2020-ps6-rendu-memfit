@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Patient } from '../models/patient.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {Quiz} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
@@ -33,16 +34,16 @@ export class PatientService {
     });
   }
 
-  getPatient(patientId : any) {
-    let res = null;
-    this.patients$.subscribe((patients: Patient[]) => {
-      res = patients.filter(patient => patient.id == patientId)[0];
-    });
-    return res;
-  }
+  // getPatient(patientId : any) {
+  //   let res = null;
+  //   this.patients$.subscribe((patients: Patient[]) => {
+  //     res = patients.filter(patient => patient.id == patientId)[0];
+  //   });
+  //   return res;
+  // }
 
-  getPatientFromList(patientId : any, patients) {
-    return patients.filter(patient => patient.id == patientId)[0];
+  getPatientFromList(patientId : any) {
+    return this.patients.filter(patient => patient.id == patientId)[0];
   }
 
   getNameString(patient: Patient) {
@@ -90,4 +91,15 @@ export class PatientService {
     patient.photo = picture;
     this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
   }
+
+
+  setSelectedPatient(patientId: string) {
+    const urlWithId = this.patientUrl + '/' + patientId;
+    this.http.get<Patient>(urlWithId).subscribe((patient) => {
+      this.patientSelected$.next(patient);
+    });
+  }
+
+
+
 }
