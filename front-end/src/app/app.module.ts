@@ -25,7 +25,15 @@ import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.
 import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selector/quiz-selector.component';
 import { ManageComponent } from './patients/manage/manage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatRippleModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatDialogModule, MatExpansionModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatRippleModule
+} from '@angular/material';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { QuizRecordComponent } from './quiz-record/quiz-record.component';
 import { DialogDeleteComponent } from './patients/manage/dialog-delete/dialog-delete.component';
@@ -80,7 +88,9 @@ registerLocaleData(localeFr, 'fr');
     MatFormFieldModule,
     MatInputModule,
     MatRippleModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule,
+    MatExpansionModule
   ],
   exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule],
   providers: [],

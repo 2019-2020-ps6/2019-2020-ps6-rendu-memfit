@@ -4,3 +4,20 @@
     margin-top: 0.3em;
     margin-bottom: 0.3em;
 }
+
+input{
+  width: 100%;
+}
+
+
+.input-custom{
+  width: 100% !important;
+}
+
+#deleteAnswer {
+  float: right;
+}
+
+mat-icon {
+  vertical-align: text-bottom;
+}

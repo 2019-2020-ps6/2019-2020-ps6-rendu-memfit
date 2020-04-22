@@ -1,46 +1,98 @@
-<div class="card rounded p-2">
-  <h3>Créer une nouvelle question</h3>
-  <hr>
-  <form class="quiz-form" [formGroup]="questionForm">
-    <label for="statement">
-      <b>Titre de la question : </b><br>
-      <input class="input-custom" type="text" id="statement" [formControlName]="'statement'">
-    </label>
-    <br>
-    <label for="image">
-      <b>URL illustration (optionnel) : </b><br>
-      <input class="input-custom" type="text" id="image" [formControlName]="'image'">
-    </label>
+<form class="quiz-form" [formGroup]="questionForm">
 
-    <hr>
-    <button class="button-card btn-sm" (click)="addAnswer()"> + Ajouter une réponse</button>
-    <div class="answer" formArrayName="answers">
-      <div *ngIf="answers.length > 0">
-        <hr>
-        <b>Réponses : </b><br>
-      </div>
-      <div *ngFor="let address of answers.controls; let i=index">
-        <div class="answer-form border rounded p-2" [formGroupName]="i">
-          <label>
-            <b>Réponse {{ i + 1 }}</b>
-            <br>
-            <b>Intitulé de la réponse :</b>
-            <input type="text" [formControlName]="'statement'">
-            Ajouter l'URL d'une illustration (optionnel) :
-            <input class="input-custom" type="text" id="image2" [formControlName]="'image'">
-            <br>
-            <b>Est elle correcte ? </b>
-            <input type="checkbox" [formControlName]="'valid'">
+  <mat-accordion>
+    <mat-expansion-panel>
 
-          </label>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Question
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <label for="statement">
+        <mat-form-field appearance="outline">
+          <mat-label>Titre de la question</mat-label>
+          <input matInput placeholder="Ecrivez ici" class="input-custom" id="statement" [formControlName]="'statement'" required>
+        </mat-form-field>
+      </label>
+
+      <br>
+
+      <label for="image">
+        <mat-form-field appearance="outline">
+          <mat-label>URL illustration (optionnel)</mat-label>
+          <input matInput placeholder="Ecrivez ici" class="input-custom" id="image" [formControlName]="'image'">
+        </mat-form-field>
+      </label>
+
+    </mat-expansion-panel>
+
+
+
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Réponses
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <button class="btn-outline-primary btn-sm" (click)="addAnswer()"><mat-icon>add</mat-icon> Ajouter une réponse</button>
+
+      <div class="answer" formArrayName="answers">
+        <div *ngIf="answers.length > 0">
+          <hr>
         </div>
+
+        <mat-accordion>
+          <div *ngFor="let address of answers.controls; let i=index">
+
+            <mat-expansion-panel>
+
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Réponse {{ i + 1 }}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+
+            <div class="answer-form" [formGroupName]="i">
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Intitulé de la réponse</mat-label>
+                  <input matInput placeholder="Ecrivez ici" [formControlName]="'statement'" required>
+                </mat-form-field>
+
+                <br>
+
+                <mat-form-field appearance="outline">
+                  <mat-label>Ajouter l'URL d'une illustration (optionnel)</mat-label>
+                  <input matInput placeholder="Ecrivez ici" class="input-custom" id="image2" [formControlName]="'image'">
+                </mat-form-field>
+
+                <br>
+
+                <mat-checkbox type="checkbox" [formControlName]="'valid'" required>
+                  Est elle correcte ?
+                </mat-checkbox>
+              <br>
+              <button class="btn-outline-danger btn-sm" (click)="deleteAnswer(i)" id="deleteAnswer">
+                <mat-icon>delete</mat-icon> Supprimer
+              </button>
+              <br>
+              </div>
+            </mat-expansion-panel>
+          </div>
+        </mat-accordion>
       </div>
-    </div>
-    <br>
-    <hr>
-    <button type="submit" class="button-card" (click)="addQuestion()">Créer</button>
-  </form>
-</div>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <hr>
+
+  <button type="submit" class="button-card" (click)="addQuestion()">Créer</button>
+
+</form>
 
 <!-- Uncomment below to see your form structure and how it changes-->
 <!-- <br><br>{{quizForm.getRawValue() | json}} -->

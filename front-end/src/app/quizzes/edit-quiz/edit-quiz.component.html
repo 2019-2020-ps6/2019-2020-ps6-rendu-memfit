@@ -1,10 +1,11 @@
-<div class="container mr-auto">
+<div class="container" style="width: 100%;">
   <div class="row">
-    <div class="col-sm-auto">
-      <button class="button-card" routerLink="/"> < Retour </button>
-    </div>
-    <div class="col-sm-auto">
-      <h1>Édition du quiz</h1>
+    <div class="col">
+      <h1>Édition du quiz : {{quiz.name}}
+        <button type="button" class="btn btn-outline-secondary create-question-button align-content-center" data-toggle="modal" data-target="#create-question" style="float: right;">
+          <mat-icon>settings</mat-icon> Paramètres
+        </button>
+      </h1>
     </div>
   </div>
 </div>
@@ -14,19 +15,43 @@
 <ng-container *ngIf="quiz">
 
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="card rounded p-2">
-            <div class="card-body">
-              <h2 class="card-title">{{quiz.name}}</h2>
-              <hr>
-              <p class="card-text"><app-question-list [quiz]="quiz"></app-question-list></p>
-            </div>
+      <div class="row justify-content-center">
+
+        <div class="card rounded question-list">
+          <div class="card-body">
+
+            <h3>Liste des questions :
+              <button type="button" class="btn btn-outline-primary create-question-button align-content-center" data-toggle="modal" data-target="#create-question" style="float: right;">
+                <mat-icon>add</mat-icon> Ajouter une question</button>
+            </h3>
+            <hr>
+
+            <p class="card-text">
+              <app-question-list [quiz]="quiz"></app-question-list>
+            </p>
+
           </div>
         </div>
-        <div class="col">
-          <app-question-form [quiz]="quiz"></app-question-form>
-        </div>
+
       </div>
     </div>
+
+  <div class="modal fade" id="create-question" tabindex="-1" role="dialog" aria-labelledby="create-question-Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="create-question-Label">Créer une question</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <app-question-form [quiz]="quiz"></app-question-form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </ng-container>

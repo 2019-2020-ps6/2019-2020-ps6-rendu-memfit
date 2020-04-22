@@ -9,12 +9,14 @@ import { Question } from 'src/models/question.model';
   templateUrl: './question-form.component.html',
   styleUrls: ['./question-form.component.scss']
 })
+
 export class QuestionFormComponent implements OnInit {
 
   @Input()
   quiz: Quiz;
 
   public questionForm: FormGroup;
+  panelOpenState = false;
 
   constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
     // Form creation
@@ -39,7 +41,7 @@ export class QuestionFormComponent implements OnInit {
   private createAnswer() {
     return this.formBuilder.group({
       statement: [''],
-      image: 'https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg',
+      image: [''],
       valid: false,
     });
   }
@@ -48,11 +50,20 @@ export class QuestionFormComponent implements OnInit {
     this.answers.push(this.createAnswer());
   }
 
+  deleteAnswer(id) {
+    this.answers.removeAt(id);
+  }
+
   addQuestion() {
     const question = this.questionForm.getRawValue() as Question;
     const dateNow = Date.now();
     question.id = dateNow;
     console.log(question);
+    question.answers.forEach(answerToCheck => {
+      if (answerToCheck.image === '') {
+        answerToCheck.image = 'https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg';
+      }
+      });
     this.quizService.addQuestion(this.quiz, question);
     this.initializeQuestionForm();
   }
