@@ -2,12 +2,12 @@
 <div mat-dialog-content>
   <mat-form-field style="width: 100%!important;" class="example-full-width">
     <mat-label>À partir d'un URL</mat-label>
-    <input matInput placeholder="domain.com/ressource" [(ngModel)]="data.profileImgURL">
+    <input matInput placeholder="domain.com/ressource" [(ngModel)]="data.imgURL">
   </mat-form-field>
   <p><i>ou depuis mon appareil</i></p>
   <app-image-uploader (uploaded)="onUpload($event)"></app-image-uploader>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Annuler</button>
-  <button mat-button [mat-dialog-close]="data.profileImgURL" cdkFocusInitial>Enregistrer</button>
+  <button mat-button [mat-dialog-close]="data.imgURL" cdkFocusInitial>Enregistrer</button>
 </div>

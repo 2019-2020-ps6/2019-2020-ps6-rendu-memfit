@@ -37,9 +37,9 @@ import {
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { QuizRecordComponent } from './quiz-record/quiz-record.component';
 import { DialogDeleteComponent } from './patients/manage/dialog-delete/dialog-delete.component';
-import { DialogPhotoComponent } from './patients/manage/dialog-photo/dialog-photo.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { ImageChoicePopupComponent } from './image-choice-popup/image-choice-popup.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -74,7 +74,7 @@ registerLocaleData(localeFr, 'fr');
     ManageComponent,
     QuizRecordComponent,
     DialogDeleteComponent,
-    DialogPhotoComponent
+    ImageChoicePopupComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +95,6 @@ registerLocaleData(localeFr, 'fr');
   exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DialogDeleteComponent, DialogPhotoComponent]
+  entryComponents: [DialogDeleteComponent, ImageChoicePopupComponent]
 })
 export class AppModule { }

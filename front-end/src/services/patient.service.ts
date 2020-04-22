@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Patient } from '../models/patient.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
-import {Quiz} from "../models/quiz.model";
 
 @Injectable({
   providedIn: 'root'
