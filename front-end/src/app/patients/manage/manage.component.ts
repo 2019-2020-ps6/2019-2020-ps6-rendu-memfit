@@ -6,6 +6,9 @@ import {MatDialog, MatDialogConfig} from "@angular/material";
 import {DialogDeleteComponent} from './dialog-delete/dialog-delete.component';
 import {DialogPhotoComponent} from './dialog-photo/dialog-photo.component';
 import {Observable} from 'rxjs';
+import {QuizService} from '../../../services/quiz.service';
+import {QuizRecord} from '../../../models/quizrecord.model';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-manage',
@@ -14,14 +17,22 @@ import {Observable} from 'rxjs';
 })
 export class ManageComponent implements OnInit {
   public patientList: Patient[] = [];
+  public quizzesRecordList: QuizRecord[] = [];
   public patientListObs$: Observable<Patient[]>;
   patientForm: any;
   indexSelected : number = 0;
   patientSelected: Patient;
   deleteConf: boolean;
   profileImgURL: string;
+  lastQuizzPassed: string;
 
-  constructor(public formBuilder: FormBuilder, public patientService: PatientService, private dialogDelete: MatDialog, private dialogPhoto: MatDialog) {
+  constructor(
+    public formBuilder: FormBuilder,
+    public patientService: PatientService,
+    private quizService: QuizService,
+    private dialogDelete: MatDialog,
+    private dialogPhoto: MatDialog
+    ) {
     this.profileImgURL = "http://localhost:9428/api/uploads/profile_default.png";
     this.deleteConf = false;
     this.patientForm = this.formBuilder.group({
@@ -37,6 +48,11 @@ export class ManageComponent implements OnInit {
     await new Promise(resolve => setTimeout(resolve, 20));
     this.patientSelected = this.patientList[0];
     this.profileImgURL = this.patientSelected.photo;
+    this.quizService.quizRecords$.subscribe((quizzes: QuizRecord[]) => {
+      this.quizzesRecordList = quizzes;
+    });
+    let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
+    this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length-1].id);
   }
 
   addPatient() {
@@ -53,6 +69,8 @@ export class ManageComponent implements OnInit {
     this.indexSelected = index;
     this.patientSelected = this.patientList[index];
     this.profileImgURL = this.patientSelected.photo;
+    let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
+    this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length-1].id);
   }
 
   async deletePatient() {
@@ -92,5 +110,9 @@ export class ManageComponent implements OnInit {
         this.patientService.changePatientPicture(result, this.patientSelected.id);
       }
     });
+  }
+
+  myFormatDate(date: string) {
+    return formatDate(date, 'dd/MM/yyyy à hh:mm', 'fr');
   }
 }

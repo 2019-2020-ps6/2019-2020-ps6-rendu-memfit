@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Patient } from '../models/patient.model';
-import { PATIENT_LIST } from '../mocks/patient-list.mock';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 
 @Injectable({

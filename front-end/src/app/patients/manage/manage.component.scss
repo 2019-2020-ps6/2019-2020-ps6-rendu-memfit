@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .photoProfile {
   display: block;
   width: 8em;
@@ -88,4 +90,20 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+h1 {
+  font-family: Roboto, serif;
+  font-size: 6vh;
+  font-weight: lighter;
+  color: #224656;
+  margin: 0;
+  text-align: center;
+}
+
+hr {
+  margin-left: 45%;
+  margin-right: 45%;
+  border: 2px solid $yellow;
+  margin-top: -.005em;
 }
