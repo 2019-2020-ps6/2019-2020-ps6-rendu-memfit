@@ -42,7 +42,7 @@ export class PatientService {
   //   return res;
   // }
 
-  getPatientFromList(patientId : any) {
+  getPatient(patientId : any) {
     return this.patients.filter(patient => patient.id == patientId)[0];
   }
 

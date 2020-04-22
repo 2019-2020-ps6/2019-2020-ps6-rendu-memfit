@@ -28,7 +28,7 @@ export class QuizRecordComponent implements OnInit {
 
 
   private quizListRecordsUpdate(quizs: QuizRecord[]) {
-    this.quizRecords = this.quizService.getPatientRecordsFromList(this.patientId, quizs);
+    this.quizRecords = this.quizService.getPatientRecords(this.patientId);
   }
 
   private updatePatient(patient: Patient) {

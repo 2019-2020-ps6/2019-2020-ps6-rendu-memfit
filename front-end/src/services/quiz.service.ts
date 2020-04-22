@@ -96,16 +96,7 @@ export class QuizService {
   }
 
   getPatientRecords(patientId: any){
-    let res = null;
-    // this.quizRecords$.subscribe((quizRecords: QuizRecord[]) => {
-    //   res = quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
-    // });
-    res = this.quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
-    return res;
-  }
-
-  getPatientRecordsFromList(patientId: any, quizRecords) {
-    return quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
+    return this.quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
   }
 
 
