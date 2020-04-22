@@ -14,9 +14,7 @@ const buildQuizRecord = (quizRecordId) => {
  * This function aggregates the questions and answers from the database to build entire quizzes.
  */
 const buildQuizRecords = () => {
-  console.log("eeeeeeee")
   const quizRecords = QuizRecord.get();
-  console.log("eeeeeeeerrrrrrrrrrrrr")
   return quizRecords.map((quizRecord) => buildQuizRecord(quizRecord.id))
 }
 

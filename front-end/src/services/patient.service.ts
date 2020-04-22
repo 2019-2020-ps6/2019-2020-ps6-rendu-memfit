@@ -41,6 +41,10 @@ export class PatientService {
     return res;
   }
 
+  getPatientFromList(patientId : any, patients) {
+    return patients.filter(patient => patient.id == patientId)[0];
+  }
+
   getNameString(patient: Patient) {
     let nameString = "";
 

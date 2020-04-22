@@ -7,7 +7,7 @@ const { AnswerRecord } = require('../../../models')
  */
 const filterAnswerRecordsFromQuizRecord = (quizRecordId) => {
   console.log("rgrgrgr");
-  return AnswerRecord.get().filter((answer) => (answer.quizRecordId === quizRecordId))
+  return AnswerRecord.get().filter((answer) => (answer.quizRecordId == quizRecordId))
 }
 
 module.exports = {

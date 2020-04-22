@@ -60,7 +60,7 @@ export class QuizShowComponent implements OnInit {
 
       this.answerRecord = new AnswerRecord();
       this.answerRecord.id = Date.now();
-      this.answerRecord.quizRecordId =  this.quizRecord.id;
+      this.answerRecord.quizRecordId = this.quizRecord.id, 10;
       this.answerRecord.question = this.currentQuestion.statement;
     } else {
       this.ended = true;

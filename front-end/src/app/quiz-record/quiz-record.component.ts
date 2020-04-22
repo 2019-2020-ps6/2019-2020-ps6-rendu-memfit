@@ -11,16 +11,13 @@ import {QuizService} from "../../services/quiz.service";
   styleUrls: ['./quiz-record.component.scss']
 })
 export class QuizRecordComponent implements OnInit {
-  quizRecords: QuizRecord[];
-
   patientId: any;
   private patient: Patient;
 
 
-  private quisRecords: QuizRecord[];
+  quizRecords: QuizRecord[];
 
   constructor(private route: ActivatedRoute, private patientService: PatientService, private quizService: QuizService) {
-
     this.patientService.patients$.subscribe((patients) => this.updatePatients(patients));
     this.quizService.quizRecords$.subscribe((quizs) => this.quizListRecordsUpdate(quizs));
   }
@@ -31,11 +28,13 @@ export class QuizRecordComponent implements OnInit {
 
 
   private quizListRecordsUpdate(quizs: QuizRecord[]) {
-    this.quisRecords = quizs;
-    this.quizRecords = this.quizService.getPatientRecords(this.patientId);
+    this.quizRecords = quizs;
+    this.quizRecords = this.quizService.getPatientRecordsFromList(this.patientId, quizs);
   }
 
   private updatePatients(patients: Patient[]) {
-    this.patient = this.patientService.getPatient(this.patientId);
+    console.log(patients);
+    this.patient = this.patientService.getPatientFromList(this.patientId, patients);
+    console.log(this.patient)
   }
 }

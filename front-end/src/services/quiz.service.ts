@@ -1,10 +1,10 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { Quiz } from '../models/quiz.model';
-import { QUIZ_LIST } from '../mocks/quiz-list.mock';
-import { Question } from '../models/question.model';
-import { serverUrl, httpOptionsBase } from '../configs/server.config';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {Quiz} from '../models/quiz.model';
+import {QUIZ_LIST} from '../mocks/quiz-list.mock';
+import {Question} from '../models/question.model';
+import {serverUrl, httpOptionsBase} from '../configs/server.config';
 import {AnswerRecord, QuizRecord} from "../models/quizrecord.model";
 import {Patient} from "../models/patient.model";
 
@@ -86,7 +86,6 @@ export class QuizService {
   }
 
 
-
   setQuizRecordsFromUrl() {
     this.http.get<QuizRecord[]>(this.quizRecordUrl).subscribe((quizRecordList) => {
       this.quizRecords = quizRecordList;
@@ -95,13 +94,11 @@ export class QuizService {
     });
   }
 
-  getPatientRecords(patientId: any){
-    let res = null;
-    res = this.quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
-    return res;
+  getPatientRecordsFromList(patientId: any, quizRecords) {
+    return quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
   }
 
-  startQuizRecord(quizRecord: QuizRecord){
+  startQuizRecord(quizRecord: QuizRecord) {
     const recordUrl = this.quizRecordUrl;
     this.http.post<QuizRecord>(recordUrl, quizRecord, this.httpOptions).subscribe(() => this.setQuizRecordsFromUrl());
   }
