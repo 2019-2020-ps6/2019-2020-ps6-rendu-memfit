@@ -1,29 +1,46 @@
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">
-      <i class="fab fa-leanpub"></i>
-      {{question.statement}}
-    </h5>
+<mat-expansion-panel>
 
-    <hr id="dividerTitle">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <h5>{{question.statement}}</h5>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-    <div *ngIf="question.image">
-      <img [src]="question.image" class="rounded mx-auto d-block" height="100px" width="100px">
-      <hr>
-      <br>
-    </div>
+  <hr>
 
-
-    <div class="card-text">
-        <div class="answer" *ngFor="let answer of question.answers; let i=index">
-            <div *ngIf="answer.image">
-              <img [src]="answer.image" class="rounded mx-auto d-block" height="100px" width="100px">
-            </div>
-            {{i + 1}} - {{answer.statement}} <ng-container *ngIf="answer.valid"><i class="far fa-check-square"></i></ng-container><br>
-            <hr>
-        </div>
-    </div>
-
-    <button class="button-card" (click)="delete()">Supprimer</button>
+  <div *ngIf="question.image">
+    <img [src]="question.image" class="rounded mx-auto d-block" height="100px" width="100px">
+    <br>
   </div>
-</div>
+
+
+  <div class="card-text">
+    <h6>Réponses :</h6>
+
+    <mat-accordion>
+      <div class="answer" *ngFor="let answer of question.answers; let i=index">
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{i + 1}} - {{answer.statement}}  <ng-container *ngIf="answer.valid"> <i class="far fa-check-square"></i></ng-container><br>
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <div *ngIf="answer.image">
+            <img [src]="answer.image" class="border rounded mx-auto d-block" height="100px" width="100px">
+          </div>
+
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
+  </div>
+
+  <br>
+
+  <button class="btn btn-sm btn-outline-secondary ml-auto" id="edit" (click)="edit()"><mat-icon>create</mat-icon> Editer</button>
+
+  <button class="btn btn-sm btn-outline-danger mr-auto"  id="delete"(click)="delete()"><mat-icon>delete</mat-icon> Supprimer</button>
+
+</mat-expansion-panel>
