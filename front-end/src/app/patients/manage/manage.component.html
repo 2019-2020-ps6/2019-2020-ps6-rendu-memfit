@@ -44,7 +44,7 @@
       <h5>Taux de réussite moyen :</h5>
       <br>
       <div>
-          <a routerLink="/quiz-record/" class="btn btn-info w-100 btn-patients">Historique des quiz</a>
+          <a routerLink="/quiz-record/{{patientSelected.id}}" class="btn btn-info w-100 btn-patients">Historique des quiz</a>
         <button class="btn btn-danger w-100 btn-patients" (click)="openDialogDelete()">Supprimer patient</button>
       </div><br>
     </div>
