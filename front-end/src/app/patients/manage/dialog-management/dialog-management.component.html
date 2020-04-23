@@ -1,13 +1,17 @@
-<h2 class="text-center">{{this.patient.firstName}} {{this.patient.lastName}}</h2>
+<h3 class="text-center">Gestion des quiz de {{this.patient.firstName}} {{this.patient.lastName}}</h3>
 <br/>
-<h4 class="text-center">Ajouter un quiz</h4>
 
-<select class="form-control form-control-lg" [formControl]="quizIdToAdd">
-  <option *ngFor="let quiz of this.quizzesToAdd" >{{quiz.name}}</option>
-</select>
+<div class="addForm">
+  <select class="form-control form-control-lg" [formControl]="quizIdToAdd">
+    <option *ngFor="let quiz of this.quizzesToAdd" [value]="quiz.id">{{quiz.name}}</option>
+  </select>
+  <button class="btn btn-info btn-large">Ajouter</button>
+</div>
 
-<h4 class="text-center">Supprimer un quiz</h4>
+<br/>
 
 <ul class="list-group">
-  <li *ngFor="let quiz of this.patientQuizzes" class="list-group-item">{{quiz.name}}</li>
+  <li *ngFor="let quiz of this.patientQuizzes" class="list-group-item">{{quiz.name}}
+    <button class="btn btn-danger btn-large right-fixed" (click)="deleteQuizToPatient(quiz.id)">Supprimer</button>
+  </li>
 </ul>

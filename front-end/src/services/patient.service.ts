@@ -79,6 +79,17 @@ export class PatientService {
     this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
   }
 
+  removeQuizToPatient(quizId: number, patientId: number) {
+    const patientUrl = this.patientUrl + '/' + patientId;
+
+    //we get the patient
+    let patient = this.getPatient(patientId);
+    //we add the new quizId to his quizzesId tab
+    patient.quizzesId = patient.quizzesId.filter(patientQuizId => patientQuizId != quizId);
+    //then we update it in the back-end
+    this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
+  }
+
   changePatientPicture(picture: string, patientId: number) {
     const patientUrl = this.patientUrl + '/' + patientId;
     let patient = this.getPatient(patientId);
