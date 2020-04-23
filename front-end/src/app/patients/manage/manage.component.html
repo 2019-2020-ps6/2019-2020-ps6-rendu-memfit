@@ -6,7 +6,7 @@
 
   <div class="column">
     <ul class="list-group first-column">
-      <li *ngFor="let p of patientList | async; let index = index;"
+      <li *ngFor="let p of patientList; let index = index;"
           class="list-group-item d-flex justify-content-between align-items-center clickable" value="{{index}} "
           (click)="onClick(index)">
         <ng-container *ngIf="index == indexSelected; else elseBlock">

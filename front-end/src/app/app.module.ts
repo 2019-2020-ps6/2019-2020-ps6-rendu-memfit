@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -39,7 +39,7 @@ import { QuizRecordComponent } from './quiz-record/quiz-record.component';
 import { DialogDeleteComponent } from './patients/manage/dialog-delete/dialog-delete.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { ImageChoicePopupComponent } from './image-choice-popup/image-choice-popup.component';
+import {ImageChoicePopupComponent} from './image-choice-popup/image-choice-popup.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -93,8 +93,11 @@ registerLocaleData(localeFr, 'fr');
     MatExpansionModule
   ],
   exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: "fr-FR"}
+  ],
   bootstrap: [AppComponent],
   entryComponents: [DialogDeleteComponent, ImageChoicePopupComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

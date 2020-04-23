@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient.service';
 import {FormBuilder} from '@angular/forms';
@@ -18,7 +18,7 @@ export class ManageComponent implements OnInit {
   public patientList: Patient[];
   public quizzesRecordList: QuizRecord[] = [];
   patientForm: any;
-  indexSelected : number = 0;
+  indexSelected: number = 0;
   patientSelected: Patient;
   deleteConf: boolean;
   profileImgURL: string;
@@ -32,12 +32,13 @@ export class ManageComponent implements OnInit {
     private quizService: QuizService,
     private dialogDelete: MatDialog,
     private dialogPhoto: MatDialog
-    ) {
+  ) {
     this.patientService.patients$.subscribe((patients: Patient[]) => {
       this.initPatients(patients);
     });
-    this.quizService.quizRecords$.subscribe((quizzes: QuizRecord[]) => {
-      this.initQuizRecords(quizzes);
+
+    this.patientService.patientSelected$.subscribe((patient: Patient) => {
+      this.setSelectedPatient(patient);
     });
     this.profileImgURL = "http://localhost:9428/api/uploads/profile_default.png";
     this.deleteConf = false;
@@ -64,8 +65,8 @@ export class ManageComponent implements OnInit {
     this.patientSelected = this.patientList[index];
     this.profileImgURL = this.patientSelected.photo;
     let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
-    if(patientRecords.length != 0) {
-      this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length-1].id);
+    if (patientRecords.length != 0) {
+      this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length - 1].id);
       this.hasAnHistoric = true;
     } else {
       this.lastQuizzPassed = "Aucun quiz réalisé";
@@ -85,23 +86,30 @@ export class ManageComponent implements OnInit {
   }
 
 
-
-
   // INIT METHODS
 
-  async initPatients(patients: Patient[]) {
-    await new Promise(resolve => setTimeout(resolve, 20));
-    this.patientSelected = patients[0];
-    this.profileImgURL = this.patientSelected.photo;
+  initPatients(patients: Patient[]) {
     this.patientList = patients;
-    this.attribuedQuizNb = this.patientSelected.quizzesId.length;
+    if(!this.patientSelected && patients != undefined){
+      // this.setSelectedPatient(patients[0]);
+      this.patientSelected = patients[0];
+    }
   }
 
-  async initQuizRecords(quizzRecords : QuizRecord[]) {
-    await new Promise(resolve => setTimeout(resolve, 20));
+  setSelectedPatient(patient: Patient) {
+    this.patientSelected = patient;
+    this.profileImgURL = this.patientSelected.photo;
+    this.attribuedQuizNb = this.patientSelected.quizzesId.length;
+    this.quizService.quizRecords$.subscribe((quizRecords: QuizRecord[]) => {
+      this.initQuizRecords(quizRecords);
+    });
+  }
+
+
+  initQuizRecords(quizzRecords: QuizRecord[]) {
     this.quizzesRecordList = quizzRecords;
     let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
-    this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length-1].id);
+    this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length - 1].id);
   }
 
 
@@ -132,11 +140,11 @@ export class ManageComponent implements OnInit {
   openDialogPhoto(): void {
     const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
       width: '600px',
-      data: {profileImgURL : this.profileImgURL}
+      data: {profileImgURL: this.profileImgURL}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result!=null) {
+      if (result != null) {
         this.profileImgURL = result;
         this.patientService.changePatientPicture(result, this.patientSelected.id);
       }

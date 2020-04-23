@@ -1,15 +1,5 @@
 [
   {
-    "id": 1,
-    "quizId": 2,
-    "statement": "Sélectionnez le phare de la moto"
-  },
-  {
-    "id": 2,
-    "quizId": 2,
-    "statement": "Lequel de ces deux roues est un cyclomoteur ?"
-  },
-  {
     "statement": "test",
     "quizId": 1587423961254,
     "id": 1587427096309
@@ -152,8 +142,13 @@
     "id": 1587480506678
   },
   {
-    "statement": "Combien de chevaux fait une moto GP ?",
-    "quizId": 1587562286536,
-    "id": 1587582934998
+    "statement": "Quel est la couleur préférée de monsieur collet ?",
+    "quizId": 2,
+    "id": 1587588737892
+  },
+  {
+    "statement": "Vaut mieux-t-il avoir :",
+    "quizId": 2,
+    "id": 1587588798328
   }
 ]
