@@ -145,7 +145,7 @@ export class ManageComponent implements OnInit {
     const dialogRef = this.dialogManagement.open(DialogManagementComponent, {
       width: '70%',
       data: {
-        patient: this.patientSelected.id
+        patient: this.patientSelected
       }
     });
   }

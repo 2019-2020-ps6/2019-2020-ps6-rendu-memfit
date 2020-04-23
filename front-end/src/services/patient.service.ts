@@ -33,17 +33,13 @@ export class PatientService {
     });
   }
 
-  // getPatient(patientId : any) {
-  //   let res = null;
-  //   this.patients$.subscribe((patients: Patient[]) => {
-  //     res = patients.filter(patient => patient.id == patientId)[0];
-  //   });
-  //   return res;
-  // }
-
-  getPatient(patientId : any) {
-    return this.patients.filter(patient => patient.id == patientId)[0];
-  }
+   getPatient(patientId : any) {
+     let res = null;
+     this.patients$.subscribe((patients: Patient[]) => {
+       res = patients.filter(patient => patient.id == patientId)[0];
+     });
+     return res;
+   }
 
   getNameString(patient: Patient) {
     let nameString = "";
