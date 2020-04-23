@@ -8,6 +8,7 @@ import {ImageChoicePopupComponent} from '../../image-choice-popup/image-choice-p
 import {QuizService} from '../../../services/quiz.service';
 import {QuizRecord} from '../../../models/quizrecord.model';
 import {formatDate} from '@angular/common';
+import {DialogManagementComponent} from "./dialog-management/dialog-management.component";
 
 @Component({
   selector: 'app-manage',
@@ -31,6 +32,7 @@ export class ManageComponent implements OnInit {
     public patientService: PatientService,
     private quizService: QuizService,
     private dialogDelete: MatDialog,
+    private dialogManagement : MatDialog,
     private dialogPhoto: MatDialog
   ) {
     this.patientService.patients$.subscribe((patients: Patient[]) => {
@@ -139,6 +141,15 @@ export class ManageComponent implements OnInit {
     });
   }
 
+  openDialogManagement() {
+    const dialogRef = this.dialogManagement.open(DialogManagementComponent, {
+      width: '70%',
+      data: {
+        patient: this.patientSelected
+      }
+    });
+  }
+
   openDialogPhoto(): void {
     const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
       width: '600px',
@@ -151,9 +162,5 @@ export class ManageComponent implements OnInit {
         this.patientService.changePatientPicture(result, this.patientSelected.id);
       }
     });
-  }
-
-  openDialogAttribution() {
-
   }
 }

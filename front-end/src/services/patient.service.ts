@@ -33,17 +33,13 @@ export class PatientService {
     });
   }
 
-  // getPatient(patientId : any) {
-  //   let res = null;
-  //   this.patients$.subscribe((patients: Patient[]) => {
-  //     res = patients.filter(patient => patient.id == patientId)[0];
-  //   });
-  //   return res;
-  // }
-
-  getPatient(patientId : any) {
-    return this.patients.filter(patient => patient.id == patientId)[0];
-  }
+   getPatient(patientId : any) {
+     let res = null;
+     this.patients$.subscribe((patients: Patient[]) => {
+       res = patients.filter(patient => patient.id == patientId)[0];
+     });
+     return res;
+   }
 
   getNameString(patient: Patient) {
     let nameString = "";
@@ -79,6 +75,19 @@ export class PatientService {
     let patient = this.getPatient(patientId);
     //we add the new quizId to his quizzesId tab
     patient.quizzesId.push(quizId);
+    //then we update it in the back-end
+    this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
+
+    let p = this.getPatient(patientId);
+  }
+
+  removeQuizToPatient(quizId: number, patientId: number) {
+    const patientUrl = this.patientUrl + '/' + patientId;
+
+    //we get the patient
+    let patient = this.getPatient(patientId);
+    //we add the new quizId to his quizzesId tab
+    patient.quizzesId = patient.quizzesId.filter(patientQuizId => patientQuizId != quizId);
     //then we update it in the back-end
     this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
   }

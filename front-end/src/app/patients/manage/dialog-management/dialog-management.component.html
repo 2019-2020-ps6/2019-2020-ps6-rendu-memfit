@@ -1,0 +1,17 @@
+<h3 class="text-center">Gestion des quiz de {{this.patient.firstName}} {{this.patient.lastName}}</h3>
+<br/>
+
+<div class="addForm">
+  <select class="form-control form-control-lg" (change)="selectChangeHandler($event)">
+    <option *ngFor="let quiz of this.quizzesToAdd" [value]="quiz.id">{{quiz.name}}</option>
+  </select>
+  <button class="btn btn-info btn-large" (click)="addQuizToPatient(this.quizIdToAdd)">Ajouter</button>
+</div>
+
+<br/>
+
+<ul class="list-group">
+  <li *ngFor="let quiz of this.patientQuizzes" class="list-group-item">{{quiz.name}}
+    <button class="btn btn-danger btn-large right-fixed" (click)="deleteQuizToPatient(quiz.id)">Supprimer</button>
+  </li>
+</ul>

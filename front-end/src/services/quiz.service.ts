@@ -83,8 +83,6 @@ export class QuizService {
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
-
-
   setQuizRecordsFromUrl() {
     this.http.get<QuizRecord[]>(this.quizRecordUrl).subscribe((quizRecordList) => {
       this.quizRecords = quizRecordList;
@@ -95,7 +93,6 @@ export class QuizService {
   getPatientRecords(patientId: any) {
     return this.quizRecords.filter(quizRecord => quizRecord.patientId === patientId);
   }
-
 
   startQuizRecord(quizRecord: QuizRecord) {
     const recordUrl = this.quizRecordUrl;
