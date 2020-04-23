@@ -77,6 +77,8 @@ export class PatientService {
     patient.quizzesId.push(quizId);
     //then we update it in the back-end
     this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
+
+    let p = this.getPatient(patientId);
   }
 
   removeQuizToPatient(quizId: number, patientId: number) {

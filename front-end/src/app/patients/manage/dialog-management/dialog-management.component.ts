@@ -23,7 +23,12 @@ export class DialogManagementComponent implements OnInit {
   public quizzesToAdd: Quiz[];
   public patientQuizzes: Quiz[];
 
-  quizIdToAdd = new FormControl('');
+
+  public quizIdToAdd :any;
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.quizIdToAdd = event.target.value;
+  }
 
   constructor(
     public quizService: QuizService,
@@ -32,6 +37,13 @@ export class DialogManagementComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.patient = this.data.patient;
     this.quizzesId = this.patient.quizzesId;
+    this.refreshLists();
+  }
+
+  ngOnInit() {
+  }
+
+  refreshLists() {
     //we set the quizzes of the patient
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.patientQuizzes = quizzes.filter(quiz => this.patient.quizzesId.includes(quiz.id));
@@ -42,20 +54,18 @@ export class DialogManagementComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
   deleteQuizToPatient(quizId: number) {
     //we remove the quiz of the patient's quiz list
     this.patientService.removeQuizToPatient(quizId, this.patient.id);
     //then we update the lists
-    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
-      this.patientQuizzes = quizzes.filter(quiz => this.patient.quizzesId.includes(quiz.id));
-    });
+    this.refreshLists();
   }
 
   addQuizToPatient(quizId: number) {
-
+    //we add the quiz of the patient's quiz list
+    this.patientService.addQuizToPatient(quizId, this.patient.id);
+    //then we update the lists
+    this.refreshLists();
   }
 }
 
