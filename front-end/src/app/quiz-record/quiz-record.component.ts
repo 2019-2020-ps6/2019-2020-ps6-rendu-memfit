@@ -19,7 +19,6 @@ export class QuizRecordComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private patientService: PatientService, private quizService: QuizService) {
     this.patientService.patientSelected$.subscribe((patient) => this.updatePatient(patient));
-    this.patientService.patients$.subscribe((patients) => this.updatePatientsList(patients));
   }
 
   ngOnInit() {
@@ -37,7 +36,4 @@ export class QuizRecordComponent implements OnInit {
     this.quizService.quizRecords$.subscribe((quizs) => this.quizListRecordsUpdate(quizs));
   }
 
-  private updatePatientsList(patients: Patient[]) {
-    this.patients = patients;
-  }
 }
