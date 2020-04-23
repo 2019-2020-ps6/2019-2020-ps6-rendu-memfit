@@ -90,7 +90,6 @@ export class QuizService {
   setQuizRecordsFromUrl() {
     this.http.get<QuizRecord[]>(this.quizRecordUrl).subscribe((quizRecordList) => {
       this.quizRecords = quizRecordList;
-      console.log(this.quizRecords)
       this.quizRecords$.next(this.quizRecords);
     });
   }

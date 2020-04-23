@@ -90,9 +90,9 @@ export class ManageComponent implements OnInit {
 
   initPatients(patients: Patient[]) {
     this.patientList = patients;
-    if(!this.patientSelected && patients != undefined){
-      // this.setSelectedPatient(patients[0]);
-      this.patientSelected = patients[0];
+    if (!this.patientSelected && patients != undefined) {
+      this.setSelectedPatient(patients[0]);
+      // this.patientSelected = patients[0];
     }
   }
 
@@ -107,9 +107,11 @@ export class ManageComponent implements OnInit {
 
 
   initQuizRecords(quizzRecords: QuizRecord[]) {
-    this.quizzesRecordList = quizzRecords;
-    let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
-    this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length - 1].id);
+    this.quizzesRecordList = quizzRecords
+    if(quizzRecords.length > 0) {
+      let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
+      this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length - 1].id);
+    }
   }
 
 
