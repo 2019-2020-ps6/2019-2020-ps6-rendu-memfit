@@ -56,5 +56,12 @@
     "quizzesId": [],
     "photo": "http://localhost:9428/api/uploads/dFERykMokntQ9pa7EHRFvvav.png",
     "id": 1587587828832
+  },
+  {
+    "firstName": "Kevin",
+    "lastName": " ",
+    "quizzesId": [],
+    "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png",
+    "id": 1587633384030
   }
 ]
