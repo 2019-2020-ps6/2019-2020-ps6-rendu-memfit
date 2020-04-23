@@ -44,6 +44,8 @@ export class DialogManagementComponent implements OnInit {
   }
 
   refreshLists() {
+    //first we refresh the patient
+    this.patient = this.patientService.getPatient(this.patient.id);
     //we set the quizzes of the patient
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.patientQuizzes = quizzes.filter(quiz => this.patient.quizzesId.includes(quiz.id));
