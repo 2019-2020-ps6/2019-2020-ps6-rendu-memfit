@@ -68,14 +68,26 @@
 
     <ng-template #startModal>
       <div class="middle-screen">
-        <h1 class="text-center">Quiz {{quiz.name}}</h1>
-        <div *ngIf="quiz.theme">
-          <h5 class="text-center">{{quiz.theme}}</h5>
+        <div class="row">
+          <div *ngIf="quiz.image">
+
+            <div class="col-12 col-lg-4">
+              <img class="img-thumbnail" src="{{this.imgService.getImgUrl(quiz.image)}}" alt="answer">
+            </div>
+          </div>
         </div>
-        <div *ngIf="quiz.image">
-          <img class="img-fluid" src="{{this.imgService.getImgUrl(quiz.image)}}" alt="answer">
+        <div class="col-12 col-lg-auto">
+          <h1 class="text-center">Quiz {{quiz.name}}</h1>
+          <div *ngIf="quiz.theme">
+            <h5 class="text-center">{{quiz.theme}}</h5>
+          </div>
+          <button class="btn btn-warning w-100 m-1" (click)="toggleNextQuestion()">
+            <div class="row">
+              <div class="col-8"><h4>Commencer</h4></div>
+              <div class="col-4"><img src="assets/click.gif" alt="Félicitations" style="height:1.6em"></div>
+            </div>
+          </button>
         </div>
-        <button class="btn btn-warning w-100 m-1" (click)="toggleNextQuestion()">Commencer</button>
       </div>
     </ng-template>
 
