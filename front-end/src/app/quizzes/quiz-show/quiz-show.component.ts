@@ -68,15 +68,24 @@ export class QuizShowComponent implements OnInit {
   }
 
   private hasNextQuestion() {
-    return this.quiz.questions.length > 0;
+    return this.getRemainingQuestion() > 0;
   }
+
+  private getRemainingQuestion(){
+    return this.quiz.questions.length;
+  }
+
 
   handleResponse(answer) {
     this.answerRecord.answer = answer.statement;
     this.answerRecord.correct = answer.valid;
     if (answer.valid) {
       this.quizService.addAnswerRecord(this.quizRecord, this.answerRecord); // Answer right, send it to SERVER
-      this.currentHandleCode = this.SUPER_BIEN_JOUE;
+      if(this.getRemainingQuestion() >= 1) {
+        this.currentHandleCode = this.SUPER_BIEN_JOUE;
+      }else{
+        this.ended = true;
+      }
     } else {
       this.currentHandleCode = this.VOULIEZ_VOUS_DIRE;
     }

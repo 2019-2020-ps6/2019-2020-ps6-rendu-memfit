@@ -199,5 +199,19 @@
     "valid": false,
     "questionId": 1587588798328,
     "id": 1587588798330
+  },
+  {
+    "statement": "Gucci",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg",
+    "valid": true,
+    "questionId": 1587634764890,
+    "id": 1587634764891
+  },
+  {
+    "statement": "Guccigang",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg",
+    "valid": true,
+    "questionId": 1587634764890,
+    "id": 1587634764892
   }
 ]
