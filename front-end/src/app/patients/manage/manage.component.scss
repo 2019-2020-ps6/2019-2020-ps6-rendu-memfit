@@ -6,6 +6,7 @@
   height: 8em;
   object-fit: cover;
   border-radius: 200px;
+  border: 1px solid yellow;
 }
 
 #photoPatient {
@@ -42,15 +43,15 @@
 }
 
 #info-patients {
-  border: 1px #1b1e21 solid;
+  background-color: white;
+  border: 1px solid #e3e3e3;
   border-radius: .5em;
   padding: 2em;
 }
 
 .btn-patients {
   //float: right;
-  margin-right: 2em;
-  width: 28% !important;
+  width: 50% !important;
 }
 
 .clickable {
@@ -118,4 +119,12 @@ h6 {
   font-size: 1rem;
   font-weight: normal;
   color: #224656;
+}
+
+.button-group {
+  display: flex;
+}
+
+.button-group button {
+  border-radius: 0;
 }

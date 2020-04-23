@@ -54,11 +54,11 @@
       <h6>Dernier quiz joué : {{lastQuizzPassed}}</h6>
       <h6>Taux de réussite moyen :</h6>
       <br>
-      <div>
-          <button class="btn btn-success w-100 btn-patients" (click)="openDialogAttribution()">Attribuer des quiz</button>
+      <div class="button-group">
+          <button class="btn btn-success w-100 btn-patients" (click)="openDialogManagement()">Gestion des quiz</button>
           <button [disabled]="!hasAnHistoric" routerLink="/quiz-record/{{patientSelected.id}}" class="btn btn-info w-100 btn-patients">Historique des quiz</button>
           <button class="btn btn-danger w-100 btn-patients" (click)="openDialogDelete()">Supprimer patient</button>
-      </div><br>
+      </div>
     </div>
   </div>
   </ng-container>
