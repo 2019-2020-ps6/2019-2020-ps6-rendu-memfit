@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../../../models/question.model';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {QuizService} from '../../../services/quiz.service';
 
 @Component({
   selector: 'app-question',
@@ -11,17 +13,33 @@ export class QuestionComponent implements OnInit {
   @Input()
   question: Question;
 
+  @Input()
+  indexQuestion: number;
+
   @Output()
   deleteQuestion: EventEmitter<Question> = new EventEmitter<Question>();
-  editQuestion: EventEmitter<Question> = new EventEmitter<Question>();
 
-  constructor() { }
+
+  public questionStatementForm: FormGroup;
+  panelOpenState = false;
+  editQuestionStatement = false;
+
+  constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
+    // Form creation
+    this.initializeQuestionForm();
+  }
+
+  private initializeQuestionForm() {
+    this.questionStatementForm = this.formBuilder.group({
+      statement: ['']
+    });
+  }
 
   ngOnInit() {
   }
 
-  edit() {
-    this.editQuestion.emit(this.question);
+  editQuestionStatementFCT() {
+    this.editQuestionStatement = true;
   }
 
   delete() {

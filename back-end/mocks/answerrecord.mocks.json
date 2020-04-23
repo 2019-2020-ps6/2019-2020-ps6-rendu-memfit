@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1587659945242,
+    "quizRecordId": "1587659945241",
+    "question": "Combien de chevaux fait une moto GP ?",
+    "answer": "Plus de 300",
+    "correct": true
+  },
+  {
+    "id": 1587659966773,
+    "quizRecordId": "1587659966773",
+    "question": "Sélectionnez le phare de la moto",
+    "answer": "Le pot d'échappement",
+    "correct": false,
+    "rectified": true
+  },
+  {
+    "id": 1587659983749,
+    "quizRecordId": "1587659966773",
+    "question": "Lequel de ces deux roues est un cyclomoteur ?",
+    "answer": "La Peugeot SX1198",
+    "correct": false,
+    "rectified": false
+  },
+  {
+    "id": 1587669340633,
+    "quizRecordId": "1587669340631",
+    "question": "De quelle couleur est le cheval blanc d'Henri 4 ?",
+    "answer": "Marron clair à cause de la boue (et d'un repas un peu trop épicé)...",
+    "correct": true
+  },
+  {
+    "id": 1587669356370,
+    "quizRecordId": "1587669340631",
+    "question": "Un canard moyen peut nourrir combien d'adultes ?",
+    "answer": "0,3 Obélix",
+    "correct": false,
+    "rectified": false
+  }
+]

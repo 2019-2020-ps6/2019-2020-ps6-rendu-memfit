@@ -8,7 +8,8 @@
       1587478953804,
       1587480497285,
       1587562161774,
-      1587562286536
+      1587562286536,
+      1587668956442
     ],
     "firstName": "Antoine",
     "lastName": "facq",
@@ -49,19 +50,5 @@
     ],
     "id": 1587480285481,
     "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
-  },
-  {
-    "firstName": "j",
-    "lastName": " ",
-    "quizzesId": [],
-    "photo": "http://localhost:9428/api/uploads/dFERykMokntQ9pa7EHRFvvav.png",
-    "id": 1587587828832
-  },
-  {
-    "firstName": "Kevin",
-    "lastName": " ",
-    "quizzesId": [],
-    "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png",
-    "id": 1587633384030
   }
 ]

@@ -32,7 +32,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatRippleModule
+  MatRippleModule, MatTabsModule
 } from '@angular/material';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { QuizRecordComponent } from './quiz-record/quiz-record.component';
@@ -90,7 +90,8 @@ registerLocaleData(localeFr, 'fr');
     MatRippleModule,
     MatIconModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule
   ],
   exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule],
   providers: [

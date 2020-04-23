@@ -5,7 +5,7 @@
 }
 
 #edit {
-  float: left;
+  float: right;
 }
 
 #delete {
@@ -14,4 +14,8 @@
 
 mat-icon {
   vertical-align: text-bottom;
+}
+
+#expansion-panel-question {
+  background-color: #f2f2f2;
 }
