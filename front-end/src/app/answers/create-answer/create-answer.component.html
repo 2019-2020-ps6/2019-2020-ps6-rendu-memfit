@@ -1,0 +1,39 @@
+<form class="answer-form" [formGroup]="answerForm">
+
+  <h4>Rappel de la question : {{question.statement}}</h4>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Intitulé de la réponse</mat-label>
+      <input matInput placeholder="Ecrivez ici" [formControlName]="'statement'" #inputStatement required>
+    </mat-form-field>
+
+    <br>
+
+    <mat-checkbox type="checkbox" [formControlName]="'valid'" #checkboxCorrectAnswer required>
+    Est elle correcte ?
+    </mat-checkbox>
+
+    <br>
+
+    <div class="form-group photo-form">
+      <div id="cadre-photo">
+        <img id="photoAnswers" [src]="photoURLAnswer">
+      </div>
+
+      <br>
+
+      <div>
+        <button class="btn btn-warning upload-btn" (click)="openDialogPhotoAnswer()" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
+      </div>
+    </div>
+
+    <br>
+
+  <hr>
+
+  <button type="submit" class="button-card" (click)="addAnswer()" data-dismiss="modal" aria-label="Close">Créer</button>
+
+</form>
+
+<!-- Uncomment below to see your form structure and how it changes-->
+<!-- <br><br>{{quizForm.getRawValue() | json}} -->

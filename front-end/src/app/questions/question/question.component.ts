@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Answer, Question} from '../../../models/question.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {QuizService} from '../../../services/quiz.service';
+import {Quiz} from '../../../models/quiz.model';
 
 @Component({
   selector: 'app-question',
@@ -12,6 +13,9 @@ export class QuestionComponent implements OnInit {
 
   @Input()
   question: Question;
+
+  @Input()
+  quiz: Quiz;
 
   @Input()
   indexQuestion: number;
@@ -37,6 +41,7 @@ export class QuestionComponent implements OnInit {
   panelOpenState = false;
   editQuestionStatement = false;
   editAnswerStatement = false;
+  questionToUpdateWithNewAnswer: Question;
 
   constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
     // Form creation

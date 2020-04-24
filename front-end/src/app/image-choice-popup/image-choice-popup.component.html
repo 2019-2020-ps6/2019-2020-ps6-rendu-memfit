@@ -14,8 +14,14 @@
       <button mat-button [mat-dialog-close]="data.imgURL" cdkFocusInitial data-toggle="modal" data-target="#createQuestion">Enregistrer</button>
     </div>
     <ng-template #elseValidateUpload>
-      <button mat-button (click)="onNoClick()">Annuler</button>
-      <button mat-button [mat-dialog-close]="data.imgURL" cdkFocusInitial>Enregistrer</button>
+      <div *ngIf="this.data.fromWitchComponent == 'createAnswer'; else elseValidateUploadNothing">
+        <button mat-button (click)="onNoClick()" data-toggle="modal" data-target="#createAnswer">Annuler</button>
+        <button mat-button [mat-dialog-close]="data.imgURL" cdkFocusInitial data-toggle="modal" data-target="#createAnswer">Enregistrer</button>
+      </div>
+      <ng-template #elseValidateUploadNothing>
+        <button mat-button (click)="onNoClick()">Annuler</button>
+        <button mat-button [mat-dialog-close]="data.imgURL" cdkFocusInitial>Enregistrer</button>
+      </ng-template>
     </ng-template>
   </div>
 

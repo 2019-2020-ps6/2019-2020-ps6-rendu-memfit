@@ -124,7 +124,7 @@ export class QuestionFormComponent implements OnInit {
   openDialogPhotoAnswers(): void {
     const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
       width: '600px',
-      data: {profileImgURL: this.photoURLAnswers[this.witchAnswerIsEdited]}
+      data: {profileImgURL: this.photoURLAnswers[this.witchAnswerIsEdited], fromWitchComponent: 'createQuestion'}
     });
 
     dialogRef.afterClosed().subscribe(result => {

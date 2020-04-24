@@ -45,6 +45,7 @@ registerLocaleData(localeFr, 'fr');
 
 
 import { OrderModule } from 'ngx-order-pipe';
+import {CreateAnswerComponent} from './answers/create-answer/create-answer.component';
 
 
 // @ts-ignore
@@ -77,7 +78,8 @@ import { OrderModule } from 'ngx-order-pipe';
     QuizRecordComponent,
     DialogDeleteComponent,
     DialogManagementComponent,
-    ImageChoicePopupComponent
+    ImageChoicePopupComponent,
+    CreateAnswerComponent
   ],
   imports: [
     OrderModule,
