@@ -13,7 +13,7 @@ import {QuizService} from "../../../../services/quiz.service";
 export class QuizSelectorComponent implements OnInit {
 
   routeParams: Params;
-  public patientId: number = null;
+  public patientId: number;
   public patientStringName: string;
 
   public patient: Patient = null;
@@ -26,19 +26,15 @@ export class QuizSelectorComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => {
       this.routeParams = params;
     });
-    this.patientId = this.routeParams.patientId;
 
     //then we get the patient object from the PatientService
-    this.patient = this.patientService.getPatient(this.patientId);
+    this.patientService.patientSelected$.subscribe(patient => {
+      this.setPatient(patient);
+    })
 
     //then we set up his display name with PatientService
-    this.patientStringName = this.patientService.getNameString(this.patient);
-    this.patient.photo = this.patientService.getPhotoUrl(this.patient);
 
     //we get the quizzes
-    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
-      this.quizList = quizzes.filter(quiz => this.patient.quizzesId.includes(quiz.id));
-    });
 
     //we set the option of the selector from the url
     if(this.router.url.includes("launch")) {
@@ -50,5 +46,16 @@ export class QuizSelectorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.patientId = this.routeParams.patientId;
+    this.patientService.setSelectedPatient(this.patientId.toString());
+  }
+
+  private setPatient(patient: Patient) {
+    this.patient = patient;
+    this.patientStringName = this.patientService.getNameString(this.patient);
+    this.patient.photo = this.patientService.getPhotoUrl(this.patient);
+    this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
+      this.quizList = quizzes.filter(quiz => this.patient.quizzesId.includes(quiz.id));
+    });
   }
 }

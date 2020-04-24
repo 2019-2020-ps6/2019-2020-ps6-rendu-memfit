@@ -90,8 +90,25 @@ export class QuizService {
     });
   }
 
-  getPatientRecords(patientId: any) {
+  getPatientRecords(patientId: number) {
     return this.quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
+  }
+
+  getPatientStats(patientId: number){
+    let records = this.getPatientRecords(patientId);
+
+    let validatedQuestions = 0;
+    let totalQuestions = 0;
+    for(let record of records){
+      for(let answerRecord of record.records){
+        if(answerRecord.correct || (!answerRecord.correct && answerRecord.rectified)){
+          validatedQuestions++;
+        }
+        totalQuestions++;
+      }
+    }
+
+    return totalQuestions == 0 ? "Aucune statistique" : (validatedQuestions/totalQuestions)*100+"%";
   }
 
   startQuizRecord(quizRecord: QuizRecord) {

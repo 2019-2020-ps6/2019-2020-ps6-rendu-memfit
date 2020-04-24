@@ -4,22 +4,12 @@
     "quizzesId": [
       "1587460207873",
       "2",
-      "1587460207873"
+      "1587460207873",
+      1587561517535
     ],
     "firstName": "Antoine",
     "lastName": "facq",
-    "photo": "https://cdn.radiofrance.fr/s3/cruiser-production/2019/12/610ac15e-0d90-4ad6-968a-747e6bdd2f84/870x489_bg.jpg"
-  },
-  {
-    "firstName": "Test Boi",
-    "lastName": " ",
-    "quizzesId": [
-      "1587460210370",
-      "1587460210370",
-      "1587480497285"
-    ],
-    "id": 1587450650733,
-    "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
+    "photo": "http://localhost:9428/api/uploads/hR-qQwFJ0acnm4hx67PI_L2D.png"
   },
   {
     "firstName": "Antoine bis",
@@ -27,10 +17,7 @@
     "quizzesId": [
       1585056407887,
       1585569797082,
-      1587478953804,
-      1587480497285,
-      1587460423390,
-      1587478508024
+      1587478953804
     ],
     "id": 1587459780541,
     "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
@@ -39,23 +26,18 @@
     "firstName": "Patient Boi",
     "lastName": " ",
     "quizzesId": [
-      "1585056407887"
+      1587458632657
     ],
     "id": 1587480285481,
     "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"
   },
   {
-    "firstName": "j",
+    "firstName": "John Conor",
     "lastName": " ",
-    "quizzesId": [],
-    "photo": "http://localhost:9428/api/uploads/dFERykMokntQ9pa7EHRFvvav.png",
-    "id": 1587587828832
-  },
-  {
-    "firstName": "Kevin",
-    "lastName": " ",
-    "quizzesId": [],
+    "quizzesId": [
+      1585056407887
+    ],
     "photo": "https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png",
-    "id": 1587633384030
+    "id": 1587729956226
   }
 ]

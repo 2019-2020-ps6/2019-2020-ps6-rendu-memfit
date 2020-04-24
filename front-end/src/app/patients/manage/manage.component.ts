@@ -26,6 +26,7 @@ export class ManageComponent implements OnInit {
   lastQuizzPassed: string;
   hasAnHistoric: boolean = true;
   attribuedQuizNb: number = 0;
+  private successPercentage: string;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -64,24 +65,13 @@ export class ManageComponent implements OnInit {
 
   onClick(index: number) {
     this.indexSelected = index;
-    this.patientSelected = this.patientList[index];
-    this.profileImgURL = this.patientSelected.photo;
-    let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
-    if (patientRecords.length != 0) {
-      this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length - 1].id);
-      this.hasAnHistoric = true;
-    } else {
-      this.lastQuizzPassed = "Aucun quiz réalisé";
-      this.hasAnHistoric = false;
-    }
-    this.attribuedQuizNb = this.patientSelected.quizzesId.length;
+    this.setSelectedPatient(this.patientList[index]);
   }
 
-  async deletePatient() {
+  deletePatient() {
     if (this.deleteConf) {
       this.patientService.deletePatient(this.patientSelected);
       if (this.indexSelected != 0) this.indexSelected--;
-      await new Promise(resolve => setTimeout(resolve, 10));
       this.onClick(this.indexSelected);
     }
     this.deleteConf = false;
@@ -105,15 +95,25 @@ export class ManageComponent implements OnInit {
     this.quizService.quizRecords$.subscribe((quizRecords: QuizRecord[]) => {
       this.initQuizRecords(quizRecords);
     });
+    this.attribuedQuizNb = this.patientSelected.quizzesId.length;
   }
 
 
   initQuizRecords(quizzRecords: QuizRecord[]) {
-    this.quizzesRecordList = quizzRecords
-    if(quizzRecords.length > 0) {
-      let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
+    this.quizzesRecordList = quizzRecords;
+    let patientRecords = this.quizService.getPatientRecords(this.patientSelected.id);
+
+
+    if(patientRecords.length > 0) {
       this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length - 1].id);
+      console.log(this.successPercentage);
+      this.hasAnHistoric = true;
+    }else{
+      this.lastQuizzPassed = "Aucun quiz réalisé";
+      this.hasAnHistoric = false;
     }
+    this.successPercentage = this.quizService.getPatientStats(this.patientSelected.id);
+
   }
 
 
@@ -147,6 +147,9 @@ export class ManageComponent implements OnInit {
       data: {
         patient: this.patientSelected
       }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.attribuedQuizNb = this.patientSelected.quizzesId.length;
     });
   }
 
