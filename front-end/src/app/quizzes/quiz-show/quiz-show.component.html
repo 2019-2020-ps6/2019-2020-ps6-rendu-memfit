@@ -1,57 +1,61 @@
 <ng-container *ngIf="quiz; else loadingModal">
 
-  <div class="container position-relative" style="height: 80vh">
+  <div class="container-fluid position-relative" style="height: 80vh">
     <ng-container *ngIf="started && !ended; else (ended && endModal) || startModal">
       <!--  <h1>{{quiz.name}}</h1>-->
       <h2 class="text-center mb-4">
         <h4>{{currentQuestion.statement}}</h4>
         <div *ngIf="currentQuestion.image">
-          <img class="img-fluid" src="{{currentQuestion.image}}" alt="answer">
+          <img class="img-fluid border rounded" style="max-height:30vh" src="{{currentQuestion.image}}" alt="question">
         </div>
       </h2>
 
 
       <ng-container
         *ngIf="started && currentHandleCode == QUESTION; else (currentHandleCode == SUPER_BIEN_JOUE && superBienJoueModal) || (currentHandleCode == VOULIEZ_VOUS_DIRE && vouliezVousDireModal)">
-        <div class="middle-screen w-100">
-          <div class="row pb-4 justify-content-between">
-            <ng-container *ngFor="let answer of currentQuestion.answers">
-              <div class="col" (click)="handleResponse(answer)">
-                <app-answers [answer]="answer"></app-answers>
-              </div>
-            </ng-container>
-          </div>
+        <div class="row card-deck justify-content-center mx-2 px-0">
+
+          <ng-container *ngFor="let answer of currentQuestion.answers">
+            <div class="col" (click)="handleResponse(answer)">
+              <app-answers [answer]="answer"></app-answers>
+            </div>
+          </ng-container>
         </div>
+
       </ng-container>
 
 
       <ng-template #superBienJoueModal>
-        <div class="row align-items-center d-flex justify-content-between middle-screen">
-          <div class="col-12 col-md-8">
-            <h3 class="text-center">Super ! On passe à la question suivante ?</h3>
-          </div>
-          <div class="col-12 col-md-4">
-            <button class="btn btn-success w-100 m-1" (click)="toggleNextQuestion()">C'est parti !</button>
+        <div class="container middle-screen">
+          <div class="row align-items-center">
+            <div class="col-12 col-md-8">
+              <h3 class="text-center">Super ! On passe à la question suivante ?</h3>
+            </div>
+            <div class="col-12 col-md-4">
+              <button class="btn btn-success w-100 m-1" (click)="toggleNextQuestion()">C'est parti !</button>
+            </div>
           </div>
         </div>
       </ng-template>
 
 
       <ng-template #vouliezVousDireModal>
-        <div class="row align-items-center d-flex justify-content-between">
-          <div class="col-12 col-md-4">
-            <h3 class="text-center">Vouliez vous dire</h3>
-          </div>
-          <ng-container *ngFor="let answer of currentQuestion.answers">
-            <ng-container *ngIf="answer.valid">
-              <div class="col-12 col-md-4">
-                <app-answers [answer]="answer"></app-answers>
-              </div>
+        <div class="container">
+          <div class="row align-items-center d-flex justify-content-between">
+            <div class="col-12 col-md-4">
+              <h3 class="text-center">Vouliez-vous dire ?</h3>
+            </div>
+            <ng-container *ngFor="let answer of currentQuestion.answers">
+              <ng-container *ngIf="answer.valid">
+                <div class="col-12 col-md-4">
+                  <app-answers [answer]="answer"></app-answers>
+                </div>
+              </ng-container>
             </ng-container>
-          </ng-container>
-          <div class="col-12 col-md-4">
-            <button class="btn btn-success w-100 m-1" (click)="handleCorrection(true)">Oui</button>
-            <button class="btn btn-warning w-100 m-1" (click)="handleCorrection(false)">Non</button>
+            <div class="col-12 col-md-4">
+              <button class="btn btn-success w-100 m-1" (click)="handleCorrection(true)">Oui</button>
+              <button class="btn btn-warning w-100 m-1" (click)="handleCorrection(false)">Non</button>
+            </div>
           </div>
         </div>
       </ng-template>
@@ -70,21 +74,21 @@
       <div class="middle-screen">
         <div class="row">
           <div *ngIf="quiz.image">
-
             <div class="col-12 col-lg-4">
               <img class="img-thumbnail" src="{{quiz.image}}" alt="answer">
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-auto">
-          <h1 class="text-center">Quiz {{quiz.name}}</h1>
+        <div class="col-12 col-lg-auto text-center">
+          <h1 class="text-center">{{quiz.name}}</h1>
           <div *ngIf="quiz.theme">
             <h5 class="text-center">{{quiz.theme}}</h5>
           </div>
-          <button class="btn btn-warning w-100 m-1" (click)="toggleNextQuestion()">
-            <div class="row">
-              <div class="col-8"><h4>Commencer</h4></div>
-              <div class="col-4"><img src="assets/click.gif" alt="Félicitations" style="height:1.6em"></div>
+          <button class="btn btn-warning p-4 px-2" (click)="toggleNextQuestion()">
+            <div class="row align-items-center justify-content-between">
+              <div class="col-auto"><h4 class="m-0">Commencer</h4></div>
+              <div class="col-auto d-none d-md-block"><img class="img-fluid" src="assets/click.gif" alt="Félicitations"
+                                                           style="height:1.6em"></div>
             </div>
           </button>
         </div>
