@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
-import { Question } from '../models/question.model';
+import { Answer, Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
 import { AnswerRecord, QuizRecord } from '../models/quizrecord.model';
 import { Patient } from '../models/patient.model';
@@ -83,6 +83,11 @@ export class QuizService {
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
+  deleteAnswer(quiz: Quiz, question: Question, answer: Answer) {
+    const questionUrl = this.quizUrl + '/' + quiz.id + '/' + this.questionsPath + '/' + question.id + '/' + answer.id;
+    this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
+  }
+
   setQuizRecordsFromUrl() {
     this.http.get<QuizRecord[]>(this.quizRecordUrl).subscribe((quizRecordList) => {
       this.quizRecords = quizRecordList;
@@ -127,6 +132,7 @@ export class QuizService {
       this.quizRecordSelected$.next(quizRecord);
     });
   }
+
 
 }
 

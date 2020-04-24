@@ -1,10 +1,10 @@
-import {Component, OnInit, Input, ViewChild} from '@angular/core';
+import {Component, OnInit, Input, ViewChild, Output, EventEmitter} from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { QuizService } from '../../../services/quiz.service';
 import { Quiz } from 'src/models/quiz.model';
 import { Question } from 'src/models/question.model';
 import {ImageChoicePopupComponent} from '../../image-choice-popup/image-choice-popup.component';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 
 @Component({
   selector: 'app-question-form',
@@ -17,19 +17,21 @@ export class QuestionFormComponent implements OnInit {
   @Input()
   quiz: Quiz;
 
-  modalCreateQuestion = null;
+  @Output()
+  inQuestionEditing: EventEmitter<boolean> = new EventEmitter();
+
+  inEdit = true;
   public questionForm: FormGroup;
   panelOpenState = false;
   photoURL = 'assets/question-logo.png'
-  photoURLAnswers = 'assets/question-logo.png'
-
+  photoURLAnswers: Array<string> = new Array<string>();
+  witchAnswerIsEdited = 0;
 
   constructor(public formBuilder: FormBuilder, private quizService: QuizService, private dialogPhoto: MatDialog) {
     // Form creation
     this.initializeQuestionForm();
+    this.inQuestionEditing.emit(this.inEdit);
   }
-
-  bindModal(modal) {this.modalCreateQuestion = modal;}
 
   private initializeQuestionForm() {
     this.questionForm = this.formBuilder.group({
@@ -56,25 +58,33 @@ export class QuestionFormComponent implements OnInit {
 
   addAnswer() {
     this.answers.push(this.createAnswer());
+    this.photoURLAnswers.push('assets/question-logo.png')
   }
 
   deleteAnswer(id) {
     this.answers.removeAt(id);
+    this.photoURLAnswers.splice(id, 1);
   }
 
   addQuestion() {
     const question = this.questionForm.getRawValue() as Question;
-    const dateNow = Date.now();
+    let dateNow = Date.now();
     question.id = dateNow;
     question.image = this.photoURL;
     console.log(question);
+    let indexQuestion = 0;
     question.answers.forEach(answerToCheck => {
+      dateNow = Date.now();
+      answerToCheck.id = dateNow;
       if (answerToCheck.image === '') {
-        answerToCheck.image = this.photoURLAnswers;
+        answerToCheck.image = this.photoURLAnswers[indexQuestion];
       }
+      indexQuestion++;
       });
     this.quizService.addQuestion(this.quiz, question);
     this.initializeQuestionForm();
+    this.inEdit = false;
+    this.inQuestionEditing.emit(this.inEdit);
   }
 
   syncImgQuestion(value: string) {
@@ -89,6 +99,8 @@ export class QuestionFormComponent implements OnInit {
   }
 
   openDialogPhotoQuestion(): void {
+    this.inEdit = false;
+    this.inQuestionEditing.emit(this.inEdit);
     const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
       width: '600px',
       data: {profileImgURL: this.photoURL}
@@ -98,38 +110,37 @@ export class QuestionFormComponent implements OnInit {
       if (result != null) {
         this.photoURL = result;
       }
-
-      this.modalCreateQuestion = document.getElementById("createQuestion");
-      this.modalCreateQuestion.className = 'modal fade show';
-
+      this.inEdit = true;
+      this.inQuestionEditing.emit(this.inEdit);
     });
+  }
+
+  witchAnswer(id) {
+    this.witchAnswerIsEdited = id;
+    this.openDialogPhotoAnswers();
   }
 
   syncImgAnswers(value: string) {
     if(value == "") {
-      this.photoURLAnswers = "assets/quiz-logo.png";
+      this.photoURLAnswers[this.witchAnswerIsEdited] = "assets/quiz-logo.png";
     }
-    else this.photoURLAnswers = value;
+    else this.photoURLAnswers[this.witchAnswerIsEdited] = value;
   }
 
   onUploadAnswers(uploadedFile: string) {
-    this.photoURLAnswers = "http://localhost:9428/api/" + uploadedFile;
+    this.photoURLAnswers[this.witchAnswerIsEdited] = "http://localhost:9428/api/" + uploadedFile;
   }
 
   openDialogPhotoAnswers(): void {
     const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
       width: '600px',
-      data: {profileImgURL: this.photoURLAnswers}
+      data: {profileImgURL: this.photoURLAnswers[this.witchAnswerIsEdited]}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != null) {
-        this.photoURLAnswers = result;
+        this.photoURLAnswers[this.witchAnswerIsEdited] = result;
       }
-
-      this.modalCreateQuestion = document.getElementById("createQuestion");
-      this.modalCreateQuestion.className = 'modal fade show';
-
     });
   }
 }

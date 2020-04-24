@@ -72,12 +72,10 @@
 
     <ng-template #startModal>
       <div class="middle-screen">
-        <div class="row">
-          <div *ngIf="quiz.image">
-            <div class="col-12 col-lg-4">
+        <div class="row justify-content-center">
+            <div *ngIf="quiz.image" class="col-12 col-lg-4">
               <img class="img-thumbnail" src="{{quiz.image}}" alt="answer">
             </div>
-          </div>
         </div>
         <div class="col-12 col-lg-auto text-center">
           <h1 class="text-center">{{quiz.name}}</h1>
