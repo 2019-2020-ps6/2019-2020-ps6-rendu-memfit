@@ -5,5 +5,5 @@ export interface Quiz {
     name: string;
     theme?: string;
     questions: Question[];
-    image?: string;
+    image: string;
 }
