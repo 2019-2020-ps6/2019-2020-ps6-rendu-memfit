@@ -38,9 +38,11 @@ export const QUIZ_LIST: Quiz[] = [
     name: 'Les Acteurs', // What's happening if I change this statement..?
     theme: 'Actor',
     questions: [],
+    image: 'assets/quiz-logo.png'
   },
   {
     id: '2',
+    image: 'assets/quiz-logo.png',
     name: 'Les technos WEB',
     questions: [
       {
