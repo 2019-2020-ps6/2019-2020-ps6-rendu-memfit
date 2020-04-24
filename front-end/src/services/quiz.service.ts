@@ -91,7 +91,7 @@ export class QuizService {
   }
 
   getPatientRecords(patientId: any) {
-    return this.quizRecords.filter(quizRecord => quizRecord.patientId === patientId);
+    return this.quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
   }
 
   startQuizRecord(quizRecord: QuizRecord) {
