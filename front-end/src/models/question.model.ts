@@ -6,6 +6,7 @@ export interface Question {
 }
 
 export interface Answer {
+  id: any;
   type?: string;
   image?: string;
   statement: string;

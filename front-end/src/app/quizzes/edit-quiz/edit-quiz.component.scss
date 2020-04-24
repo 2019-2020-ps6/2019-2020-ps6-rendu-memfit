@@ -1,4 +1,6 @@
 @import '../../../styles/card.scss';
+@import '../../../styles/variables.scss';
+@import '../../app.component.scss';
 
 .question-list{
   width: 100%;
@@ -6,4 +8,12 @@
 
 mat-icon {
   vertical-align: text-bottom;
+}
+
+#card-container-question-list {
+  background-color: #224656;
+}
+
+#title-card {
+  color: white;
 }

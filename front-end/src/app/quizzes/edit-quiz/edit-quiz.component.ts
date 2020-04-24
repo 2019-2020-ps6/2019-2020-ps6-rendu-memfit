@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
@@ -8,9 +8,11 @@ import { QuizService } from 'src/services/quiz.service';
   templateUrl: './edit-quiz.component.html',
   styleUrls: ['./edit-quiz.component.scss']
 })
+
 export class EditQuizComponent implements OnInit {
 
   public quiz: Quiz;
+  inCreation = false;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
@@ -19,6 +21,20 @@ export class EditQuizComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
+  }
+
+  openDialogCreateQuestion() {
+
+  }
+
+  statEditingQuestion(event){
+    this.inCreation = event;
+
+    if(this.inCreation){
+
+    } else {
+    }
+
   }
 
 }

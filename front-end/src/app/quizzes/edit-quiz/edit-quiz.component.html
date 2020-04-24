@@ -17,14 +17,17 @@
     <div class="container">
       <div class="row justify-content-center">
 
-        <div class="card rounded question-list">
+        <div class="card rounded question-list" id="card-container-question-list">
           <div class="card-body">
 
-            <h3>Liste des questions :
-              <button type="button" class="btn btn-outline-primary create-question-button align-content-center" data-toggle="modal" data-target="#createQuestion" style="float: right;">
-                <mat-icon>add</mat-icon> Ajouter une question</button>
-            </h3>
-            <hr>
+            <h3 id="title-card">Liste des questions :</h3>
+
+            <button type="button" class="btn btn-outline-light create-question-button align-content-center" data-toggle="modal" data-target="#createQuestion">
+              <mat-icon>add</mat-icon> Ajouter une question
+            </button>
+
+            <br>
+            <br>
 
             <p class="card-text">
               <app-question-list [quiz]="quiz"></app-question-list>
@@ -36,7 +39,9 @@
       </div>
     </div>
 
-  <div class="modal fade" id="createQuestion" #createQuestion tabindex="-1" role="dialog" aria-labelledby="create-question-Label" aria-hidden="true">
+
+
+  <div [ngClass]="{'modal' : true, 'fade': true}" id="createQuestion" #createQuestion tabindex="-1" role="dialog" aria-labelledby="create-question-Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -47,7 +52,7 @@
         </div>
 
         <div class="modal-body">
-          <app-question-form [quiz]="quiz"></app-question-form>
+          <app-question-form [quiz]="quiz" (inQuestionEditing)="statEditingQuestion($event)"></app-question-form>
         </div>
 
       </div>
@@ -55,3 +60,4 @@
   </div>
 
 </ng-container>
+

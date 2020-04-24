@@ -72,11 +72,13 @@
 
                 <div class="form-group photo-form">
                   <div id="cadre-photo2">
-                    <img id="photoAnswers" [src]="photoURLAnswers">
+                    <img id="photoAnswers" [src]="photoURLAnswers[i]">
                   </div>
+
                   <br>
+
                   <div>
-                    <button class="btn btn-warning upload-btn" (click)="openDialogPhotoAnswers()" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
+                    <button class="btn btn-warning upload-btn" (click)="witchAnswer(i)" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
                   </div>
                 </div>
 

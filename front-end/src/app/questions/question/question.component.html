@@ -4,25 +4,37 @@
   <mat-expansion-panel-header>
     <mat-panel-title>
       <h5><strong>Question {{indexQuestion + 1}} : </strong>
-        <div *ngIf="editQuestionStatement; else elseEditionQuestionStatement">
-
-        </div>
-
-        <ng-template #elseEditionQuestionStatement>
-          {{ question.statement }}
-        </ng-template>
-
+        {{ question.statement }}
       </h5>
-
-      <button *ngIf="panelOpenState" class="btn btn-sm btn-outline-secondary ml-auto" id="edit" (click)="editQuestionStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
-
     </mat-panel-title>
   </mat-expansion-panel-header>
 
   <hr>
 
-  <div *ngIf="question.image">
-    <img [src]="question.image" class="rounded mx-auto d-block" height="100px" width="100px">
+  <div class="border border-primary rounded" id="editQuestionStatement">
+
+    <div *ngIf="editQuestionStatement; else elseEditionQuestionStatement">
+      <h6>Édition de la question : </h6>
+      <form class="quiz-form" [formGroup]="questionStatementForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Titre de la question</mat-label>
+          <input matInput placeholder="Ecrivez ici" class="input-custom" id="statement" [formControlName]="'statement'" value="{{question.statement}}" required>
+        </mat-form-field>
+        <br>
+        <button class="btn btn-sm btn-outline-secondary mr-auto" id="buttonEditQuestionStatement" (click)="savingEditQuestionStatementFCT()"><mat-icon>done</mat-icon> Enregistrer</button>
+      </form>
+
+    </div>
+
+    <ng-template #elseEditionQuestionStatement>
+      <h6>Question : </h6> {{ question.statement }}
+      <button class="btn btn-sm btn-outline-secondary ml-auto" id="buttonSavingEditQuestionStatement" (click)="editQuestionStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
+    </ng-template>
+
+  </div>
+
+  <div *ngIf="question.image" id="cadre-photo">
+    <img [src]="question.image" class="rounded mx-auto d-block" id="photoQuiz">
     <br>
   </div>
 

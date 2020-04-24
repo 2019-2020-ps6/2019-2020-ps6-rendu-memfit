@@ -42,6 +42,10 @@ export class QuestionComponent implements OnInit {
     this.editQuestionStatement = true;
   }
 
+  savingEditQuestionStatementFCT() {
+  this.editQuestionStatement = false;
+}
+
   delete() {
     this.deleteQuestion.emit(this.question);
   }
