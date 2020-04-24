@@ -2,31 +2,34 @@
 .patient {
   float: left;
   height: 100%;
+  width: 20%;
+  max-width: 20%;
+  margin-top : 6%;
+  margin-right: 5%;
+  cursor: pointer;
 }
 
 .card {
   width: 20%;
   max-width: 20%;
-  max-height: 400px;
   margin-top : 6%;
   margin-right: 5%;
 }
 
 .img-thumbnail {
-  width : 100%;
-  //TODO responsive problem on height
-  height: 230px;
+  cursor: pointer;
+  width: 15vw;
+  height: 15vw;
+  border-radius: 2000px;
+  border: 2px solid yellow;
   object-fit: cover;
-  object-position: center center;
+  margin: auto;
 }
 
 button {
   width: 100%;
-  background-color: white;
+  background-color: transparent;
   border: none;
   font-size: large;
   font-weight: bolder;
-  padding : 4px;
-  padding-top: 0;
-  padding-bottom: 8px;
 }
