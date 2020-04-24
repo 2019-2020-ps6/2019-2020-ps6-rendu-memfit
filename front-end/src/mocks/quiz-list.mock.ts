@@ -6,10 +6,12 @@ export const QUESTION_ACTOR: Question = {
   statement: 'Jean Gabin a joué dans...',
   answers: [
     {
+      id: 1,
       statement: 'Les tuches II',
       valid: false,
     },
     {
+      id: 2,
       statement: 'La grande illusion',
       valid: true,
     }
@@ -22,10 +24,12 @@ export const QUESTION_ACTORS: Question = {
   statement: 'Jean Gabin a jousfsdfsdfsé dans...',
   answers: [
     {
+      id: 3,
       statement: 'Les tuches sfsdfsdfsdfII',
       valid: false,
     },
     {
+      id: 4,
       statement: 'La grande sdfsdfdsfsdfillusion',
       valid: true,
     }
@@ -50,10 +54,12 @@ export const QUIZ_LIST: Quiz[] = [
         statement: 'Jean Gabin a jousfsdfsdfsé dans...',
         answers: [
           {
+            id: 5,
             statement: 'Les tuches sfsdfsdfsdfII',
             valid: false,
           },
           {
+            id: 6,
             statement: 'La grande sdfsdfdsfsdfillusion',
             valid: true,
           }
@@ -63,10 +69,12 @@ export const QUIZ_LIST: Quiz[] = [
         statement: 'Jean Gabin a joué dans...',
         answers: [
           {
+            id: 7,
             statement: 'Les tuches II',
             valid: false,
           },
           {
+            id: 8,
             statement: 'La grande illusion',
             valid: true,
           }
