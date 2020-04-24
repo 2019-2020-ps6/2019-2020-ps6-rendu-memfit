@@ -9,5 +9,9 @@
   <app-quiz-card [patientId]="this.patientId" [quiz]="q"></app-quiz-card>
 </div>
 
-<p *ngIf="this.quizList.length == 0" class="centered">Pas encore de quiz pour ce patient</p>
+<p *ngIf="this.quizList.length == 0" class="centered">Pas encore de quiz pour ce patient...
+  <br />
+  <br />
+<button class="btn btn-warning" routerLink="/patients/manage">Gérer les patients</button>
+</p>
 </ng-container>
