@@ -44,6 +44,9 @@ import {ImageChoicePopupComponent} from './image-choice-popup/image-choice-popup
 registerLocaleData(localeFr, 'fr');
 
 
+import { OrderModule } from 'ngx-order-pipe';
+
+
 // @ts-ignore
 // @ts-ignore
 // @ts-ignore
@@ -77,6 +80,7 @@ registerLocaleData(localeFr, 'fr');
     ImageChoicePopupComponent
   ],
   imports: [
+    OrderModule,
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
