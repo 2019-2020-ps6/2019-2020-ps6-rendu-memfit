@@ -5,6 +5,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient.service';
+import {MatDialog} from '@angular/material';
+import {ImageChoicePopupComponent} from '../../image-choice-popup/image-choice-popup.component';
 
 @Component({
   selector: 'app-create-quiz',
@@ -20,7 +22,13 @@ export class CreateQuizComponent implements OnInit {
   patientId: number;
   selectedP: number;
 
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public patientService: PatientService, private router: Router) {
+  constructor(
+    public formBuilder: FormBuilder,
+    public quizService: QuizService,
+    public patientService: PatientService,
+    private router: Router,
+    private dialogPhoto: MatDialog,
+  ) {
     this.photoURL = "assets/quiz-logo.png";
     this.quizForm = this.formBuilder.group({
       name: [''],
@@ -63,5 +71,18 @@ export class CreateQuizComponent implements OnInit {
 
   onUpload(uploadedFile: string) {
     this.photoURL = "http://localhost:9428/api/" + uploadedFile;
+  }
+
+  openDialogPhoto(): void {
+    const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
+      width: '600px',
+      data: {profileImgURL: this.photoURL}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        this.photoURL = result;
+      }
+    });
   }
 }
