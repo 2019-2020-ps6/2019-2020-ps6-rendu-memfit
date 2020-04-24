@@ -81,6 +81,19 @@ export class PatientService {
     this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
   }
 
+  removeDuplicateQuizzes(patientId) {
+    let patient = this.getPatient(patientId);
+
+    let res = patient.quizzesId.filter(function(item, pos) {
+      return patient.quizzesId.indexOf(item) == pos;
+    });
+    if(res != patient.quizzesId){
+      const patientUrl = this.patientUrl + '/' + patientId;
+      patient.quizzesId = res;
+      this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
+    }
+  }
+
   changePatientPicture(picture: string, patientId: number) {
     const patientUrl = this.patientUrl + '/' + patientId;
     let patient = this.getPatient(patientId);

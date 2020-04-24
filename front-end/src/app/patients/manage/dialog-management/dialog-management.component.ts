@@ -65,6 +65,7 @@ export class DialogManagementComponent implements OnInit {
 
   addQuizToPatient(quizId: number) {
     if(this.quizIdToAdd != undefined) {
+      this.patientService.removeDuplicateQuizzes(this.patient.id);
       //we add the quiz of the patient's quiz list
       this.patientService.addQuizToPatient(quizId, this.data.patient);
       //then we update the lists
