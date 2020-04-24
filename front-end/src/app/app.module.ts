@@ -32,11 +32,12 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatRippleModule
+  MatRippleModule, MatTabsModule
 } from '@angular/material';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { QuizRecordComponent } from './quiz-record/quiz-record.component';
 import { DialogDeleteComponent } from './patients/manage/dialog-delete/dialog-delete.component';
+import { DialogManagementComponent } from './patients/manage/dialog-management/dialog-management.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import {ImageChoicePopupComponent} from './image-choice-popup/image-choice-popup.component';
@@ -74,6 +75,7 @@ registerLocaleData(localeFr, 'fr');
     ManageComponent,
     QuizRecordComponent,
     DialogDeleteComponent,
+    DialogManagementComponent,
     ImageChoicePopupComponent
   ],
   imports: [
@@ -90,14 +92,15 @@ registerLocaleData(localeFr, 'fr');
     MatRippleModule,
     MatIconModule,
     MatCheckboxModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule
   ],
   exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule],
   providers: [
     {provide: LOCALE_ID, useValue: "fr-FR"}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogDeleteComponent, ImageChoicePopupComponent]
+  entryComponents: [DialogDeleteComponent, DialogManagementComponent, ImageChoicePopupComponent]
 })
 export class AppModule {
 }

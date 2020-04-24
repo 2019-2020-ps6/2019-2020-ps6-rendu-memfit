@@ -5,8 +5,8 @@ import { Quiz } from '../models/quiz.model';
 import { QUIZ_LIST } from '../mocks/quiz-list.mock';
 import { Question } from '../models/question.model';
 import { serverUrl, httpOptionsBase } from '../configs/server.config';
-import {AnswerRecord, QuizRecord} from "../models/quizrecord.model";
-import {Patient} from "../models/patient.model";
+import { AnswerRecord, QuizRecord } from '../models/quizrecord.model';
+import { Patient } from '../models/patient.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,8 +27,7 @@ export class QuizService {
    * Observable which contains the list of the quiz.
    * Naming convention: Add '$' at the end of the variable name to highlight it as an Observable.
    */
-  public quizzes$: BehaviorSubject<Quiz[]>
-    = new BehaviorSubject(this.quizzes);
+  public quizzes$: BehaviorSubject<Quiz[]> = new BehaviorSubject(this.quizzes);
 
   public quizSelected$: Subject<Quiz> = new Subject();
 
@@ -40,8 +39,7 @@ export class QuizService {
 
   private quizRecords: QuizRecord[] = [];
 
-  public quizRecords$: BehaviorSubject<QuizRecord[]>
-    = new BehaviorSubject(this.quizRecords);
+  public quizRecords$: BehaviorSubject<QuizRecord[]> = new BehaviorSubject(this.quizRecords);
 
   public quizRecordSelected$: Subject<QuizRecord> = new Subject();
   private quizRecordPath = 'quizRecord';
@@ -85,8 +83,6 @@ export class QuizService {
     this.http.delete<Question>(questionUrl, this.httpOptions).subscribe(() => this.setSelectedQuiz(quiz.id));
   }
 
-
-
   setQuizRecordsFromUrl() {
     this.http.get<QuizRecord[]>(this.quizRecordUrl).subscribe((quizRecordList) => {
       this.quizRecords = quizRecordList;
@@ -94,12 +90,11 @@ export class QuizService {
     });
   }
 
-  getPatientRecords(patientId: any){
-    return this.quizRecords.filter(quizRecord => quizRecord.patientId == patientId);
+  getPatientRecords(patientId: any) {
+    return this.quizRecords.filter(quizRecord => quizRecord.patientId === patientId);
   }
 
-
-  startQuizRecord(quizRecord: QuizRecord){
+  startQuizRecord(quizRecord: QuizRecord) {
     const recordUrl = this.quizRecordUrl;
     this.http.post<QuizRecord>(recordUrl, quizRecord, this.httpOptions).subscribe(() => this.setQuizRecordsFromUrl());
   }
@@ -110,9 +105,11 @@ export class QuizService {
   }
 
   setSelectedQuizRecord(quizRecordId: string) {
-    const urlWithId = this.quizRecordUrl + "/" + quizRecordId;
+    const urlWithId = this.quizRecordUrl + '/' + quizRecordId;
     this.http.get<QuizRecord>(urlWithId).subscribe((quizRecord) => {
       this.quizRecordSelected$.next(quizRecord);
     });
   }
+
 }
+

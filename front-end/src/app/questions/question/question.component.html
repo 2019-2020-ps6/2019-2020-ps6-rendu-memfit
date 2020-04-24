@@ -1,8 +1,21 @@
-<mat-expansion-panel>
+<mat-expansion-panel id="expansion-panel-question" (opened)="panelOpenState = true"
+                     (closed)="panelOpenState = false">
 
   <mat-expansion-panel-header>
     <mat-panel-title>
-      <h5>{{question.statement}}</h5>
+      <h5><strong>Question {{indexQuestion + 1}} : </strong>
+        <div *ngIf="editQuestionStatement; else elseEditionQuestionStatement">
+
+        </div>
+
+        <ng-template #elseEditionQuestionStatement>
+          {{ question.statement }}
+        </ng-template>
+
+      </h5>
+
+      <button *ngIf="panelOpenState" class="btn btn-sm btn-outline-secondary ml-auto" id="edit" (click)="editQuestionStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
+
     </mat-panel-title>
   </mat-expansion-panel-header>
 
@@ -15,15 +28,14 @@
 
 
   <div class="card-text">
-    <h6>Réponses :</h6>
 
     <mat-accordion>
       <div class="answer" *ngFor="let answer of question.answers; let i=index">
-        <mat-expansion-panel>
+        <mat-expansion-panel id="expansion-panel-answer">
 
           <mat-expansion-panel-header>
             <mat-panel-title>
-              {{i + 1}} - {{answer.statement}}  <ng-container *ngIf="answer.valid"> <i class="far fa-check-square"></i></ng-container><br>
+              Réponse {{i + 1}} : {{answer.statement}} <ng-container *ngIf="answer.valid">(<mat-icon>done</mat-icon>)</ng-container>
             </mat-panel-title>
 
           </mat-expansion-panel-header>
@@ -38,8 +50,6 @@
   </div>
 
   <br>
-
-  <button class="btn btn-sm btn-outline-secondary ml-auto" id="edit" (click)="edit()"><mat-icon>create</mat-icon> Editer</button>
 
   <button class="btn btn-sm btn-outline-danger mr-auto"  id="delete"(click)="delete()"><mat-icon>delete</mat-icon> Supprimer</button>
 

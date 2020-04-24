@@ -1,12 +1,12 @@
 <div class="question-list">
     <div class="container">
-        <div class="question" *ngFor="let question of quiz.questions">
+      <mat-accordion>
+        <div class="question" *ngFor="let question of quiz.questions; let indexQuestion = index">
           <!--Inputs & Output allow communication between parent & child components.-->
           <!--More information: https://angular.io/guide/component-interaction-->
 
-          <mat-accordion>
-            <app-question [question]="question" (deleteQuestion)="deleteQuestion($event)"></app-question>
-          </mat-accordion>
+            <app-question [question]="question" [indexQuestion]="indexQuestion" (deleteQuestion)="deleteQuestion($event)"></app-question>
         </div>
+      </mat-accordion>
     </div>
 </div>

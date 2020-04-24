@@ -1,13 +1,8 @@
 <form class="quiz-form" [formGroup]="questionForm">
 
-  <mat-accordion>
-    <mat-expansion-panel>
-
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Question
-        </mat-panel-title>
-      </mat-expansion-panel-header>
+  <mat-tab-group>
+    <mat-tab label="Question">
+      <br>
 
       <label for="statement">
         <mat-form-field appearance="outline">
@@ -25,18 +20,12 @@
         </mat-form-field>
       </label>
 
-    </mat-expansion-panel>
+    </mat-tab>
 
 
 
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Réponses
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-
+    <mat-tab label="Réponses">
+      <br>
       <button class="btn-outline-primary btn-sm" (click)="addAnswer()"><mat-icon>add</mat-icon> Ajouter une réponse</button>
 
       <div class="answer" formArrayName="answers">
@@ -51,7 +40,13 @@
 
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Réponse {{ i + 1 }}
+                  <div *ngIf="inputStatement.value.length > 0; else elseBlockTitleAnswer">
+                    <div *ngIf="checkboxCorrectAnswer.checked; else elseBlockTitleAnswer2">
+                      Réponse {{ i + 1 }} : {{inputStatement.value}} <mat-icon>done</mat-icon>
+                    </div>
+                    <ng-template #elseBlockTitleAnswer2>Réponse {{ i + 1 }} : {{inputStatement.value}}</ng-template>
+                  </div>
+                  <ng-template #elseBlockTitleAnswer>Réponse {{ i + 1 }}</ng-template>
                 </mat-panel-title>
               </mat-expansion-panel-header>
 
@@ -59,7 +54,7 @@
 
                 <mat-form-field appearance="outline">
                   <mat-label>Intitulé de la réponse</mat-label>
-                  <input matInput placeholder="Ecrivez ici" [formControlName]="'statement'" required>
+                  <input matInput placeholder="Ecrivez ici" [formControlName]="'statement'" #inputStatement required>
                 </mat-form-field>
 
                 <br>
@@ -71,7 +66,7 @@
 
                 <br>
 
-                <mat-checkbox type="checkbox" [formControlName]="'valid'" required>
+                <mat-checkbox type="checkbox" [formControlName]="'valid'" #checkboxCorrectAnswer required>
                   Est elle correcte ?
                 </mat-checkbox>
               <br>
@@ -85,8 +80,8 @@
         </mat-accordion>
       </div>
 
-    </mat-expansion-panel>
-  </mat-accordion>
+    </mat-tab>
+  </mat-tab-group>
 
   <hr>
 
