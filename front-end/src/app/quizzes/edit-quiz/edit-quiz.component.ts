@@ -9,10 +9,11 @@ import { QuizService } from 'src/services/quiz.service';
   styleUrls: ['./edit-quiz.component.scss']
 })
 
+
 export class EditQuizComponent implements OnInit {
 
   public quiz: Quiz;
-  inCreation = false;
+  inCreation = true;
 
   constructor(private route: ActivatedRoute, private quizService: QuizService) {
     this.quizService.quizSelected$.subscribe((quiz) => this.quiz = quiz);
@@ -21,20 +22,6 @@ export class EditQuizComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.quizService.setSelectedQuiz(id);
-  }
-
-  openDialogCreateQuestion() {
-
-  }
-
-  statEditingQuestion(event){
-    this.inCreation = event;
-
-    if(this.inCreation){
-
-    } else {
-    }
-
   }
 
 }

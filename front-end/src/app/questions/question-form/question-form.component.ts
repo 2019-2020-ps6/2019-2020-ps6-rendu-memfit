@@ -17,9 +17,6 @@ export class QuestionFormComponent implements OnInit {
   @Input()
   quiz: Quiz;
 
-  @Output()
-  inQuestionEditing: EventEmitter<boolean> = new EventEmitter();
-
   inEdit = true;
   public questionForm: FormGroup;
   panelOpenState = false;
@@ -30,7 +27,6 @@ export class QuestionFormComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private quizService: QuizService, private dialogPhoto: MatDialog) {
     // Form creation
     this.initializeQuestionForm();
-    this.inQuestionEditing.emit(this.inEdit);
   }
 
   private initializeQuestionForm() {
@@ -83,8 +79,6 @@ export class QuestionFormComponent implements OnInit {
       });
     this.quizService.addQuestion(this.quiz, question);
     this.initializeQuestionForm();
-    this.inEdit = false;
-    this.inQuestionEditing.emit(this.inEdit);
   }
 
   syncImgQuestion(value: string) {
@@ -99,8 +93,6 @@ export class QuestionFormComponent implements OnInit {
   }
 
   openDialogPhotoQuestion(): void {
-    this.inEdit = false;
-    this.inQuestionEditing.emit(this.inEdit);
     const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
       width: '600px',
       data: {profileImgURL: this.photoURL}
@@ -110,8 +102,6 @@ export class QuestionFormComponent implements OnInit {
       if (result != null) {
         this.photoURL = result;
       }
-      this.inEdit = true;
-      this.inQuestionEditing.emit(this.inEdit);
     });
   }
 

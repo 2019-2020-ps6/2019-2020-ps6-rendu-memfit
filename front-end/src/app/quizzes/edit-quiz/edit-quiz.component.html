@@ -38,8 +38,6 @@
       </div>
     </div>
 
-
-
   <div [ngClass]="{'modal' : true, 'fade': true}" id="createQuestion" #createQuestion tabindex="-1" role="dialog" aria-labelledby="create-question-Label" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -51,7 +49,7 @@
         </div>
 
         <div class="modal-body">
-          <app-question-form [quiz]="quiz" (inQuestionEditing)="statEditingQuestion($event)"></app-question-form>
+          <app-question-form [quiz]="quiz"></app-question-form>
         </div>
 
       </div>

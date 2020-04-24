@@ -9,8 +9,8 @@
     <app-image-uploader (uploaded)="onUpload($event)"></app-image-uploader>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">Annuler</button>
-    <button mat-button [mat-dialog-close]="data.imgURL" cdkFocusInitial>Enregistrer</button>
+    <button mat-button (click)="onNoClick()" data-toggle="modal" data-target="#createQuestion">Annuler</button>
+    <button mat-button [mat-dialog-close]="data.imgURL" cdkFocusInitial data-toggle="modal" data-target="#createQuestion">Enregistrer</button>
   </div>
 
 </div>
