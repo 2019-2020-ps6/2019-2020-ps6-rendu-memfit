@@ -20,6 +20,9 @@ export class QuestionComponent implements OnInit {
   deleteQuestion: EventEmitter<Question> = new EventEmitter<Question>();
 
   @Output()
+  answerDelete: EventEmitter<Answer> = new EventEmitter<Answer>();
+
+  @Output()
   updateQuestionEmit: EventEmitter<Question> = new EventEmitter<Question>();
 
   @Output()
@@ -89,6 +92,11 @@ export class QuestionComponent implements OnInit {
       this.questionContainsTheNewAnswerEmit.emit(this.question);
       this.updateAnswerEmit.emit(this.question.answers[index]);
     }
+  }
+
+  deleteAnswer(index:number) {
+    this.questionContainsTheNewAnswerEmit.emit(this.question);
+    this.answerDelete.emit(this.question.answers[index]);
   }
 
   delete() {

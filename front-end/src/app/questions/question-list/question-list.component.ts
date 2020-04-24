@@ -38,4 +38,10 @@ export class QuestionListComponent implements OnInit {
     this.quizService.deleteQuestion(this.quiz, question);
   }
 
+  answerDelete(answer: Answer){
+    if(this.questionToUpdateForNewAnswer != null) {
+      this.quizService.deleteAnswer(this.quiz, this.questionToUpdateForNewAnswer, answer);
+    }
+  }
+
 }
