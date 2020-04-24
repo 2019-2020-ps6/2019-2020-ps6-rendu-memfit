@@ -5,7 +5,7 @@
           <!--Inputs & Output allow communication between parent & child components.-->
           <!--More information: https://angular.io/guide/component-interaction-->
 
-            <app-question [question]="question" [indexQuestion]="indexQuestion" (deleteQuestion)="deleteQuestion($event)"></app-question>
+            <app-question [question]="question" [indexQuestion]="indexQuestion" (deleteQuestion)="deleteQuestion($event)" (updateQuestionEmit)="updateQuestionEmit($event)" (updateAnswerEmit)="updateAnswerEmit($event)" (questionContainsTheNewAnswerEmit)="questionContainsTheNewAnswerEmit($event)"></app-question>
         </div>
       </mat-accordion>
     </div>

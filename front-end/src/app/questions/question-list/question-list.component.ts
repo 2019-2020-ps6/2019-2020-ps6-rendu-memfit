@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Quiz } from 'src/models/quiz.model';
 import { QuizService } from 'src/services/quiz.service';
-import { Question } from 'src/models/question.model';
+import {Answer, Question} from 'src/models/question.model';
 
 @Component({
   selector: 'app-question-list',
@@ -13,13 +13,25 @@ export class QuestionListComponent implements OnInit {
   @Input()
   quiz: Quiz;
 
+  questionToUpdateForNewAnswer: Question;
+
   constructor(private quizService: QuizService) { }
 
   ngOnInit() {
   }
 
-  editQuestion(question: Question) {
-    this.quizService.deleteQuestion(this.quiz, question);
+  updateQuestionEmit(questionToUpdate: Question) {
+    this.quizService.updateQuestion(this.quiz, questionToUpdate);
+  }
+
+  questionContainsTheNewAnswerEmit(questionToUpdate: Question){
+    this.questionToUpdateForNewAnswer = questionToUpdate;
+  }
+
+  updateAnswerEmit(answerToUpdate: Answer) {
+    if(this.questionToUpdateForNewAnswer != null){
+      this.quizService.updateAnswer(this.quiz, this.questionToUpdateForNewAnswer, answerToUpdate);
+    }
   }
 
   deleteQuestion(question: Question) {

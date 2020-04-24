@@ -40,9 +40,16 @@ mat-panel-title {
   border-radius: 10px;
   border: black 1px solid;
   margin: auto;
+  margin-bottom: 5px;
 }
 
 #editQuestionStatement {
+  border: #5BC0EB;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+#editAnswerStatement {
   border: #5BC0EB;
   padding: 5px;
   margin-bottom: 5px;
