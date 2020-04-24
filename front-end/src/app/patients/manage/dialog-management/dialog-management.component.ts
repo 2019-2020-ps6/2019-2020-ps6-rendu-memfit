@@ -54,6 +54,8 @@ export class DialogManagementComponent implements OnInit {
     this.quizService.quizzes$.subscribe((quizzes: Quiz[]) => {
       this.quizzesToAdd = quizzes.filter(quiz => !this.patient.quizzesId.includes(quiz.id));
     });
+    //case when we delete one item from the list and there is only one more item in it
+    if(this.quizzesToAdd.length == 1) this.quizIdToAdd = this.quizzesToAdd[0].id;
   }
 
   deleteQuizToPatient(quizId: number) {
@@ -73,6 +75,3 @@ export class DialogManagementComponent implements OnInit {
     }
   }
 }
-
-
-
