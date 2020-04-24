@@ -34,11 +34,7 @@ export class PatientService {
   }
 
    getPatient(patientId : any) {
-     let res = null;
-     this.patients$.subscribe((patients: Patient[]) => {
-       res = patients.filter(patient => patient.id == patientId)[0];
-     });
-     return res;
+       return this.patients.filter(patient => patient.id == patientId)[0];
    }
 
   getNameString(patient: Patient) {
