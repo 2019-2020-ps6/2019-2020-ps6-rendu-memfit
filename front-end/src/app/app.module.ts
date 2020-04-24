@@ -100,7 +100,7 @@ registerLocaleData(localeFr, 'fr');
     {provide: LOCALE_ID, useValue: "fr-FR"}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogDeleteComponent, DialogManagementComponent, ImageChoicePopupComponent]
+  entryComponents: [DialogDeleteComponent, DialogManagementComponent, ImageChoicePopupComponent, DialogManagementComponent]
 })
 export class AppModule {
 }
