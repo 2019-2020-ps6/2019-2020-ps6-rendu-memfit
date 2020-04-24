@@ -255,5 +255,12 @@
     "valid": true,
     "questionId": 1587669307692,
     "id": 1587669307693
+  },
+  {
+    "statement": "Test photo Réponse",
+    "image": "http://localhost:9428/api/uploads/llf7muCopTZcWp_nigG7Qps0.jpeg",
+    "valid": true,
+    "questionId": 1587728991852,
+    "id": 1587728991856
   }
 ]

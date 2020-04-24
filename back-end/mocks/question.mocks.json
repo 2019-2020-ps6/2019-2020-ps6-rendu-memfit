@@ -165,5 +165,11 @@
     "statement": "Un canard moyen peut nourrir combien d'adultes ?",
     "quizId": 1587668956442,
     "id": 1587669307692
+  },
+  {
+    "statement": "Test Photos",
+    "image": "http://localhost:9428/api/uploads/991lRjb4HuR7co0tFaxHGaaf.jpg",
+    "quizId": 1587668956442,
+    "id": 1587728991852
   }
 ]
