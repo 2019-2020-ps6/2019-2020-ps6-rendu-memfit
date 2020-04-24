@@ -1,4 +1,5 @@
-<h1>Paramètres du quiz</h1>
+<h1>Création de Quiz</h1>
+<hr>
 <br>
 
 <form [formGroup]="quizForm">
@@ -12,10 +13,9 @@
             <img id="photoQuiz" [src]="photoURL">
           </div>
           <br>
-          <label class="col-form-label" for="imgURL">URL de l'image</label>
-          <input #urlInput type="text" class="form-control" placeholder="URL" id="imgURL" (keyup)="syncImg(urlInput.value)">
-          <p><i>ou</i></p>
-          <app-image-uploader (uploaded)="onUpload($event)"></app-image-uploader>
+          <div>
+            <button class="btn btn-warning upload-btn" (click)="openDialogPhoto()"><i class="fas fa-upload"></i> Charger une image</button>
+          </div>
         </div>
 
       </div>
@@ -23,15 +23,12 @@
     <div class="col-sm">
       <div class="form-group">
 
-        <label class="col-form-label" for="quizName">Nom du Quiz</label>
+        <label class="col-form-label" for="quizName">Titre</label>
         <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
 
 
-        <label class="col-form-label" for="quizTheme">Thème du Quiz</label>
-        <select class="custom-select" id="quizTheme" [formControlName]="'theme'">
-          <option selected="" value="Moto">Moto</option>
-          <option value="Objets de la vie de tous les jours">Objets de la vie de tous les jours</option>
-        </select>
+        <label class="col-form-label" for="exampleTextarea">Description <i>(optionnel)</i></label>
+        <textarea [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz"></textarea>
 
         <label class="col-form-label" for="patientId">Patient</label>
 

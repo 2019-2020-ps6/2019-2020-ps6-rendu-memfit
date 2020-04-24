@@ -65,7 +65,7 @@ export class DialogManagementComponent implements OnInit {
 
   addQuizToPatient(quizId: number) {
     //we add the quiz of the patient's quiz list
-    this.patientService.addQuizToPatient(quizId, this.patient.id);
+    this.patientService.addQuizToPatient(quizId, this.data.patient);
     //then we update the lists
     this.refreshLists();
   }

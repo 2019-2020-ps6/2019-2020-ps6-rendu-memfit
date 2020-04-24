@@ -1,3 +1,6 @@
+@import '../../../styles/variables.scss';
+@import '../../app.component.scss';
+
 h1 {
   text-align: center;
 }
@@ -29,4 +32,9 @@ h1 {
   border-left: black 1px solid;
   border-top-left-radius: 10px;
   padding: 10px;
+}
+
+.upload-btn {
+  display: block;
+  margin: auto;
 }

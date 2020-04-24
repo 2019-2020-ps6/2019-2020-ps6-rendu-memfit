@@ -68,17 +68,10 @@ export class PatientService {
     this.http.delete<Patient>(urlWithId, this.httpOptions).subscribe(() => this.setPatientsFromUrl());
   }
 
-  addQuizToPatient(quizId: number, patientId: number) {
-    const patientUrl = this.patientUrl + '/' + patientId;
-
-    //we get the patient
-    let patient = this.getPatient(patientId);
-    //we add the new quizId to his quizzesId tab
-    patient.quizzesId.push(quizId);
-    //then we update it in the back-end
+  addQuizToPatient(quizId: number, patient: Patient) {
+    const patientUrl = this.patientUrl + '/' + patient.id;
+    patient.quizzesId.push(parseInt(quizId.toString()));
     this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
-
-    let p = this.getPatient(patientId);
   }
 
   removeQuizToPatient(quizId: number, patientId: number) {
