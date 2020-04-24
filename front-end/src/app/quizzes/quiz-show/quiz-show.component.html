@@ -6,7 +6,7 @@
       <h2 class="text-center mb-4">
         <h4>{{currentQuestion.statement}}</h4>
         <div *ngIf="currentQuestion.image">
-          <img class="img-fluid" src="{{this.imgService.getImgUrl(currentQuestion.image)}}" alt="answer">
+          <img class="img-fluid" src="{{currentQuestion.image}}" alt="answer">
         </div>
       </h2>
 
@@ -72,7 +72,7 @@
           <div *ngIf="quiz.image">
 
             <div class="col-12 col-lg-4">
-              <img class="img-thumbnail" src="{{this.imgService.getImgUrl(quiz.image)}}" alt="answer">
+              <img class="img-thumbnail" src="{{quiz.image}}" alt="answer">
             </div>
           </div>
         </div>

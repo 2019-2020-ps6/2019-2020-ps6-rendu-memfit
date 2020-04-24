@@ -1,72 +1,12 @@
 [
   {
-    "id": 1587566870730,
-    "name": "Motos",
-    "patientId": 257
+    "id": 1587732232135,
+    "name": "Objets de la vie quotidienne",
+    "patientId": 1584004320000
   },
   {
-    "id": 1587566879018,
-    "name": "Logo",
-    "patientId": 257
-  },
-  {
-    "id": 1587566885534,
-    "name": "GUCCCCCCCI",
-    "patientId": 257
-  },
-  {
-    "id": 1587566892604,
-    "name": "Pilotes de moto GP",
-    "patientId": 257
-  },
-  {
-    "id": 1587659939224,
-    "name": "Logo",
-    "patientId": 257
-  },
-  {
-    "id": 1587659945241,
-    "name": "Pilotes de moto GP",
-    "patientId": 257
-  },
-  {
-    "id": 1587659966773,
-    "name": "Motos",
-    "patientId": 257
-  },
-  {
-    "id": 1587669340631,
-    "name": "Test complet",
-    "patientId": 257
-  },
-  {
-    "id": 1587722392868,
-    "name": "Logo",
-    "patientId": 1587459780541
-  },
-  {
-    "id": 1587723156610,
-    "name": "Logo",
-    "patientId": 1587459780541
-  },
-  {
-    "id": 1587724020249,
-    "name": "Sanders",
-    "patientId": 257
-  },
-  {
-    "id": 1587724227747,
-    "name": "Sanders",
-    "patientId": 257
-  },
-  {
-    "id": 1587729062901,
-    "name": "Sanders",
-    "patientId": 257
-  },
-  {
-    "id": 1587729266981,
-    "name": "Sanders",
-    "patientId": 257
+    "id": 1587733219767,
+    "name": "Quiz fruits & légumes",
+    "patientId": 1584550560000
   }
 ]
