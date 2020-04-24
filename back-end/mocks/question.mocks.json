@@ -167,13 +167,9 @@
     "id": 1587669307692
   },
   {
-    "statement": "efeffefzfzefzefze",
-    "quizId": 1587723758408,
-    "id": 1587723799042
-  },
-  {
-    "statement": "zzzzzzzzzzzzzzzzz",
-    "quizId": 1587723758408,
-    "id": 1587723830817
+    "statement": "Test Photos",
+    "image": "http://localhost:9428/api/uploads/991lRjb4HuR7co0tFaxHGaaf.jpg",
+    "quizId": 1587668956442,
+    "id": 1587728991852
   }
 ]

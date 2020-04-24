@@ -257,24 +257,10 @@
     "id": 1587669307693
   },
   {
-    "statement": "efdaazezae",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg",
-    "valid": false,
-    "questionId": 1587723799042,
-    "id": 1587723799043
-  },
-  {
-    "statement": "dazdazdazdazdaad",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Point_d_interrogation.jpg",
+    "statement": "Test photo Réponse",
+    "image": "http://localhost:9428/api/uploads/llf7muCopTZcWp_nigG7Qps0.jpeg",
     "valid": true,
-    "questionId": 1587723799042,
-    "id": 1587723799044
-  },
-  {
-    "statement": "dqzdqzdqzdqzdqdzdzq",
-    "image": "qzdzddqdqzdzdzq",
-    "valid": true,
-    "questionId": 1587723830817,
-    "id": 1587723830818
+    "questionId": 1587728991852,
+    "id": 1587728991856
   }
 ]
