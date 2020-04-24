@@ -3,6 +3,9 @@
 
 <div class="addForm">
   <select class="form-control form-control-lg" (change)="selectChangeHandler($event)">
+    <option value="none" selected disabled hidden>
+      Sélectionner un quiz
+    </option>
     <option *ngFor="let quiz of this.quizzesToAdd" [value]="quiz.id">{{quiz.name}}</option>
   </select>
   <button class="btn btn-info btn-large" (click)="addQuizToPatient(this.quizIdToAdd)">Ajouter</button>
