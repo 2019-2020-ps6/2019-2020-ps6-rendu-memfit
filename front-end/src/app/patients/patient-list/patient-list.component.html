@@ -4,3 +4,5 @@
 <div class="patient-list" *ngFor="let p of patientList">
   <app-patient [patient]="p"></app-patient>
 </div>
+
+<p *ngIf="this.patientList.length == 0" class="centered">Pas encore de patients, veuillez les créer dans l'onglet 'gestion de patients'.</p>
