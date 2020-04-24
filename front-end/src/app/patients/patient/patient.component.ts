@@ -12,7 +12,7 @@ export class PatientComponent implements OnInit {
 
   public nameString: String;
 
-  constructor(private router: Router, public patientService : PatientService) {
+  constructor(public patientService : PatientService) {
 
   }
 

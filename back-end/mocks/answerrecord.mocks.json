@@ -72,5 +72,42 @@
     "question": "Lequel de ces deux roues est un cyclomoteur ?",
     "answer": "Le Piaggio Ciao",
     "correct": true
+  },
+  {
+    "id": 1587733523694,
+    "quizRecordId": "1587733523687",
+    "question": "Comment appelle-t-on cet objet ?",
+    "answer": "Un plumeau",
+    "correct": false,
+    "rectified": true
+  },
+  {
+    "id": 1587733536991,
+    "quizRecordId": "1587733523687",
+    "question": "L'ustensile qui permet de couper la nourriture s'appelle :",
+    "answer": "Une cuillère",
+    "correct": false,
+    "rectified": false
+  },
+  {
+    "id": 1587733548504,
+    "quizRecordId": "1587733523687",
+    "question": "Quel type de chaussure est le plus adapté pour aller à la plage ?",
+    "answer": "Des tongs",
+    "correct": true
+  },
+  {
+    "id": 1587733776987,
+    "quizRecordId": "1587733776982",
+    "question": "De quel fruit s'agit-il ?",
+    "answer": "Une pastèque",
+    "correct": true
+  },
+  {
+    "id": 1587733793615,
+    "quizRecordId": "1587733776982",
+    "question": "Lequel de ces fruits est souvent considéré à tort comme un légume ?",
+    "answer": "La tomate",
+    "correct": true
   }
 ]

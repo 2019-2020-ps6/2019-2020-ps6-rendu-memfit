@@ -7,15 +7,22 @@
 
   <ng-container *ngIf="quizRecords">
     <div class="accordion" id="accordionExample">
-      <ng-container *ngFor="let quizRecord of quizRecords">
+      <ng-container *ngFor="let quizRecord of quizRecords | orderBy: 'id' : true">
         <div class="card">
           <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse"
-                      [attr.data-target]="'#collapse' + quizRecord.id" aria-expanded="true" aria-controls="collapseOne">
-                {{quizRecord.name}} {{quizRecord.id | date:'medium'}}
-              </button>
-            </h2>
+            <!--            <h2 class="mb-0">-->
+            <button class="btn btn-link w-100" type="button" data-toggle="collapse"
+                    [attr.data-target]="'#collapse' + quizRecord.id" aria-expanded="true" aria-controls="collapseOne">
+              <div class="row justify-content-between">
+                <div class="col-auto text-left font-weight-bold">
+                  {{quizRecord.name}}
+                </div>
+                <div class="col-auto text-right">
+                  <span class="badge badge-pill badge-primary">{{quizRecord.id | date:'medium'}}</span>
+                </div>
+              </div>
+            </button>
+            <!--            </h2>-->
           </div>
 
           <div id="collapse{{quizRecord.id}}" class="collapse" aria-labelledby="headingOne"

@@ -108,7 +108,7 @@ export class QuizService {
       }
     }
 
-    return totalQuestions == 0 ? "Aucune statistique" : (validatedQuestions/totalQuestions)*100+"%";
+    return totalQuestions == 0 ? "Aucune statistique" : ((validatedQuestions/totalQuestions)*100).toFixed(1)+"%";
   }
 
   startQuizRecord(quizRecord: QuizRecord) {
