@@ -1,6 +1,14 @@
-<h1>Sélection du patient</h1>
-<hr>
+<ng-container *ngIf="this.patientList">
+  <h1>Sélection du patient</h1>
+  <hr>
 
-<div class="patient-list" *ngFor="let p of patientList">
-  <app-patient [patient]="p"></app-patient>
-</div>
+  <div class="patient-list" *ngFor="let p of patientList">
+    <app-patient [patient]="p"></app-patient>
+  </div>
+
+  <p *ngIf="this.patientList.length == 0" class="centered">Pas encore de patients... et si on en ajoutait ?
+    <br/>
+    <br/>
+    <button class="btn btn-warning" routerLink="/patients/manage">Ajouter des patients</button>
+  </p>
+</ng-container>

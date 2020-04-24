@@ -40,7 +40,7 @@
     <div id="info-patients">
 
       <div id="photoPatient">
-        <img [src]="profileImgURL" alt="Avatar" class="img-fluid photoProfile">
+        <img [src]="patientSelected.photo" alt="Avatar" class="img-fluid photoProfile">
         <div class="overlay img-fluid" (click)="openDialogPhoto()">
           <button class="text" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
             <mat-icon>add_a_photo</mat-icon>
@@ -52,7 +52,7 @@
       <p><i>Profil créé le : {{myFormatDate(patientSelected.id)}}</i></p>
       <h4>{{attribuedQuizNb}} quiz attribués</h4>
       <h6>Dernier quiz joué : {{lastQuizzPassed}}</h6>
-      <h6>Taux de réussite moyen :</h6>
+      <h6>Taux de réussite moyen : {{this.successPercentage}}</h6>
       <br>
       <div class="button-group">
           <button class="btn btn-success w-100 btn-patients" (click)="openDialogManagement()">Gestion des quiz</button>

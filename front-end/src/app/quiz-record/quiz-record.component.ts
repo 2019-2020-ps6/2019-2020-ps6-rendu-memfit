@@ -23,6 +23,7 @@ export class QuizRecordComponent implements OnInit {
 
   ngOnInit() {
     this.patientId = this.route.snapshot.paramMap.get('patientId');
+    this.quizService.setQuizRecordsFromUrl();
     this.patientService.setSelectedPatient(this.patientId);
   };
 

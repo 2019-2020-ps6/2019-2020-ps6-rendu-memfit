@@ -18,7 +18,6 @@ export class CreateQuizComponent implements OnInit {
   public photoURL: string;
   public quizForm: any;
   public patientList: Patient[] = [];
-  imgURL: string;
   patientId: number;
   selectedP: number;
 
@@ -46,7 +45,7 @@ export class CreateQuizComponent implements OnInit {
     const quizToCreate: Quiz = this.quizForm.getRawValue() as Quiz;
     const dateNow = Date.now();
     quizToCreate.id = dateNow;
-    quizToCreate.image = this.imgURL;
+    quizToCreate.image = this.photoURL;
     this.quizService.addQuiz(quizToCreate);
     this.patientService.addQuizToPatient(dateNow, this.patientService.getPatient(this.selectedP));
     this.router.navigate(['/quiz/edit/' + dateNow]);

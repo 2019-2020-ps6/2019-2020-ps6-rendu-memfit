@@ -1,8 +1,6 @@
-<div class="answer btn btn-primary w-100 rounded-0">
-  <div class="answer-container">
-    <div *ngIf="answer.image">
-      <img class="img-fluid" src="{{this.imgService.getImgUrl(answer.image)}}" alt="answer">
-    </div>
-    <h4>{{answer.statement}}</h4>
+<div class="answer card rounded-0 border">
+    <img class="card-img-top" src="{{answer.image}}" alt="Image Réponse">
+  <div class="card-body bg-primary">
+    <h4 class="card-title text-center">{{answer.statement}}</h4>
   </div>
 </div>
