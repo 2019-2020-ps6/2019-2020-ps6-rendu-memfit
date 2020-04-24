@@ -1,111 +1,51 @@
 [
   {
-    "id": 1587641646335,
-    "quizRecordId": "1587641646331",
-    "question": "Quel est la couleur préférée de monsieur collet ?",
-    "answer": "Fraise",
-    "correct": false,
-    "rectified": false
-  },
-  {
-    "id": 1587641658562,
-    "quizRecordId": "1587641646331",
-    "question": "Vaut mieux-t-il avoir :",
-    "answer": "Une porsche",
-    "correct": false,
-    "rectified": false
-  },
-  {
-    "id": 1587722045187,
-    "quizRecordId": "1587722045184",
-    "question": "qzdqzdzq",
-    "answer": "qzdzdqz",
-    "correct": true
-  },
-  {
-    "id": 1587722196014,
-    "quizRecordId": "1587722196008",
-    "question": "qzdqzdzq",
-    "answer": "qzdzdqz",
-    "correct": true
-  },
-  {
-    "id": 1587733874611,
-    "quizRecordId": "1587733874608",
-    "question": "Sélectionnez le phare de la moto",
-    "answer": "Le phare",
-    "correct": true
-  },
-  {
-    "id": 1587733878830,
-    "quizRecordId": "1587733874608",
-    "question": "Lequel de ces deux roues est un cyclomoteur ?",
-    "answer": "Le Piaggio Ciao",
-    "correct": true
-  },
-  {
-    "id": 1587733909363,
-    "quizRecordId": "1587733909360",
-    "question": "Sélectionnez le phare de la moto",
-    "answer": "La béquille",
-    "correct": false,
-    "rectified": false
-  },
-  {
-    "id": 1587733918667,
-    "quizRecordId": "1587733909360",
-    "question": "Lequel de ces deux roues est un cyclomoteur ?",
-    "answer": "Le Piaggio Ciao",
-    "correct": true
-  },
-  {
-    "id": 1587734319688,
-    "quizRecordId": "1587734319686",
-    "question": "Sélectionnez le phare de la moto",
-    "answer": "Le pot d'échappement",
-    "correct": false,
-    "rectified": true
-  },
-  {
-    "id": 1587734323559,
-    "quizRecordId": "1587734319686",
-    "question": "Lequel de ces deux roues est un cyclomoteur ?",
-    "answer": "Le Piaggio Ciao",
-    "correct": true
-  },
-  {
-    "id": 1587733523694,
-    "quizRecordId": "1587733523687",
-    "question": "Comment appelle-t-on cet objet ?",
-    "answer": "Un plumeau",
-    "correct": false,
-    "rectified": true
-  },
-  {
-    "id": 1587733536991,
-    "quizRecordId": "1587733523687",
-    "question": "L'ustensile qui permet de couper la nourriture s'appelle :",
-    "answer": "Une cuillère",
-    "correct": false,
-    "rectified": false
-  },
-  {
-    "id": 1587733548504,
-    "quizRecordId": "1587733523687",
-    "question": "Quel type de chaussure est le plus adapté pour aller à la plage ?",
-    "answer": "Des tongs",
-    "correct": true
-  },
-  {
-    "id": 1587733776987,
-    "quizRecordId": "1587733776982",
+    "id": 1587730556444,
+    "quizRecordId": 1587730556442,
     "question": "De quel fruit s'agit-il ?",
     "answer": "Une pastèque",
     "correct": true
   },
   {
-    "id": 1587733793615,
-    "quizRecordId": "1587733776982",
+    "id": 1587730564056,
+    "quizRecordId": 1587730556442,
+    "question": "Lequel de ces fruits est souvent considéré à tort comme un légume ?",
+    "answer": "La tomate",
+    "correct": true
+  },
+  {
+    "id": 1587732232137,
+    "quizRecordId": 1587732232135,
+    "question": "Comment appelle-t-on cet objet ?",
+    "answer": "Une brosse à dents",
+    "correct": true
+  },
+  {
+    "id": 1587732298457,
+    "quizRecordId": 1587732232135,
+    "question": "L'ustensile qui permet de couper la nourriture s'appelle :",
+    "answer": "Une épée",
+    "correct": false,
+    "rectified": false
+  },
+  {
+    "id": 1587732577997,
+    "quizRecordId": 1587732232135,
+    "question": "Quel type de chaussure est le plus adapté pour aller à la plage ?",
+    "answer": "Des tongs",
+    "correct": true
+  },
+  {
+    "id": 1587733219769,
+    "quizRecordId": "1587733219767",
+    "question": "De quel fruit s'agit-il ?",
+    "answer": "Une orange",
+    "correct": false,
+    "rectified": true
+  },
+  {
+    "id": 1587733229443,
+    "quizRecordId": "1587733219767",
     "question": "Lequel de ces fruits est souvent considéré à tort comme un légume ?",
     "answer": "La tomate",
     "correct": true
