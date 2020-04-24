@@ -20,7 +20,6 @@ import { PatientComponent } from './patients/patient/patient.component';
 import { LogoComponent } from './logo/logo.component';
 import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
 import { AnswersComponent } from './answers/answers.component';
-import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 import { QuizCardComponent } from './quizzes/quiz-selection/quiz-card/quiz-card.component';
 import { QuizSelectorComponent } from './quizzes/quiz-selection/quiz-selector/quiz-selector.component';
 import { ManageComponent } from './patients/manage/manage.component';
@@ -68,7 +67,6 @@ registerLocaleData(localeFr, 'fr');
     LogoComponent,
     QuizShowComponent,
     AnswersComponent,
-    ReplayquizComponent,
     QuizCardComponent,
     QuizSelectorComponent,
     ImageUploaderComponent,

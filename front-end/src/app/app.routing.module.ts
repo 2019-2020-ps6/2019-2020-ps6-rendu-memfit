@@ -6,7 +6,6 @@ import { IndexComponent } from './index/index.component';
 import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component';
 import { PatientListComponent } from './patients/patient-list/patient-list.component';
 import { QuizShowComponent } from './quizzes/quiz-show/quiz-show.component';
-import { ReplayquizComponent } from './patients/replayquiz/replayquiz.component';
 import { QuizSelectorComponent } from "./quizzes/quiz-selection/quiz-selector/quiz-selector.component";
 import { ManageComponent } from "./patients/manage/manage.component";
 import {ImageUploaderComponent} from "./image-uploader/image-uploader.component";
@@ -23,7 +22,6 @@ const routes: Routes = [
     {path: 'select-patient-launch/:patientId', component: QuizSelectorComponent},
     {path: 'select-patient-update', component: PatientListComponent},
     {path: 'select-patient-update/:patientId', component: QuizSelectorComponent},
-    {path: 'patients/:patientId/quizReplay/:quizReplayId', component: ReplayquizComponent},
     {path: 'patients/manage', component: ManageComponent},
     {path: 'quiz-record/:patientId', component: QuizRecordComponent},
 ];

@@ -13,11 +13,16 @@
 
       <br>
 
-      <label for="image">
-        <mat-form-field appearance="outline">
-          <mat-label>URL illustration (optionnel)</mat-label>
-          <input matInput placeholder="Ecrivez ici" class="input-custom" id="image" [formControlName]="'image'">
-        </mat-form-field>
+      <label>
+        <div class="form-group photo-form">
+          <div id="cadre-photo">
+            <img id="photoQuiz" [src]="photoURL">
+          </div>
+          <br>
+          <div>
+            <button class="btn btn-warning upload-btn" (click)="openDialogPhotoQuestion()" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
+          </div>
+        </div>
       </label>
 
     </mat-tab>
@@ -57,18 +62,24 @@
                   <input matInput placeholder="Ecrivez ici" [formControlName]="'statement'" #inputStatement required>
                 </mat-form-field>
 
+              <br>
+
+              <mat-checkbox type="checkbox" [formControlName]="'valid'" #checkboxCorrectAnswer required>
+                Est elle correcte ?
+              </mat-checkbox>
+
                 <br>
 
-                <mat-form-field appearance="outline">
-                  <mat-label>Ajouter l'URL d'une illustration (optionnel)</mat-label>
-                  <input matInput placeholder="Ecrivez ici" class="input-custom" id="image2" [formControlName]="'image'">
-                </mat-form-field>
+                <div class="form-group photo-form">
+                  <div id="cadre-photo2">
+                    <img id="photoAnswers" [src]="photoURLAnswers">
+                  </div>
+                  <br>
+                  <div>
+                    <button class="btn btn-warning upload-btn" (click)="openDialogPhotoAnswers()" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
+                  </div>
+                </div>
 
-                <br>
-
-                <mat-checkbox type="checkbox" [formControlName]="'valid'" #checkboxCorrectAnswer required>
-                  Est elle correcte ?
-                </mat-checkbox>
               <br>
               <button class="btn-outline-danger btn-sm" (click)="deleteAnswer(i)" id="deleteAnswer">
                 <mat-icon>delete</mat-icon> Supprimer

@@ -1,3 +1,4 @@
+<ng-container *ngIf="patient">
 <div id="patient">
   <img id="patient-photo" src="{{this.patient.photo}}" alt="patientPhoto"/>
   <p *ngIf="this.option == 'launch'" class="patient-name">Lancer un quiz pour {{this.patient.firstName}} {{this.patient.lastName}}</p>
@@ -9,3 +10,4 @@
 </div>
 
 <p *ngIf="this.quizList.length == 0" class="centered">Pas encore de quiz pour ce patient</p>
+</ng-container>
