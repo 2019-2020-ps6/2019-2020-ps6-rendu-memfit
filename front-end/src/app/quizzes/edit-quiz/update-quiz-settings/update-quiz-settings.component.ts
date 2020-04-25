@@ -24,7 +24,7 @@ export class UpdateQuizSettingsComponent implements OnInit {
   patientId: number;
   selectedP: number;
 
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public patientService: PatientService, private dialogPhoto: MatDialog)
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public patientService: PatientService, private dialogPhoto: MatDialog, private router: Router,)
   {
     this.photoURL = "assets/quiz-logo.png";
     this.patientService.patients$.subscribe((patients: Patient[]) => {
@@ -56,6 +56,7 @@ export class UpdateQuizSettingsComponent implements OnInit {
 
     if(this.quiz.name != quizToUpdate.name && quizToUpdate.name != ''){
       change++;
+      this.quiz.name = quizToUpdate.name;
     } else {
       quizToUpdate.name = this.quiz.name;
     }
@@ -63,12 +64,14 @@ export class UpdateQuizSettingsComponent implements OnInit {
     if(this.quiz.image != this.photoURL && this.photoURL != ''){
       change++;
       quizToUpdate.image = this.photoURL;
+      this.quiz.image = quizToUpdate.image;
     } else {
       quizToUpdate.image = this.quiz.image;
     }
 
     if(this.quiz.theme != quizToUpdate.theme && quizToUpdate.theme != ''){
       change++;
+      this.quiz.theme = quizToUpdate.theme;
     } else {
       quizToUpdate.theme = this.quiz.theme;
     }
