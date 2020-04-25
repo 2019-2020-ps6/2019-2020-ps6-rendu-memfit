@@ -24,7 +24,7 @@
         <div class="form-group">
 
           <label class="col-form-label" for="quizName">Titre</label>
-          <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
+          <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" value="{{this.quiz.name}}" required>
 
 
           <label class="col-form-label" for="exampleTextarea">Description <i>(optionnel)</i></label>

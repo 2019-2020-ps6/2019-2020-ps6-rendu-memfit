@@ -37,6 +37,7 @@ export class UpdateQuizSettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.photoURL = this.quiz.image;
   }
 
   addQuiz() {
