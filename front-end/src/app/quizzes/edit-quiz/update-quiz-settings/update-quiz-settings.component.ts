@@ -7,6 +7,7 @@ import {QuizService} from '../../../../services/quiz.service';
 import {PatientService} from '../../../../services/patient.service';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
+import {PopUpDeleteQuizComponent} from '../pop-up-delete-quiz/pop-up-delete-quiz.component';
 
 @Component({
   selector: 'app-update-quiz-settings',
@@ -24,7 +25,7 @@ export class UpdateQuizSettingsComponent implements OnInit {
   patientId: number;
   selectedP: number;
 
-  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public patientService: PatientService, private dialogPhoto: MatDialog, private router: Router,)
+  constructor(public formBuilder: FormBuilder, public quizService: QuizService, public patientService: PatientService, private dialogPhoto: MatDialog, private router: Router, public dialog: MatDialog)
   {
     this.photoURL = "assets/quiz-logo.png";
     this.patientService.patients$.subscribe((patients: Patient[]) => {
@@ -45,8 +46,14 @@ export class UpdateQuizSettingsComponent implements OnInit {
     this.photoURL = this.quiz.image;
   }
 
-  deleteQuiz(){
+  deleteQuiz(): void {
+    const dialogRef = this.dialog.open(PopUpDeleteQuizComponent, {
+      width: '600px',
+      data: {quiz: this.quiz}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   updateQuiz() {
@@ -93,10 +100,6 @@ export class UpdateQuizSettingsComponent implements OnInit {
     }
     else this.photoURL = value;
   }
-
-
-
-
 
   selected(e) {
     this.selectedP = e.target.value.split(" ")[1];

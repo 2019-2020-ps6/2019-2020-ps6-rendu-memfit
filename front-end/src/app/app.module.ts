@@ -108,7 +108,7 @@ import {PopUpDeleteQuizComponent} from './quizzes/edit-quiz/pop-up-delete-quiz/p
     {provide: LOCALE_ID, useValue: "fr-FR"}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogDeleteComponent, DialogManagementComponent, ImageChoicePopupComponent, DialogManagementComponent]
+  entryComponents: [DialogDeleteComponent, DialogManagementComponent, ImageChoicePopupComponent, DialogManagementComponent, PopUpDeleteQuizComponent]
 })
 export class AppModule {
 }

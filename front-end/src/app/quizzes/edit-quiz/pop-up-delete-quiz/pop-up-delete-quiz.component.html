@@ -1,1 +1,12 @@
-<p>pop-up-delete-quiz works!</p>
+<div id="pop-up-window">
+  <h1 mat-dialog-title>Vous voulez vraiment supprimer ce quiz ?</h1>
+
+  <div mat-dialog-content>
+    Le quiz : {{this.data.quiz.name}}
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="deleteNo()">Non</button>
+    <button mat-button (click)="deleteYes()" cdkFocusInitial>Oui</button>
+  </div>
+</div>
