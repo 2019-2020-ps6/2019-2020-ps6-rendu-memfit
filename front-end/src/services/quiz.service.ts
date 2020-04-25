@@ -63,7 +63,8 @@ export class QuizService {
   }
 
   updateQuiz(quiz: Quiz){
-    this.http.put<Quiz>(this.quizUrl + '/' + quiz.id, quiz, this.httpOptions).subscribe();
+
+    this.http.put<Quiz>(this.quizUrl + '/' + quiz.id, { 'id':quiz.id, 'name':quiz.name, 'theme':quiz.theme, 'image':quiz.image }, this.httpOptions).subscribe();
   }
 
   setSelectedQuiz(quizId: string) {

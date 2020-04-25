@@ -48,18 +48,28 @@ export class UpdateQuizSettingsComponent implements OnInit {
     const quizToUpdate: Quiz = this.updateQuizForm.getRawValue() as Quiz;
 
     if(this.quiz.name != quizToUpdate.name && quizToUpdate.name != ''){
-      this.quiz.name = quizToUpdate.name;
-      this.quizService.updateQuiz(this.quiz);
+      quizToUpdate.theme = this.quiz.theme;
+      quizToUpdate.id = this.quiz.id;
+      quizToUpdate.image = this.quiz.image;
+
+      this.quizService.updateQuiz(quizToUpdate);
     }
 
     if(this.quiz.image != this.photoURL && this.photoURL != ''){
-      this.quiz.image = this.photoURL;
-      this.quizService.updateQuiz(this.quiz);
+      quizToUpdate.name = this.quiz.name;
+      quizToUpdate.theme = this.quiz.theme;
+      quizToUpdate.id = this.quiz.id;
+      quizToUpdate.image = this.photoURL;
+
+      this.quizService.updateQuiz(quizToUpdate);
     }
 
     if(this.quiz.theme != quizToUpdate.theme && quizToUpdate.theme != ''){
-      this.quiz.theme = quizToUpdate.theme;
-      this.quizService.updateQuiz(this.quiz);
+      quizToUpdate.name = this.quiz.name;
+      quizToUpdate.id = this.quiz.id;
+      quizToUpdate.image = this.quiz.image;
+
+      this.quizService.updateQuiz(quizToUpdate);
     }
 
     //TODO Modifier les patients...
@@ -92,7 +102,7 @@ export class UpdateQuizSettingsComponent implements OnInit {
   openDialogPhoto(): void {
     const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
       width: '600px',
-      data: {profileImgURL: this.photoURL}
+      data: {profileImgURL: this.photoURL, fromWitchComponent: 'updateQuizSettings'}
     });
 
     dialogRef.afterClosed().subscribe(result => {
