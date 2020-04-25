@@ -22,7 +22,7 @@
         </mat-form-field>
         <hr>
         <div *ngIf="question.image" class="cadre-photo">
-          <img [src]="question.image" class="rounded mx-auto d-block photoQuiz">
+          <img [src]="question.image" class="rounded mx-auto d-block photoQuiz img-fluid">
         </div>
         <br>
         <div>
@@ -38,7 +38,7 @@
       <h6>Question : </h6> {{ question.statement }}
       <hr>
       <div *ngIf="question.image" class="cadre-photo">
-        <img [src]="question.image" class="rounded mx-auto d-block photoQuiz">
+        <img [src]="question.image" class="rounded mx-auto d-block photoQuiz img-fluid">
         <br>
       </div>
       <button class="btn btn-sm btn-outline-secondary ml-auto" id="buttonSavingEditQuestionStatement" (click)="editQuestionStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
@@ -84,7 +84,7 @@
                 <hr>
 
                 <div *ngIf="answer.image" class="cadre-photo">
-                  <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
+                  <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz img-fluid">
                 </div>
                 <br>
                 <div>
@@ -107,7 +107,7 @@
               </div>
               <hr>
               <div *ngIf="answer.image" class="cadre-photo">
-                <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
+                <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz img-fluid">
               </div>
               <br>
               <button class="btn btn-sm btn-outline-secondary ml-auto" id="buttonSavingEditAnswerStatement" (click)="editAnswerStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
