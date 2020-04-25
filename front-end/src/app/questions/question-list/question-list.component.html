@@ -5,8 +5,26 @@
           <!--Inputs & Output allow communication between parent & child components.-->
           <!--More information: https://angular.io/guide/component-interaction-->
 
-            <app-question [question]="question" [quiz]="quiz" [indexQuestion]="indexQuestion" (deleteQuestion)="deleteQuestion($event)" (updateQuestionEmit)="updateQuestionEmit($event)" (updateAnswerEmit)="updateAnswerEmit($event)" (questionContainsTheNewAnswerEmit)="questionContainsTheNewAnswerEmit($event)" (answerDelete)="answerDelete($event)"></app-question>
+            <app-question [question]="question" [quiz]="quiz" [indexQuestion]="indexQuestion" (deleteQuestion)="deleteQuestion($event)" (updateQuestionEmit)="updateQuestionEmit($event)" (updateAnswerEmit)="updateAnswerEmit($event)" (questionContainsTheNewAnswerEmit)="questionContainsTheNewAnswerEmit($event)" (answerDelete)="answerDelete($event)" (questionToUpdateWithNewAnswerIDEmit)="questionToUpdateWithNewAnswerIDEmit($event)"></app-question>
         </div>
       </mat-accordion>
     </div>
+</div>
+
+<div [ngClass]="{'modal' : true, 'fade': true}" id="createAnswer" #createAnswer tabindex="-1" role="dialog" aria-labelledby="create-answer-Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="create-answer-Label">Créer une réponse</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <app-create-answer [quiz]="quiz" [questionId]="questionToUpdateWithNewAnswerID" ></app-create-answer>
+      </div>
+
+    </div>
+  </div>
 </div>

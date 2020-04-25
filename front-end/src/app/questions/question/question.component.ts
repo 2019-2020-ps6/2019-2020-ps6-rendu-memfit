@@ -37,13 +37,16 @@ export class QuestionComponent implements OnInit {
   @Output()
   questionContainsTheNewAnswerEmit: EventEmitter<Question> = new EventEmitter<Question>();
 
+  @Output()
+  questionToUpdateWithNewAnswerIDEmit: EventEmitter<number> = new EventEmitter<number>();
+
 
   public questionStatementForm: FormGroup;
   public answerStatementForm: FormGroup;
   panelOpenState = false;
   editQuestionStatement = false;
   editAnswerStatement = false;
-  questionToUpdateWithNewAnswer: Question;
+  questionToUpdateWithNewAnswerID: number;
   photoURL: string;
   photoURLAnswers: string;
   witchAnswerIsEdited = 0;
@@ -70,6 +73,11 @@ export class QuestionComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  questionToUpdateWithNewAnswerFCT(questionToRegister: number) {
+    this.questionToUpdateWithNewAnswerID = questionToRegister;
+    this.questionToUpdateWithNewAnswerIDEmit.emit(this.questionToUpdateWithNewAnswerID);
   }
 
   editQuestionStatementFCT() {

@@ -14,10 +14,15 @@ export class QuestionListComponent implements OnInit {
   quiz: Quiz;
 
   questionToUpdateForNewAnswer: Question;
+  questionToUpdateWithNewAnswerID: number;
 
   constructor(private quizService: QuizService) { }
 
   ngOnInit() {
+  }
+
+  questionToUpdateWithNewAnswerIDEmit(questionToUpdateWithNewAnswerIDInput: number){
+    this.questionToUpdateWithNewAnswerID = questionToUpdateWithNewAnswerIDInput;
   }
 
   updateQuestionEmit(questionToUpdate: Question) {

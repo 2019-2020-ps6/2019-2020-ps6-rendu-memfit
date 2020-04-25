@@ -1,7 +1,5 @@
 <form class="answer-form" [formGroup]="answerForm">
 
-  <h4>Rappel de la question : {{question.statement}}</h4>
-
     <mat-form-field appearance="outline">
       <mat-label>Intitulé de la réponse</mat-label>
       <input matInput placeholder="Ecrivez ici" [formControlName]="'statement'" #inputStatement required>

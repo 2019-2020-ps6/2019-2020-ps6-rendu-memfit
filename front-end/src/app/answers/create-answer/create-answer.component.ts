@@ -17,8 +17,9 @@ export class CreateAnswerComponent implements OnInit {
   quiz: Quiz;
 
   @Input()
-  question: Question;
+  questionId: number;
 
+  question: Question;
   public answerForm: FormGroup;
   panelOpenState = false;
   photoURLAnswer = 'assets/question-logo.png'
@@ -37,9 +38,24 @@ export class CreateAnswerComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.quiz.questions.forEach(questionToChange => {
+      if(questionToChange.id == this.questionId){
+        this.question = questionToChange;
+        console.log(this.question);
+      }
+    });
   }
 
   addAnswer() {
+    this.quiz.questions.forEach(questionToChange => {
+      console.log(questionToChange.id);
+      console.log(this.questionId);
+      if(questionToChange.id == this.questionId){
+        this.question = questionToChange;
+        console.log(this.question);
+      }
+    });
+
     const answer = this.answerForm.getRawValue() as Answer;
     let dateNow = Date.now();
     answer.id = dateNow;
