@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Quiz} from '../../../../models/quiz.model';
 import {Patient} from '../../../../models/patient.model';
 import {ImageChoicePopupComponent} from '../../../image-choice-popup/image-choice-popup.component';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {QuizService} from '../../../../services/quiz.service';
 import {PatientService} from '../../../../services/patient.service';
 import {Router} from '@angular/router';
@@ -19,7 +19,7 @@ export class UpdateQuizSettingsComponent implements OnInit {
   quiz: Quiz;
 
   public photoURL: string;
-  public updateQuizForm: any;
+  public updateQuizForm: FormGroup;
   public patientList: Patient[] = [];
   patientId: number;
   selectedP: number;
@@ -27,12 +27,17 @@ export class UpdateQuizSettingsComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, public quizService: QuizService, public patientService: PatientService, private dialogPhoto: MatDialog)
   {
     this.photoURL = "assets/quiz-logo.png";
+    this.patientService.patients$.subscribe((patients: Patient[]) => {
+      this.patientList = patients;
+    });
+
+    this.initializeQuizForm();
+  }
+
+  private initializeQuizForm() {
     this.updateQuizForm = this.formBuilder.group({
       name: [''],
       theme: ['']
-    });
-    this.patientService.patients$.subscribe((patients: Patient[]) => {
-      this.patientList = patients;
     });
   }
 

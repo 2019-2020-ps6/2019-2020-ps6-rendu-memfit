@@ -21,16 +21,22 @@
 
           <label class="col-form-label" for="quizName">Titre</label>
           <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" value="{{this.quiz.name}}" required>
+        </div>
 
-
-          <label class="col-form-label" for="exampleTextarea">Description <i>(optionnel)</i></label>
-          <textarea [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz" value="{{this.quiz.theme}}"></textarea>
-
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label class="col-form-label">
+              Description <i>(optionnel)</i>
+            </mat-label>
+            <textarea matInput cdkTextareaAutosize type="text" class="form-control" id="exampleTextarea" rows="3" [formControlName]="'theme'" placeholder="Description du quiz" value="{{this.quiz.theme}}"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
           <label class="col-form-label" for="patientId">Patient</label>
 
           <div class="input-group mb-3">
             <div class="custom-file">
-              <select class="custom-select" id="patientId" (change)="selected($event)" formControlName="">
+              <select class="custom-select" id="patientId" (change)="selected($event)">
                 <option value="" disabled>Choisir un patient</option>
                 <option *ngFor="let p of patientList" [ngValue]="p.id" [selected]="p.quizzesId.includes(quiz.id)">{{p.firstName}} {{p.lastName}}</option>
                 <option value="ALL">Tous les patients</option>
