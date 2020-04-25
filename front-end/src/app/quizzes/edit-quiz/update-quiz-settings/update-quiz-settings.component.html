@@ -1,1 +1,54 @@
-<p>update-quiz-settings works!</p>
+<h1>Création de Quiz</h1>
+<hr>
+<br>
+
+<form [formGroup]="updateQuizForm">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm">
+
+        <div class="form-group photo-form">
+          <div id="cadre-photo">
+            <img id="photoQuiz" [src]="photoURL">
+          </div>
+          <br>
+          <div>
+            <button class="btn btn-warning upload-btn" (click)="openDialogPhoto()"><i class="fas fa-upload"></i> Charger une image</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm">
+        <div class="form-group">
+
+          <label class="col-form-label" for="quizName">Titre</label>
+          <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
+
+
+          <label class="col-form-label" for="exampleTextarea">Description <i>(optionnel)</i></label>
+          <textarea [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz"></textarea>
+
+          <label class="col-form-label" for="patientId">Patient</label>
+
+          <div class="input-group mb-3">
+            <div class="custom-file">
+              <select class="custom-select" id="patientId" (change)="selected($event)" formControlName="">
+                <option value="" disabled>Choisir un patient</option>
+                <option *ngFor="let p of patientList" [ngValue]="p.id" >{{p.firstName}} {{p.lastName}}</option>
+                <option value="ALL">Tous les patients</option>
+              </select>
+              <div class="input-group-append">
+                <button style="margin-left: .75em" class="btn btn-info" (click)="selectPatientSup()">+</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-info" style="float: right; margin-top: 1em" (click)="addQuiz()">Mettre à jour</button>
+  </div>
+
+</form>
