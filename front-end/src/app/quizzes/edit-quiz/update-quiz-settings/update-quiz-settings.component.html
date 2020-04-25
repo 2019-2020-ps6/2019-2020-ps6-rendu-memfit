@@ -28,7 +28,7 @@
 
 
           <label class="col-form-label" for="exampleTextarea">Description <i>(optionnel)</i></label>
-          <textarea [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz"></textarea>
+          <textarea [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz" value="{{this.quiz.theme}}"></textarea>
 
           <label class="col-form-label" for="patientId">Patient</label>
 
@@ -36,7 +36,7 @@
             <div class="custom-file">
               <select class="custom-select" id="patientId" (change)="selected($event)" formControlName="">
                 <option value="" disabled>Choisir un patient</option>
-                <option *ngFor="let p of patientList" [ngValue]="p.id" >{{p.firstName}} {{p.lastName}}</option>
+                <option *ngFor="let p of patientList" [ngValue]="p.id" [selected]="p.quizzesId.includes(quiz.id)">{{p.firstName}} {{p.lastName}}</option>
                 <option value="ALL">Tous les patients</option>
               </select>
               <div class="input-group-append">

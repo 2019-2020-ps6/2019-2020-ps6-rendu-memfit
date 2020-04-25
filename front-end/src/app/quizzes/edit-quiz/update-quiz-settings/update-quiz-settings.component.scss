@@ -1,0 +1,33 @@
+.photo-form {
+  width: 70%;
+}
+
+#cadre-photo {
+  width: 100%;
+  background-color: #5BC0EB;
+  padding: .5em;
+  border-radius: 10px;
+  border: black 1px solid;
+  margin: auto;
+}
+
+#photoQuiz {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.camera-form {
+  font-size: 3em;
+  color: aliceblue;
+  float: right;
+  margin-top: 216px;
+  border-top: black 1px solid;
+  border-left: black 1px solid;
+  border-top-left-radius: 10px;
+  padding: 10px;
+}
+
+.upload-btn {
+  display: block;
+  margin: auto;
+}
