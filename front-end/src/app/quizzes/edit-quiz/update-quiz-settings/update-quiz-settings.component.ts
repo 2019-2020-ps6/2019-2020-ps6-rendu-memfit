@@ -40,13 +40,29 @@ export class UpdateQuizSettingsComponent implements OnInit {
     this.photoURL = this.quiz.image;
   }
 
-  addQuiz() {
-    const quizToCreate: Quiz = this.updateQuizForm.getRawValue() as Quiz;
-    const dateNow = Date.now();
-    quizToCreate.id = dateNow;
-    quizToCreate.image = this.photoURL;
-    this.quizService.addQuiz(quizToCreate);
-    this.patientService.addQuizToPatient(dateNow, this.patientService.getPatient(this.selectedP));
+  deleteQuiz(){
+
+  }
+
+  updateQuiz() {
+    const quizToUpdate: Quiz = this.updateQuizForm.getRawValue() as Quiz;
+
+    if(this.quiz.name != quizToUpdate.name && quizToUpdate.name != ''){
+      this.quiz.name = quizToUpdate.name;
+      this.quizService.updateQuiz(this.quiz);
+    }
+
+    if(this.quiz.image != this.photoURL && this.photoURL != ''){
+      this.quiz.image = this.photoURL;
+      this.quizService.updateQuiz(this.quiz);
+    }
+
+    if(this.quiz.theme != quizToUpdate.theme && quizToUpdate.theme != ''){
+      this.quiz.theme = quizToUpdate.theme;
+      this.quizService.updateQuiz(this.quiz);
+    }
+
+    //TODO Modifier les patients...
   }
 
   selectPatientSup() {
@@ -59,6 +75,9 @@ export class UpdateQuizSettingsComponent implements OnInit {
     }
     else this.photoURL = value;
   }
+
+
+
 
 
   selected(e) {

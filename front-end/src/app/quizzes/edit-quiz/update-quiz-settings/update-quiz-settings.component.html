@@ -1,7 +1,3 @@
-<h1>Création de Quiz</h1>
-<hr>
-<br>
-
 <form [formGroup]="updateQuizForm">
   <div class="container">
     <div class="row">
@@ -48,7 +44,8 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-info" style="float: right; margin-top: 1em" (click)="addQuiz()">Mettre à jour</button>
+    <button type="submit" class="btn btn-info" style="float: right; margin-top: 1em" (click)="deleteQuiz()">Supprimer le quiz</button>
+    <button type="submit" class="btn btn-info" style="float: right; margin-top: 1em" (click)="updateQuiz()">Mettre à jour</button>
   </div>
 
 </form>
