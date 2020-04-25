@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Quiz} from '../../../../models/quiz.model';
 
 @Component({
   selector: 'app-update-quiz-settings',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-quiz-settings.component.scss']
 })
 export class UpdateQuizSettingsComponent implements OnInit {
+
+  @Input()
+  quiz: Quiz;
 
   constructor() { }
 

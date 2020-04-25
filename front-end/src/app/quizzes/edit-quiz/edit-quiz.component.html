@@ -56,5 +56,23 @@
     </div>
   </div>
 
+  <div [ngClass]="{'modal' : true, 'fade': true}" id="update-quiz" tabindex="-1" role="dialog" aria-labelledby="update-quiz-Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="update-quiz-Label">Paramètres du quiz</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <app-update-quiz-settings [quiz]="quiz"></app-update-quiz-settings>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 </ng-container>
 
