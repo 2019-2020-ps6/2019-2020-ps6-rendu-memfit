@@ -20,7 +20,11 @@
           <mat-label>Titre de la question</mat-label>
           <input matInput placeholder="Ecrivez ici" class="input-custom" id="statement" [formControlName]="'statement'" value="{{question.statement}}" required>
         </mat-form-field>
-        <br>
+        <hr>
+        <div *ngIf="question.image" class="cadre-photo">
+          <img [src]="question.image" class="rounded mx-auto d-block photoQuiz">
+          <br>
+        </div>
         <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto" id="buttonEditQuestionStatement" (click)="savingEditQuestionStatementFCT()"><mat-icon>done</mat-icon> Enregistrer</button>
       </form>
 
@@ -28,19 +32,21 @@
 
     <ng-template #elseEditionQuestionStatement>
       <h6>Question : </h6> {{ question.statement }}
+      <hr>
+      <div *ngIf="question.image" class="cadre-photo">
+        <img [src]="question.image" class="rounded mx-auto d-block photoQuiz">
+        <br>
+      </div>
       <button class="btn btn-sm btn-outline-secondary ml-auto" id="buttonSavingEditQuestionStatement" (click)="editQuestionStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
     </ng-template>
 
   </div>
 
-  <div *ngIf="question.image" id="cadre-photo">
-    <img [src]="question.image" class="rounded mx-auto d-block" id="photoQuiz">
-    <br>
-  </div>
+  <hr>
 
   <button class="btn-outline-primary btn-sm" data-toggle="modal" data-target="#createAnswer"><mat-icon>add</mat-icon> Ajouter une réponse</button>
 
-  <br>
+  <hr>
 
   <div class="card-text">
 
@@ -64,6 +70,10 @@
                   <mat-label>Titre de la réponse</mat-label>
                   <input matInput placeholder="Ecrivez ici" class="input-custom" [formControlName]="'statement'" value="{{answer.statement}}" required>
                 </mat-form-field>
+                <hr>
+                <div *ngIf="answer.image" class="cadre-photo">
+                  <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
+                </div>
                 <br>
                 <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto" id="buttonEditAnswerStatement" (click)="savingEditAnswerStatementFCT(i)"><mat-icon>done</mat-icon> Enregistrer</button>
               </form>
@@ -72,13 +82,13 @@
 
             <ng-template #elseEditAnswerStatement>
               <h6>Réponse : </h6> {{ answer.statement }}
+              <hr>
+              <div *ngIf="answer.image" class="cadre-photo">
+                <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
+              </div>
               <button class="btn btn-sm btn-outline-secondary ml-auto" id="buttonSavingEditAnswerStatement" (click)="editAnswerStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
             </ng-template>
 
-          </div>
-
-          <div *ngIf="answer.image">
-            <img [src]="answer.image" class="border rounded mx-auto d-block" height="100px" width="100px">
           </div>
 
           <br>
@@ -88,6 +98,7 @@
         </mat-expansion-panel>
       </div>
     </mat-accordion>
+
   </div>
 
   <br>
