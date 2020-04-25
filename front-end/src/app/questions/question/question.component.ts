@@ -64,7 +64,8 @@ export class QuestionComponent implements OnInit {
   private initializeAnswerForm() {
     this.answerStatementForm = this.formBuilder.group({
       statement: [''],
-      image: ['']
+      image: [''],
+      valid: false
     });
   }
 
@@ -112,6 +113,12 @@ export class QuestionComponent implements OnInit {
 
     if(!(this.photoURLAnswers == '')){
       this.question.answers[index].image = this.photoURLAnswers;
+      this.updateAnswerEmit.emit(this.question.answers[index]);
+    }
+
+    const newValid = this.answerStatementForm.value['valid'] as boolean;
+    if(newValid != this.question.answers[index].valid){
+      this.question.answers[index].valid = newValid;
       this.updateAnswerEmit.emit(this.question.answers[index]);
     }
   }

@@ -74,7 +74,15 @@
                   <mat-label>Titre de la réponse</mat-label>
                   <input matInput placeholder="Ecrivez ici" class="input-custom" [formControlName]="'statement'" value="{{answer.statement}}" required>
                 </mat-form-field>
+
+                <br>
+
+                <mat-checkbox type="checkbox" [formControlName]="'valid'" #checkboxCorrectAnswer checked="{{ question.answers[i].valid }}" required>
+                  Est elle correcte ?
+                </mat-checkbox>
+
                 <hr>
+
                 <div *ngIf="answer.image" class="cadre-photo">
                   <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
                 </div>
@@ -90,6 +98,13 @@
 
             <ng-template #elseEditAnswerStatement>
               <h6>Réponse : </h6> {{ answer.statement }}
+              <br>
+              <div *ngIf="answer.valid">
+                Cette réponse est juste : (<mat-icon>done</mat-icon>)
+              </div>
+              <div *ngIf="!answer.valid">
+                Cette réponse est fausse : (<mat-icon>clear</mat-icon>)
+              </div>
               <hr>
               <div *ngIf="answer.image" class="cadre-photo">
                 <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
