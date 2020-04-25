@@ -76,16 +76,11 @@
                 </mat-form-field>
                 <hr>
                 <div *ngIf="answer.image" class="cadre-photo">
-                  <div *ngIf="photoURL !== ''; else elseNoNewPic">
-                    <img [src]="photoURL" class="border rounded mx-auto d-block photoQuiz">
-                  </div>
-                  <ng-template #elseNoNewPic>
-                    <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
-                  </ng-template>
+                  <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
                 </div>
                 <br>
                 <div>
-                  <button class="btn btn-warning upload-btn" (click)="witchAnswer(i)" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
+                  <button class="btn btn-warning upload-btn ml-auto mr-auto" (click)="witchAnswer(i)" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto" id="buttonEditAnswerStatement" (click)="savingEditAnswerStatementFCT(i)"><mat-icon>done</mat-icon> Enregistrer</button>
