@@ -3,6 +3,8 @@ import {Answer, Question} from '../../../models/question.model';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {QuizService} from '../../../services/quiz.service';
 import {Quiz} from '../../../models/quiz.model';
+import {ImageChoicePopupComponent} from '../../image-choice-popup/image-choice-popup.component';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-question',
@@ -42,8 +44,11 @@ export class QuestionComponent implements OnInit {
   editQuestionStatement = false;
   editAnswerStatement = false;
   questionToUpdateWithNewAnswer: Question;
+  photoURL: string;
+  photoURLAnswers: string;
+  witchAnswerIsEdited = 0;
 
-  constructor(public formBuilder: FormBuilder, private quizService: QuizService) {
+  constructor(public formBuilder: FormBuilder, private quizService: QuizService, private dialogPhoto: MatDialog) {
     // Form creation
     this.initializeQuestionForm();
     this.initializeAnswerForm();
@@ -52,12 +57,14 @@ export class QuestionComponent implements OnInit {
   private initializeQuestionForm() {
     this.questionStatementForm = this.formBuilder.group({
       statement: [''],
+      image: ['']
     });
   }
 
   private initializeAnswerForm() {
     this.answerStatementForm = this.formBuilder.group({
       statement: [''],
+      image: ['']
     });
   }
 
@@ -88,6 +95,11 @@ export class QuestionComponent implements OnInit {
       this.question.statement = newStatement;
       this.updateQuestionEmit.emit(this.question);
     }
+
+    if(!(this.photoURL == '')){
+      this.question.image = this.photoURL;
+      this.updateQuestionEmit.emit(this.question);
+    }
   }
 
   updateAnswer(index:number) {
@@ -95,6 +107,11 @@ export class QuestionComponent implements OnInit {
     if(!(newStatement == '')){
       this.question.answers[index].statement = newStatement;
       this.questionContainsTheNewAnswerEmit.emit(this.question);
+      this.updateAnswerEmit.emit(this.question.answers[index]);
+    }
+
+    if(!(this.photoURLAnswers == '')){
+      this.question.answers[index].image = this.photoURLAnswers;
       this.updateAnswerEmit.emit(this.question.answers[index]);
     }
   }
@@ -106,6 +123,37 @@ export class QuestionComponent implements OnInit {
 
   delete() {
     this.deleteQuestion.emit(this.question);
+  }
+
+  openDialogPhotoQuestion(): void {
+    const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
+      width: '600px',
+      data: {profileImgURL: this.photoURL}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        this.photoURL = result;
+      }
+    });
+  }
+
+  witchAnswer(id) {
+    this.witchAnswerIsEdited = id;
+    this.openDialogPhotoAnswers();
+  }
+
+  openDialogPhotoAnswers(): void {
+    const dialogRef = this.dialogPhoto.open(ImageChoicePopupComponent, {
+      width: '600px',
+      data: {profileImgURL: this.photoURLAnswers}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        this.photoURLAnswers = result;
+      }
+    });
   }
 
 }

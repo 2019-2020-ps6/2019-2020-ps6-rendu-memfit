@@ -23,8 +23,12 @@
         <hr>
         <div *ngIf="question.image" class="cadre-photo">
           <img [src]="question.image" class="rounded mx-auto d-block photoQuiz">
-          <br>
         </div>
+        <br>
+        <div>
+          <button class="btn btn-warning upload-btn" (click)="openDialogPhotoQuestion()" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
+        </div>
+        <br>
         <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto" id="buttonEditQuestionStatement" (click)="savingEditQuestionStatementFCT()"><mat-icon>done</mat-icon> Enregistrer</button>
       </form>
 
@@ -72,7 +76,16 @@
                 </mat-form-field>
                 <hr>
                 <div *ngIf="answer.image" class="cadre-photo">
-                  <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
+                  <div *ngIf="photoURL !== ''; else elseNoNewPic">
+                    <img [src]="photoURL" class="border rounded mx-auto d-block photoQuiz">
+                  </div>
+                  <ng-template #elseNoNewPic>
+                    <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
+                  </ng-template>
+                </div>
+                <br>
+                <div>
+                  <button class="btn btn-warning upload-btn" (click)="witchAnswer(i)" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
                 </div>
                 <br>
                 <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto" id="buttonEditAnswerStatement" (click)="savingEditAnswerStatementFCT(i)"><mat-icon>done</mat-icon> Enregistrer</button>
@@ -86,6 +99,7 @@
               <div *ngIf="answer.image" class="cadre-photo">
                 <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
               </div>
+              <br>
               <button class="btn btn-sm btn-outline-secondary ml-auto" id="buttonSavingEditAnswerStatement" (click)="editAnswerStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
             </ng-template>
 
