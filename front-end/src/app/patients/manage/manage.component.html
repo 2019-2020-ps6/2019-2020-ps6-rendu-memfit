@@ -1,66 +1,70 @@
 <h1>Gestion des patients</h1>
 <hr>
 <br>
+<div class="container-fluid">
+  <div class="row justify-content-center" *ngIf="patientList">
 
-<div class="row" *ngIf="patientList">
+    <div class="col-12 col-lg-6">
+      <ul class="list-group">
+        <li *ngFor="let p of patientList; let index = index;"
+            class="list-group-item d-flex justify-content-between align-items-center clickable" value="{{index}} "
+            (click)="onClick(index)">
+          <ng-container *ngIf="index == indexSelected; else elseBlock">
+            <b>{{patientString(p)}}</b>
+            <span class="badge badge-primary badge-pill"><i class="fas fa-caret-right"></i></span>
+          </ng-container>
+          <ng-template #elseBlock>
+            <span> {{patientString(p)}}</span>
+          </ng-template>
+        </li>
+      </ul>
 
-  <div class="column">
-    <ul class="list-group first-column">
-      <li *ngFor="let p of patientList; let index = index;"
-          class="list-group-item d-flex justify-content-between align-items-center clickable" value="{{index}} "
-          (click)="onClick(index)">
-        <ng-container *ngIf="index == indexSelected; else elseBlock">
-          <b>{{patientString(p)}}</b>
-          <span class="badge badge-primary badge-pill"><i class="fas fa-caret-right"></i></span>
-        </ng-container>
-        <ng-template #elseBlock>
-        <span> {{patientString(p)}}</span>
-        </ng-template>
-      </li>
-    </ul>
+      <br>
 
-    <br>
-
-    <div class="form-group first-column">
-      <form [formGroup]="patientForm" (ngSubmit)="addPatient()">
-        <div class="input-group mb-3">
-          <div class="custom-file">
-            <input [formControlName]="'firstName'" type="text" class="form-control" placeholder="Nouveau patient">
-            <div class="input-group-append">
-              <button style="margin-left: .75em" class="btn btn-info"><i class="fas fa-plus"></i></button>
+      <div class="form-group">
+        <form [formGroup]="patientForm" (ngSubmit)="addPatient()">
+          <div class="input-group mb-3">
+            <div class="custom-file">
+              <input [formControlName]="'firstName'" type="text" class="form-control" placeholder="Nouveau patient">
+              <div class="input-group-append">
+                <button style="margin-left: .75em" class="btn btn-info"><i class="fas fa-plus"></i></button>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
 
-    </div>
-  </div>
-  <ng-container *ngIf="patientSelected">
-  <div class="column">
-    <div id="info-patients">
-
-      <div id="photoPatient">
-        <img [src]="patientSelected.photo" alt="Avatar" class="img-fluid photoProfile">
-        <div class="overlay img-fluid" (click)="openDialogPhoto()">
-          <button class="text" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
-            <mat-icon>add_a_photo</mat-icon>
-          </button>
-        </div>
-      </div>
-
-      <h2>{{patientString(patientSelected)}}</h2>
-      <p><i>Profil créé le : {{myFormatDate(patientSelected.id)}}</i></p>
-      <h4>{{attribuedQuizNb}} quiz attribués</h4>
-      <h6>Dernier quiz joué : {{lastQuizzPassed}}</h6>
-      <h6>Taux de réussite moyen : {{this.successPercentage}}</h6>
-      <br>
-      <div class="button-group">
-          <button class="btn btn-success w-100 btn-patients" (click)="openDialogManagement()">Gestion des quiz</button>
-          <button [disabled]="!hasAnHistoric" routerLink="/quiz-record/{{patientSelected.id}}" class="btn btn-info w-100 btn-patients">Historique des quiz</button>
-          <button class="btn btn-danger w-100 btn-patients" (click)="openDialogDelete()">Supprimer patient</button>
       </div>
     </div>
+    <ng-container *ngIf="patientSelected">
+      <div class="col-12 col-lg-6" @fade>
+        <div id="info-patients">
+
+          <div id="photoPatient">
+            <img [src]="patientSelected.photo" alt="Avatar" class="img-fluid photoProfile">
+            <div class="overlay img-fluid" (click)="openDialogPhoto()">
+              <button class="text" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+                <mat-icon>add_a_photo</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <h2>{{patientString(patientSelected)}}</h2>
+          <p><i>Profil créé le : {{myFormatDate(patientSelected.id)}}</i></p>
+          <h4>{{attribuedQuizNb}} quiz attribués</h4>
+          <h6>Dernier quiz joué : {{lastQuizzPassed}}</h6>
+          <h6>Taux de réussite moyen : {{this.successPercentage}}</h6>
+          <br>
+          <div class="button-group">
+            <button class="btn btn-success w-100 btn-patients" (click)="openDialogManagement()">Gestion des quiz
+            </button>
+            <button [disabled]="!hasAnHistoric" routerLink="/quiz-record/{{patientSelected.id}}"
+                    class="btn btn-info w-100 btn-patients">Historique des quiz
+            </button>
+            <button class="btn btn-danger w-100 btn-patients" (click)="openDialogDelete()">Supprimer patient</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
-  </ng-container>
 </div>
 

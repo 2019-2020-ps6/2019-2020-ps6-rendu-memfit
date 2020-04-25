@@ -9,11 +9,13 @@ import {QuizService} from '../../../services/quiz.service';
 import {QuizRecord} from '../../../models/quizrecord.model';
 import {formatDate} from '@angular/common';
 import {DialogManagementComponent} from "./dialog-management/dialog-management.component";
+import {fade} from "../../animations";
 
 @Component({
   selector: 'app-manage',
   templateUrl: './manage.component.html',
-  styleUrls: ['./manage.component.scss']
+  styleUrls: ['./manage.component.scss'],
+  animations: [fade]
 })
 export class ManageComponent implements OnInit {
   public patientList: Patient[];

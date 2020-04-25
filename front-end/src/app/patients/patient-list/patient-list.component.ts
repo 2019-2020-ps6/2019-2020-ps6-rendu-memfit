@@ -2,11 +2,15 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import { Patient } from '../../../models/patient.model';
 import { PatientService } from '../../../services/patient.service'
+import {fade} from "../../animations";
 
 @Component({
   selector: 'app-patient-list',
   templateUrl: './patient-list.component.html',
-  styleUrls: ['./patient-list.component.scss']
+  styleUrls: ['./patient-list.component.scss'],
+  animations: [
+  fade
+  ]
 })
 export class PatientListComponent implements OnInit {
 

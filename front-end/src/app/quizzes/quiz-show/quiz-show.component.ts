@@ -6,11 +6,15 @@ import {QuizService} from "../../../services/quiz.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {QUESTION_ACTOR, QUESTION_ACTORS, QUIZ_LIST} from "../../../mocks/quiz-list.mock";
 import {ImageService} from "../../../services/image.service";
+import {fade} from "../../animations";
 
 @Component({
   selector: 'app-quiz-show',
   templateUrl: './quiz-show.component.html',
-  styleUrls: ['./quiz-show.component.scss']
+  styleUrls: ['./quiz-show.component.scss'],
+  animations: [
+    fade
+  ]
 })
 export class QuizShowComponent implements OnInit {
 

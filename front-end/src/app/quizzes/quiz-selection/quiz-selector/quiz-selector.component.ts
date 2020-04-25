@@ -4,11 +4,13 @@ import {ActivatedRoute, Params, Router} from "@angular/router";
 import {PatientService} from "../../../../services/patient.service";
 import {Patient} from "../../../../models/patient.model";
 import {QuizService} from "../../../../services/quiz.service";
+import {fade} from "../../../animations";
 
 @Component({
   selector: 'app-quiz-selecter',
   templateUrl: './quiz-selector.component.html',
-  styleUrls: ['./quiz-selector.component.scss']
+  styleUrls: ['./quiz-selector.component.scss'],
+  animations: [fade]
 })
 export class QuizSelectorComponent implements OnInit {
 

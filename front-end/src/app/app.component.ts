@@ -1,11 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {NavigationStart, Router} from '@angular/router';
+import {NavigationStart, Router, RouterOutlet} from '@angular/router';
+import {fade} from "./animations";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [fade]
 })
+
+
 export class AppComponent {
   showHeader = true;
   constructor(private router: Router) {
@@ -19,4 +23,5 @@ export class AppComponent {
       }
     });
   }
+
 }

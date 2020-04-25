@@ -28,20 +28,8 @@
   text-align: center;
 }
 
-.row {
-  display: flex;
-}
 
 /* Create two equal columns that sits next to each other */
-.column {
-  flex: 50%;
-  padding: 10px;
-}
-
-.first-column{
-  width: 80%;
-  margin-left: 2em;
-}
 
 #info-patients {
   background-color: white;

@@ -16,7 +16,7 @@
         <div class="row card-deck justify-content-center mx-2 px-0">
 
           <ng-container *ngFor="let answer of currentQuestion.answers">
-            <div class="col" (click)="handleResponse(answer)">
+            <div @fade class="col" (click)="handleResponse(answer)">
               <app-answers [answer]="answer"></app-answers>
             </div>
           </ng-container>
@@ -26,7 +26,7 @@
 
 
       <ng-template #superBienJoueModal>
-        <div class="container middle-screen">
+        <div @fade class="container middle-screen">
           <div class="row align-items-center">
             <div class="col-12 col-md-8">
               <h3 class="text-center">Super ! On passe à la question suivante ?</h3>
@@ -40,7 +40,7 @@
 
 
       <ng-template #vouliezVousDireModal>
-        <div class="container">
+        <div @fade class="container">
           <div class="row align-items-center d-flex justify-content-between">
             <div class="col-12 col-md-4">
               <h3 class="text-center">Vouliez-vous dire ?</h3>
@@ -62,7 +62,7 @@
     </ng-container>
 
     <ng-template #endModal>
-      <div class="middle-screen text-center">
+      <div @fade class="middle-screen text-center">
         <h1>Quiz Terminé ! Bravo !</h1>
         <img src="assets/Emote-happy-face.png" alt="Félicitations" class="img-fluid">
         <p class="mt-3">Vous pouvez désormais appeler l'assistante</p>
@@ -71,7 +71,7 @@
 
 
     <ng-template #startModal>
-      <div class="middle-screen">
+      <div @fade class="middle-screen">
         <div class="row justify-content-center">
             <div *ngIf="quiz.image" class="col-12 col-lg-4">
               <img class="img-thumbnail" src="{{quiz.image}}" alt="answer">
@@ -96,5 +96,5 @@
   </div>
 </ng-container>
 <ng-template #loadingModal>
-  <h1 class="text-center">Chargement en cours...</h1>
+  <h1 @fade class="text-center">Chargement en cours...</h1>
 </ng-template>
