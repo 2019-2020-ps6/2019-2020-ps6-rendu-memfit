@@ -50,30 +50,30 @@ export class UpdateQuizSettingsComponent implements OnInit {
   }
 
   updateQuiz() {
-    const quizToUpdate: Quiz = this.updateQuizForm.getRawValue() as Quiz;
+    const quizToUpdate: Quiz = this.updateQuizForm.getRawValue() as Quiz
+    let change = 0;
+    quizToUpdate.id = this.quiz.id;
 
     if(this.quiz.name != quizToUpdate.name && quizToUpdate.name != ''){
-      quizToUpdate.theme = this.quiz.theme;
-      quizToUpdate.id = this.quiz.id;
-      quizToUpdate.image = this.quiz.image;
-
-      this.quizService.updateQuiz(quizToUpdate);
+      change++;
+    } else {
+      quizToUpdate.name = this.quiz.name;
     }
 
     if(this.quiz.image != this.photoURL && this.photoURL != ''){
-      quizToUpdate.name = this.quiz.name;
-      quizToUpdate.theme = this.quiz.theme;
-      quizToUpdate.id = this.quiz.id;
+      change++;
       quizToUpdate.image = this.photoURL;
-
-      this.quizService.updateQuiz(quizToUpdate);
+    } else {
+      quizToUpdate.image = this.quiz.image;
     }
 
     if(this.quiz.theme != quizToUpdate.theme && quizToUpdate.theme != ''){
-      quizToUpdate.name = this.quiz.name;
-      quizToUpdate.id = this.quiz.id;
-      quizToUpdate.image = this.quiz.image;
+      change++;
+    } else {
+      quizToUpdate.theme = this.quiz.theme;
+    }
 
+    if(change > 0){
       this.quizService.updateQuiz(quizToUpdate);
     }
 
