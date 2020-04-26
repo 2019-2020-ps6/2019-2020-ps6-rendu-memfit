@@ -18,19 +18,14 @@
 
       <div class="col-sm">
         <div class="form-group">
-
           <label class="col-form-label" for="quizName">Titre</label>
           <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" value="{{this.quiz.name}}" required>
         </div>
 
-        <div class="form-group">
-          <mat-form-field id="description">
-            <mat-label class="col-form-label">
-              Description <i>(optionnel)</i>
-            </mat-label>
-            <textarea matInput cdkTextareaAutosize type="text" class="form-control" id="exampleTextarea" rows="3" [formControlName]="'theme'" placeholder="Description du quiz" value="{{this.quiz.theme}}"></textarea>
-          </mat-form-field>
-        </div>
+        <mat-form-field class="full-width-input" appearance="fill" id="description">
+          <mat-label class="col-form-label">Description</mat-label>
+          <textarea matInput cdkTextareaAutosize type="text" [formControlName]="'theme'" class="form-control" rows="3" placeholder="Description du quiz" value="{{this.quiz.theme}}" required></textarea>
+        </mat-form-field>
       </div>
     </div>
 
