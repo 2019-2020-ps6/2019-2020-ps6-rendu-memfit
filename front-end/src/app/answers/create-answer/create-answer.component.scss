@@ -9,10 +9,6 @@
   border-radius: 10px;
 }
 
-.mat-form-field-wrapper {
-  padding-bottom: 0!important;
-}
-
 #cadre-photo {
   width: 50%;
   background-color: #5BC0EB;
@@ -49,8 +45,8 @@ button:hover {
 }
 
 ::ng-deep .mat-form-field-wrapper {
-  padding: 1rem;
-  padding-bottom: 0;
+  padding: 1rem 1rem 0;
+  width: 100%;
 }
 
 ::ng-deep .modal-body {

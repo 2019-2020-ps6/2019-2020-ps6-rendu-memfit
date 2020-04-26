@@ -2,8 +2,6 @@
 
   <mat-tab-group>
     <mat-tab label="Question">
-      <br>
-
       <label for="statement">
         <mat-form-field appearance="outline">
           <mat-label>Titre de la question</mat-label>
@@ -11,16 +9,16 @@
         </mat-form-field>
       </label>
 
-      <br>
-
       <label>
         <div class="form-group photo-form">
-          <div id="cadre-photo">
+          <div class="cadre-photo">
             <img class="img-fluid" id="photoQuiz" [src]="photoURL">
           </div>
-          <br>
-          <div>
-            <button class="btn btn-warning upload-btn" (click)="openDialogPhotoQuestion()" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
+
+          <div class="centered">
+            <button class="btn btn-warning upload-btn" (click)="openDialogPhotoQuestion()" data-dismiss="modal" aria-label="Close">
+              <i class="fas fa-upload"></i> Charger une image
+            </button>
           </div>
         </div>
       </label>
@@ -31,7 +29,9 @@
 
     <mat-tab label="Réponses">
       <br>
-      <button class="btn-outline-primary btn-sm" (click)="addAnswer()"><mat-icon>add</mat-icon> Ajouter une réponse</button>
+      <button id="add-answer-button" class="btn-outline-primary btn-sm" (click)="addAnswer()">
+        <mat-icon>add</mat-icon> Ajouter une réponse
+      </button>
 
       <div class="answer" formArrayName="answers">
         <div *ngIf="answers.length > 0">
@@ -42,7 +42,6 @@
           <div *ngFor="let address of answers.controls; let i=index">
 
             <mat-expansion-panel>
-
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <div *ngIf="inputStatement.value.length > 0; else elseBlockTitleAnswer">
@@ -71,19 +70,17 @@
                 <br>
 
                 <div class="form-group photo-form">
-                  <div id="cadre-photo2">
+                  <div class="cadre-photo">
                     <img class="img-fluid" id="photoAnswers" [src]="photoURLAnswers[i]">
                   </div>
 
-                  <br>
-
-                  <div>
+                  <div class="centered">
                     <button class="btn btn-warning upload-btn" (click)="witchAnswer(i)" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
                   </div>
                 </div>
 
               <br>
-              <button class="btn-outline-danger btn-sm" (click)="deleteAnswer(i)" id="deleteAnswer">
+              <button class="btn-outline-danger btn-sm delete-button" (click)="deleteAnswer(i)" id="deleteAnswer">
                 <mat-icon>delete</mat-icon> Supprimer
               </button>
               <br>
@@ -96,10 +93,7 @@
     </mat-tab>
   </mat-tab-group>
 
-  <hr>
-
-  <button type="submit" class="button-card" (click)="addQuestion()" data-dismiss="modal" aria-label="Close">Créer</button>
-
+  <button id="create-button" type="submit" class="button-card" (click)="addQuestion()" data-dismiss="modal" aria-label="Close">Créer</button>
 </form>
 
 <!-- Uncomment below to see your form structure and how it changes-->

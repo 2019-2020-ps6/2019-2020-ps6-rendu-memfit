@@ -34,12 +34,13 @@ mat-icon {
   border-radius: 10px;
 }
 
-#cadre-photo {
-  width: 100%;
+.cadre-photo {
+  width: 50%;
   background-color: #5BC0EB;
   padding: .5em;
-  border-radius: 10px;
-  border: black 1px solid;
+  border-radius: 0.25rem .25rem 0 0;
+  border: #e0a800 1px solid;
+  border-bottom: none;
   margin: auto;
 }
 
@@ -66,4 +67,66 @@ mat-icon {
   border-radius: 10px;
   border: black 1px solid;
   margin: auto;
+}
+
+button {
+  width: 50%;
+  border: 1px solid #e0a800;
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+button:hover {
+  border: 1px solid #e0a800;
+  border-top: none;
+}
+
+.centered {
+  text-align: center;
+}
+
+::ng-deep .mat-form-field, ::ng-deep .mat-form-field-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+::ng-deep .modal-body {
+  padding: 0 !important;
+}
+
+::ng-deep .mat-tab-label {
+  width: 50%;
+  min-width: 50%;
+}
+
+.mat-checkbox {
+  margin-bottom: 2vh !important;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#create-button {
+  width: 100%;
+  color: white;
+  background-color: $blue;
+  text-align: center;
+  padding: 1vh;
+  border: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.delete-button {
+  color: white;
+  background-color: #e0a800;
+  border: 1px solid #e0a800;
+  border-radius: 0.25rem;
+  width: 33.3%;
+}
+
+#add-answer-button {
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  border: 1px solid #6c757d;
+  border-radius: 0.25rem;
 }
