@@ -1,0 +1,13 @@
+#delete-button, #update-button {
+  width: 50%;
+  margin-bottom: 2vh;
+}
+
+#update-button {
+  border-radius: 0 0.25rem 0.25rem 0;
+  border-right: 1px solid white;
+}
+
+#delete-button {
+  border-radius: 0.25rem 0 0 0.25rem;
+}

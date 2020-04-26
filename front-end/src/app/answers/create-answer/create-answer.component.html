@@ -1,6 +1,6 @@
 <form class="answer-form" [formGroup]="answerForm">
 
-    <mat-form-field appearance="outline">
+    <mat-form-field id="intitule" class="full-width" appearance="outline">
       <mat-label>Intitulé de la réponse</mat-label>
       <input matInput placeholder="Ecrivez ici" [formControlName]="'statement'" #inputStatement required>
     </mat-form-field>
@@ -24,9 +24,7 @@
         <button class="btn btn-warning upload-btn" (click)="openDialogPhotoAnswer()" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
       </div>
     </div>
-
     <br>
-
   <hr>
 
   <button type="submit" class="button-card" (click)="addAnswer()" data-dismiss="modal" aria-label="Close">Créer</button>
