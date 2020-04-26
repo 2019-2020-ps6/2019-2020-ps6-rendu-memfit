@@ -1,10 +1,18 @@
+.full-width {
+  width: 100%;
+}
+
 #photoQuiz {
   width: 100%;
   border-radius: 10px;
 }
 
+.mat-form-field-wrapper {
+  padding-bottom: 0!important;
+}
+
 #cadre-photo {
-  width: 100%;
+  width: 50%;
   background-color: #5BC0EB;
   padding: .5em;
   border-radius: 10px;
