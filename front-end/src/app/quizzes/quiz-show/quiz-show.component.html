@@ -26,13 +26,17 @@
 
 
       <ng-template #superBienJoueModal>
-        <div @fade class="container middle-screen">
+        <div class="container middle-screen" @fade>
           <div class="row align-items-center">
             <div class="col-12 col-md-8">
               <h3 class="text-center">Super ! On passe à la question suivante ?</h3>
             </div>
             <div class="col-12 col-md-4">
-              <button class="btn btn-success w-100 m-1" (click)="toggleNextQuestion()">C'est parti !</button>
+              <button class="btn btn-success w-100 m-1 py-3" (click)="toggleNextQuestion()"><div class="row align-items-center justify-content-center">
+                <div class="col-auto"><h4 class="m-0">C'est parti !</h4></div>
+                <div class="col-auto d-none d-md-block"><img class="img-fluid" src="assets/click.gif" alt="Félicitations"
+                                                             style="height:1.6em"></div>
+              </div></button>
             </div>
           </div>
         </div>
@@ -53,8 +57,8 @@
               </ng-container>
             </ng-container>
             <div class="col-12 col-md-4">
-              <button class="btn btn-success w-100 m-1" (click)="handleCorrection(true)">Oui</button>
-              <button class="btn btn-warning w-100 m-1" (click)="handleCorrection(false)">Non</button>
+              <button class="btn btn-success w-100 m-1 py-3" (click)="handleCorrection(true)"><h4 class="m-0">Oui</h4></button>
+              <button class="btn btn-warning w-100 m-1 py-3" (click)="handleCorrection(false)"><h4 class="m-0">Non</h4></button>
             </div>
           </div>
         </div>
