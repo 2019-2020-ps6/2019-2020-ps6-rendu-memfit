@@ -16,18 +16,25 @@
   border-radius: 10px;
 }
 
-.camera-form {
-  font-size: 3em;
-  color: aliceblue;
-  float: right;
-  margin-top: 216px;
-  border-top: black 1px solid;
-  border-left: black 1px solid;
-  border-top-left-radius: 10px;
-  padding: 10px;
-}
-
 .upload-btn {
   display: block;
   margin: auto;
+}
+
+#description {
+  width: 100%;
+  padding: 0;
+}
+
+#delete-button, #update-button {
+  width: 50%;
+}
+
+#update-button {
+  border-radius: 0.25rem 0 0 0.25rem;
+  border-right: 1px solid white;
+}
+
+#delete-button {
+  border-radius: 0 0.25rem 0.25rem 0;
 }
