@@ -22,10 +22,10 @@
           <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" value="{{this.quiz.name}}" required>
         </div>
 
-        <mat-form-field class="full-width-input" appearance="fill" id="description">
-          <mat-label class="col-form-label">Description</mat-label>
-          <textarea matInput cdkTextareaAutosize type="text" [formControlName]="'theme'" class="form-control" rows="3" placeholder="Description du quiz" value="{{this.quiz.theme}}" required></textarea>
-        </mat-form-field>
+        <div class="form-group">
+          <label for="quiz-description">Description du quiz</label>
+          <textarea type="text" class="form-control" id="quiz-description" rows="3" [formControlName]="'theme'" value="{{this.quiz.theme}}" required></textarea>
+        </div>
       </div>
     </div>
   </div>

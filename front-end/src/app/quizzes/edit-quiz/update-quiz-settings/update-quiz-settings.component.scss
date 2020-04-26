@@ -1,5 +1,5 @@
 .photo-form {
-  width: 70%;
+  margin-top: 2vh;
 }
 
 #cadre-photo {
@@ -38,7 +38,8 @@
   width: 100%;
 }
 
-#description {
-  width: 100%;
-  padding: 0;
+textarea {
+  resize: none;
 }
+
+
