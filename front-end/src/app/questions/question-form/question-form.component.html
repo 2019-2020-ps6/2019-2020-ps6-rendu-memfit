@@ -2,12 +2,10 @@
 
   <mat-tab-group>
     <mat-tab label="Question">
-      <label for="statement">
-        <mat-form-field appearance="outline">
+        <mat-form-field class="full-width-input" appearance="outline">
           <mat-label>Titre de la question</mat-label>
           <input matInput placeholder="Ecrivez ici" class="input-custom" id="statement" [formControlName]="'statement'" required>
         </mat-form-field>
-      </label>
 
       <label>
         <div class="form-group photo-form">
