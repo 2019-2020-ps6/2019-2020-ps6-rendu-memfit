@@ -4,6 +4,6 @@ export const fade =
   trigger('fade', [
     transition('void => *', [
       style({opacity: 0, transform: 'scale(0.8)'}),
-      animate(500)
+      animate(250)
       ])
   ]);
