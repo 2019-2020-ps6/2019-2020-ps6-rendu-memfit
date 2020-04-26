@@ -53,7 +53,6 @@ router.put('/:answerId', (req, res) => {
   try {
     const answer = getAnswerFromQuestion(req.params.quizId, req.params.questionId, req.params.answerId)
     const updatedAnswer = Answer.update(req.params.answerId, { ...req.body, questionId: answer.questionId })
-    console.log(updatedAnswer)
     res.status(200).json(updatedAnswer)
   } catch (err) {
     if (err.name === 'NotFoundError') {

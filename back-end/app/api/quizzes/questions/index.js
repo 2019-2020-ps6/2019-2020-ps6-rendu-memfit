@@ -37,7 +37,6 @@ router.post('/', (req, res) => {
     } else {
       question = Question.create({ statement: req.body.statement, quizId })
     }
-    console.log(question)
     // If answers have been provided in the request, we create the answer and update the response to send.
     if (req.body.answers && req.body.answers.length > 0) {
       const answers = req.body.answers.map((answer) => Answer.create({ ...answer, questionId: question.id }))
