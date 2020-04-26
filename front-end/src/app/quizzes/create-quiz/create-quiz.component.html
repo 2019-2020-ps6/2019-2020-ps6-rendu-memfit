@@ -23,12 +23,15 @@
     <div class="col-sm">
       <div class="form-group">
 
-        <label class="col-form-label" for="quizName">Titre</label>
-        <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
+        <mat-form-field class="full-width-input">
+          <mat-label class="col-form-label">Titre</mat-label>
+          <input matInput type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
+        </mat-form-field>
 
-
-        <label class="col-form-label" for="exampleTextarea">Description <i>(optionnel)</i></label>
-        <textarea [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz"></textarea>
+        <mat-form-field class="full-width-input">
+          <mat-label class="col-form-label">Description</mat-label>
+          <textarea matInput [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz" required></textarea>
+        </mat-form-field>
 
         <label class="col-form-label" for="patientId">Patient</label>
 
