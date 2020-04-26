@@ -2,11 +2,16 @@
   <h1 mat-dialog-title>Vous voulez vraiment supprimer ce quiz ?</h1>
 
   <div mat-dialog-content>
-    Le quiz : {{this.data.quiz.name}}
+    Le quiz : <b>{{this.data.quiz.name}}</b>
   </div>
 
   <div mat-dialog-actions>
-    <button mat-button (click)="deleteNo()">Non</button>
-    <button mat-button (click)="deleteYes()" cdkFocusInitial>Oui</button>
+
+    <button id="delete-button" type="button" class="btn btn-danger" style="float: right; margin-top: 1em" data-dismiss="modal" aria-label="Close" (click)="deleteYes()">
+      Oui
+    </button>
+    <button id="update-button" type="submit" class="btn btn-info" style="float: right; margin-top: 1em" (click)="deleteNo()" data-dismiss="modal" aria-label="Close">
+      Non
+    </button>
   </div>
 </div>

@@ -30,6 +30,9 @@ router.get('/uploads/:fileName', (req, res) => {
 router.post('/upload', multipartMiddleware, (req, res) => {
   if(req.files.uploads[0] !== undefined) {
     var file = req.files.uploads[0].path;
+    var newFile = file.split("/").pop();
+    console.log(newFile)
+
     res.json({
       'filepath': file
     });

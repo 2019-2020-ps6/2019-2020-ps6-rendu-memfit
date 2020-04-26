@@ -1,5 +1,5 @@
 <ng-container id="container" *ngIf="patient">
-  <div id="patient" @fade>
+  <div id="patient">
     <img id="patient-photo" src="{{this.patient.photo}}" alt="patientPhoto"/>
     <p *ngIf="this.option == 'launch'" class="patient-name">Lancer un quiz
       pour {{this.patient.firstName}} {{this.patient.lastName}}</p>

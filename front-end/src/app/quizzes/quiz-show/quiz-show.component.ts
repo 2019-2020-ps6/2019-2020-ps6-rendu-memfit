@@ -4,7 +4,6 @@ import {Question} from "../../../models/question.model";
 import {QuizRecord, AnswerRecord} from "../../../models/quizrecord.model";
 import {QuizService} from "../../../services/quiz.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {QUESTION_ACTOR, QUESTION_ACTORS, QUIZ_LIST} from "../../../mocks/quiz-list.mock";
 import {ImageService} from "../../../services/image.service";
 import {fade} from "../../animations";
 

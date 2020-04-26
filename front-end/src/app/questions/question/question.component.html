@@ -22,7 +22,7 @@
         </mat-form-field>
         <hr>
         <div *ngIf="question.image" class="cadre-photo">
-          <img [src]="question.image" class="rounded mx-auto d-block photoQuiz">
+          <img [src]="question.image" class="rounded mx-auto d-block photoQuiz img-fluid">
         </div>
         <br>
         <div>
@@ -38,8 +38,7 @@
       <h6>Question : </h6> {{ question.statement }}
       <hr>
       <div *ngIf="question.image" class="cadre-photo">
-        <img [src]="question.image" class="rounded mx-auto d-block photoQuiz">
-        <br>
+        <img [src]="question.image" class="rounded mx-auto d-block photoQuiz img-fluid">
       </div>
       <button class="btn btn-sm btn-outline-secondary ml-auto" id="buttonSavingEditQuestionStatement" (click)="editQuestionStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
     </ng-template>
@@ -48,7 +47,7 @@
 
   <hr>
 
-  <button class="btn-outline-primary btn-sm" data-toggle="modal" data-target="#createAnswer"><mat-icon>add</mat-icon> Ajouter une réponse</button>
+  <button (click)="questionToUpdateWithNewAnswerFCT(question.id)" class="btn-outline-primary btn-sm" data-toggle="modal" data-target="#createAnswer"><mat-icon>add</mat-icon> Ajouter une réponse</button>
 
   <hr>
 
@@ -84,14 +83,14 @@
                 <hr>
 
                 <div *ngIf="answer.image" class="cadre-photo">
-                  <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
+                  <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz img-fluid">
                 </div>
                 <br>
                 <div>
                   <button class="btn btn-warning upload-btn ml-auto mr-auto" (click)="witchAnswer(i)" data-dismiss="modal" aria-label="Close"><i class="fas fa-upload"></i> Charger une image</button>
                 </div>
                 <br>
-                <button type="submit" class="btn btn-sm btn-outline-secondary mr-auto" id="buttonEditAnswerStatement" (click)="savingEditAnswerStatementFCT(i)"><mat-icon>done</mat-icon> Enregistrer</button>
+                <button (click)="savingEditAnswerStatementFCT(i)" type="submit" class="btn btn-sm btn-outline-secondary mr-auto" id="buttonEditAnswerStatement"><mat-icon>done</mat-icon> Enregistrer</button>
               </form>
 
             </div>
@@ -107,7 +106,7 @@
               </div>
               <hr>
               <div *ngIf="answer.image" class="cadre-photo">
-                <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz">
+                <img [src]="answer.image" class="border rounded mx-auto d-block photoQuiz img-fluid">
               </div>
               <br>
               <button class="btn btn-sm btn-outline-secondary ml-auto" id="buttonSavingEditAnswerStatement" (click)="editAnswerStatementFCT()"><mat-icon>create</mat-icon> Editer</button>
@@ -131,20 +130,3 @@
 
 </mat-expansion-panel>
 
-<div [ngClass]="{'modal' : true, 'fade': true}" id="createAnswer" #createAnswer tabindex="-1" role="dialog" aria-labelledby="create-answer-Label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="create-answer-Label">Créer une réponse</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="modal-body">
-        <app-create-answer [quiz]="quiz" [question]="question" ></app-create-answer>
-      </div>
-
-    </div>
-  </div>
-</div>
