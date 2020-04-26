@@ -6,7 +6,6 @@ const { AnswerRecord } = require('../../../models')
  * @param quizRecordId
  */
 const filterAnswerRecordsFromQuizRecord = (quizRecordId) => {
-  console.log("rgrgrgr");
   return AnswerRecord.get().filter((answer) => (answer.quizRecordId == quizRecordId))
 }
 

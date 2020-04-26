@@ -33,14 +33,6 @@ router.post('/upload', multipartMiddleware, (req, res) => {
     var file = req.files.uploads[0].path;
     var newFile = file.split("/").pop();
     console.log(newFile)
-    // console.log(req.files.upload.path);
-    // console.log(file.type);
-    // fs.rename(req.files[0].originalFilename, file, function (err) {
-    //   if (err) {
-    //     console.log(err);
-    //   }
-    //
-    // })
 
     res.json({
       'filepath': file
