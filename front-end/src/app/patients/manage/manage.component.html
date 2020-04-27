@@ -40,7 +40,7 @@
         <div id="info-patients">
 
           <div id="photoPatient">
-            <img [src]="patientSelected.photo" alt="Avatar" class="img-fluid photoProfile">
+            <img ondragstart="return false;" [src]="patientSelected.photo" alt="Avatar" class="img-fluid photoProfile">
             <div class="overlay img-fluid" (click)="openDialogPhoto()">
               <button class="text" mat-icon-button aria-label="Example icon button with a vertical three dot icon">
                 <mat-icon>add_a_photo</mat-icon>
