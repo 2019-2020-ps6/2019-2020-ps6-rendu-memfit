@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1588014833345,
+    "quizRecordId": "1588014833345",
+    "question": "De quel fruit s'agit-il ?",
+    "answer": "Une pastèque",
+    "correct": true
+  },
+  {
+    "id": 1588014834987,
+    "quizRecordId": "1588014833345",
+    "question": "Lequel de ces fruits est souvent considéré à tort comme un légume ?",
+    "answer": "La pomme de terre",
+    "correct": false,
+    "rectified": false
+  },
+  {
+    "id": 1588014836698,
+    "quizRecordId": "1588014833345",
+    "question": "Parmi les images ci-dessous, laquelle représente une prune ?",
+    "answer": "  ",
+    "correct": true
+  },
+  {
+    "id": 1588014888110,
+    "quizRecordId": "1588014888109",
+    "question": "De quel fruit s'agit-il ?",
+    "answer": "Une pastèque",
+    "correct": true
+  },
+  {
+    "id": 1588014892294,
+    "quizRecordId": "1588014888109",
+    "question": "Lequel de ces fruits est souvent considéré à tort comme un légume ?",
+    "answer": "La tomate",
+    "correct": true
+  },
+  {
+    "id": 1588014896232,
+    "quizRecordId": "1588014888109",
+    "question": "Parmi les images ci-dessous, laquelle représente une prune ?",
+    "answer": "  ",
+    "correct": false,
+    "rectified": true
+  },
+  {
+    "id": 1588014944158,
+    "quizRecordId": "1588014944157",
+    "question": "Comment appelle-t-on cet objet ?",
+    "answer": "Une brosse à dents",
+    "correct": true
+  },
+  {
+    "id": 1588014952888,
+    "quizRecordId": "1588014944157",
+    "question": "L'ustensile qui permet de couper la nourriture s'appelle :",
+    "answer": "Une épée",
+    "correct": false,
+    "rectified": true
+  },
+  {
+    "id": 1588014956309,
+    "quizRecordId": "1588014944157",
+    "question": "Quel type de chaussure est le plus adapté pour aller à la plage ?",
+    "answer": "Des tongs",
+    "correct": true
+  },
+  {
+    "id": 1588014972889,
+    "quizRecordId": "1588014972888",
+    "question": "De quel fruit s'agit-il ?",
+    "answer": "Une pastèque",
+    "correct": true
+  },
+  {
+    "id": 1588014974666,
+    "quizRecordId": "1588014972888",
+    "question": "Lequel de ces fruits est souvent considéré à tort comme un légume ?",
+    "answer": "Le brocoli",
+    "correct": false,
+    "rectified": true
+  },
+  {
+    "id": 1588014978289,
+    "quizRecordId": "1588014972888",
+    "question": "Parmi les images ci-dessous, laquelle représente une prune ?",
+    "answer": "  ",
+    "correct": true
+  }
+]
