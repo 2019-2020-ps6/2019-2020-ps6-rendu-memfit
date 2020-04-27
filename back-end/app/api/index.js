@@ -3,18 +3,18 @@ const QuizzesRouter = require('./quizzes')
 const QuizRecordRouter = require('./quizrecord')
 const PatientRouter = require('./patients')
 
-var path = require('path');
-
 const fs = require("fs");
 const multipart = require('connect-multiparty');
-
-var EXT_RE = /(\.[_\-a-zA-Z0-9]{0,16}).*/g;
-
+var path = require('path');
 const multipartMiddleware = multipart({
   uploadDir: './uploads'
 });
 
+
+
+
 const router = new Router()
+
 router.get('/status', (req, res) => res.status(200).json('ok'))
 
 router.get('/uploads/:fileName', (req, res) => {
@@ -38,8 +38,11 @@ router.post('/upload', multipartMiddleware, (req, res) => {
     });
   }
 });
+
 router.use('/quizzes', QuizzesRouter)
+
 router.use('/patients', PatientRouter)
+
 router.use('/quizRecord', QuizRecordRouter)
 
 module.exports = router
