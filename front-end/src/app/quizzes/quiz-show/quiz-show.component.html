@@ -1,6 +1,6 @@
 <ng-container *ngIf="quiz; else loadingModal">
 
-  <div class="container-fluid position-relative" style="height: 80vh">
+  <div class="container-fluid position-relative" style="height: 80vh" ondragstart="return false;">
     <ng-container *ngIf="started && !ended; else (ended && endModal) || startModal">
       <!--  <h1>{{quiz.name}}</h1>-->
       <h2 class="text-center mb-4">
@@ -34,7 +34,7 @@
             <div class="col-12 col-md-4">
               <button class="btn btn-success w-100 m-1 py-3" (click)="toggleNextQuestion()"><div class="row align-items-center justify-content-center">
                 <div class="col-auto"><h4 class="m-0">C'est parti !</h4></div>
-                <div class="col-auto d-none d-md-block"><img class="img-fluid" src="assets/click.gif" alt="Félicitations"
+                <div class="col-auto d-none d-md-block"><img ondragstart="return false;" class="img-fluid" src="assets/click.gif" alt="Félicitations"
                                                              style="height:1.6em"></div>
               </div></button>
             </div>
@@ -68,7 +68,7 @@
     <ng-template #endModal>
       <div @fade class="middle-screen text-center">
         <h1>Quiz Terminé ! Bravo !</h1>
-        <img src="assets/Emote-happy-face.png" alt="Félicitations" class="img-fluid">
+        <img ondragstart="return false;" src="assets/Emote-happy-face.png" alt="Félicitations" class="img-fluid">
         <p class="mt-3">Vous pouvez désormais appeler l'assistante</p>
       </div>
     </ng-template>
@@ -78,7 +78,7 @@
       <div @fade class="middle-screen">
         <div class="row justify-content-center">
             <div *ngIf="quiz.image" class="col-12 col-lg-4">
-              <img class="img-thumbnail" src="{{quiz.image}}" alt="answer">
+              <img class="img-thumbnail" ondragstart="return false;" src="{{quiz.image}}" alt="answer">
             </div>
         </div>
         <div class="col-12 col-lg-auto text-center">
