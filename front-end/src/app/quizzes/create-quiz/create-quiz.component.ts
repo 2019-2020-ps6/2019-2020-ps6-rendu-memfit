@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Quiz} from '../../../models/quiz.model';
 import { QuizService } from '../../../services/quiz.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Patient} from '../../../models/patient.model';
 import {PatientService} from '../../../services/patient.service';
@@ -19,7 +19,8 @@ export class CreateQuizComponent implements OnInit {
   public quizForm: any;
   public patientList: Patient[] = [];
   patientId: number;
-  selectedP: number;
+
+  selectedPatients: Patient[];
 
   constructor(
     public formBuilder: FormBuilder,
@@ -31,7 +32,7 @@ export class CreateQuizComponent implements OnInit {
     this.photoURL = "assets/quiz-logo.png";
     this.quizForm = this.formBuilder.group({
       name: [''],
-      theme: ['']
+      theme: [''],
     });
     this.patientService.patients$.subscribe((patients: Patient[]) => {
       this.patientList = patients;
@@ -47,36 +48,10 @@ export class CreateQuizComponent implements OnInit {
     quizToCreate.id = dateNow;
     quizToCreate.image = this.photoURL;
     this.quizService.addQuiz(quizToCreate);
-    if(this.selectedP == 999) { // "Tous les patients" cliqué
-      for(let p of this.patientList) {
-        this.patientService.addQuizToPatient(dateNow, p);
-      }
-    }
-    else {
-      this.patientService.addQuizToPatient(dateNow, this.patientService.getPatient(this.selectedP));
+    for(let p of this.selectedPatients) {
+      this.patientService.addQuizToPatient(dateNow, p);
     }
     this.router.navigate(['/quiz/edit/' + dateNow]);
-  }
-
-  selectPatientSup() {
-
-  }
-
-  syncImg(value: string) {
-    if(value == "") {
-      this.photoURL = "assets/quiz-logo.png";
-    }
-    else this.photoURL = value;
-  }
-
-
-  selected(e) {
-    this.selectedP = e.target.value.split(" ")[1];
-    console.warn(this.selectedP)
-  }
-
-  onUpload(uploadedFile: string) {
-    this.photoURL = "http://localhost:9428/api/" + uploadedFile;
   }
 
   openDialogPhoto(): void {
@@ -90,5 +65,10 @@ export class CreateQuizComponent implements OnInit {
         this.photoURL = result;
       }
     });
+  }
+
+  onNgModelChange(event){
+    console.log(this.selectedPatients)
+    console.log('on ng model change', event);
   }
 }
