@@ -31,7 +31,7 @@
 
 
         <label class="col-form-label">Patient</label>
-        <div style="height: 200px; overflow: auto;">
+        <div style="height: 200px; overflow: auto; background-color: white; border-radius: 6px;">
           <mat-selection-list [(ngModel)]="selectedPatients" (ngModelChange)="onNgModelChange($event)" [ngModelOptions]="{standalone: true}">
             <mat-list-option *ngFor="let p of patientList" [value]="p">
               {{this.patientService.getNameString(p)}}
