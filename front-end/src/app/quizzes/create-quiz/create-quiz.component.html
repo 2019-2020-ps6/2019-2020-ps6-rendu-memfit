@@ -30,7 +30,7 @@
         <textarea [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz" required></textarea>
 
 
-        <label class="col-form-label">Patient</label>
+        <label class="col-form-label">Patients</label>
         <div style="height: 200px; overflow: auto; background-color: white; border-radius: 6px;">
           <mat-selection-list [(ngModel)]="selectedPatients" (ngModelChange)="onNgModelChange($event)" [ngModelOptions]="{standalone: true}">
             <mat-list-option *ngFor="let p of patientList" [value]="p">
