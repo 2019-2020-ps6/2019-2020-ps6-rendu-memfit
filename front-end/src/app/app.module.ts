@@ -31,7 +31,8 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatRippleModule, MatTabsModule
+  MatRippleModule, MatTabsModule,
+  MatListModule
 } from '@angular/material';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { QuizRecordComponent } from './quiz-record/quiz-record.component';
@@ -85,24 +86,25 @@ import {PopUpDeleteQuizComponent} from './quizzes/edit-quiz/pop-up-delete-quiz/p
     UpdateQuizSettingsComponent,
     PopUpDeleteQuizComponent
   ],
-  imports: [
-    OrderModule,
-    BrowserModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatRippleModule,
-    MatIconModule,
-    MatCheckboxModule,
-    MatExpansionModule,
-    MatTabsModule
-  ],
+    imports: [
+        OrderModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatRippleModule,
+        MatIconModule,
+        MatCheckboxModule,
+        MatExpansionModule,
+        MatTabsModule,
+        MatListModule
+    ],
   exports: [FormsModule, MatDialogModule, MatFormFieldModule, MatButtonModule, MatInputModule],
   providers: [
     {provide: LOCALE_ID, useValue: "fr-FR"}

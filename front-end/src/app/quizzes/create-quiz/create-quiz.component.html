@@ -23,30 +23,24 @@
     <div class="col-sm">
       <div class="form-group">
 
-        <mat-form-field class="full-width-input" appearance="fill">
-          <mat-label class="col-form-label">Titre</mat-label>
-          <input matInput type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
-        </mat-form-field>
+        <label class="col-form-label" for="quizName">Titre</label>
+        <input type="text" class="form-control" placeholder="Nom du quiz" id="quizName" [formControlName]="'name'" required>
 
-        <mat-form-field class="full-width-input" appearance="fill">
-          <mat-label class="col-form-label">Description</mat-label>
-          <textarea matInput [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz" required></textarea>
-        </mat-form-field>
+        <label class="col-form-label" for="exampleTextarea">Description du quiz</label>
+        <textarea [formControlName]="'theme'" class="form-control" id="exampleTextarea" rows="3" placeholder="Description du quiz" required></textarea>
 
-        <label class="col-form-label" for="patientId">Patient</label>
 
-        <div class="input-group mb-3">
-          <div class="custom-file">
-            <select class="custom-select" id="patientId" (change)="selected($event)" formControlName="">
-              <option value="" disabled>Choisir un patient</option>
-              <option *ngFor="let p of patientList" [ngValue]="p.id" >{{p.firstName}} {{p.lastName}}</option>
-              <option [ngValue]="999">Tous les patients</option>
-            </select>
-            <div class="input-group-append">
-              <button style="margin-left: .75em" class="btn btn-info" (click)="selectPatientSup()">+</button>
-            </div>
-          </div>
+        <label class="col-form-label">Patient</label>
+        <div style="height: 200px; overflow: auto;">
+          <mat-selection-list [(ngModel)]="selectedPatients" (ngModelChange)="onNgModelChange($event)" [ngModelOptions]="{standalone: true}">
+            <mat-list-option *ngFor="let p of patientList" [value]="p">
+              {{this.patientService.getNameString(p)}}
+            </mat-list-option>
+          </mat-selection-list>
         </div>
+        <br>
+        <span *ngFor="let p of selectedPatients"><span class="patientSelectedTag">{{this.patientService.getNameString(p)}}</span>&nbsp; </span>
+
 
       </div>
     </div>
