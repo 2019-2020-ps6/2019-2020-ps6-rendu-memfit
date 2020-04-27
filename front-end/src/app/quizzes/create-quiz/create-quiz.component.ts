@@ -47,7 +47,14 @@ export class CreateQuizComponent implements OnInit {
     quizToCreate.id = dateNow;
     quizToCreate.image = this.photoURL;
     this.quizService.addQuiz(quizToCreate);
-    this.patientService.addQuizToPatient(dateNow, this.patientService.getPatient(this.selectedP));
+    if(this.selectedP == 999) { // "Tous les patients" cliqué
+      for(let p of this.patientList) {
+        this.patientService.addQuizToPatient(dateNow, p);
+      }
+    }
+    else {
+      this.patientService.addQuizToPatient(dateNow, this.patientService.getPatient(this.selectedP));
+    }
     this.router.navigate(['/quiz/edit/' + dateNow]);
   }
 

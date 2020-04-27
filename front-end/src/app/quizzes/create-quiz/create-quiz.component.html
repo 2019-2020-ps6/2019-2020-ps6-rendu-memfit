@@ -40,7 +40,7 @@
             <select class="custom-select" id="patientId" (change)="selected($event)" formControlName="">
               <option value="" disabled>Choisir un patient</option>
               <option *ngFor="let p of patientList" [ngValue]="p.id" >{{p.firstName}} {{p.lastName}}</option>
-              <option value="ALL">Tous les patients</option>
+              <option [ngValue]="999">Tous les patients</option>
             </select>
             <div class="input-group-append">
               <button style="margin-left: .75em" class="btn btn-info" (click)="selectPatientSup()">+</button>
