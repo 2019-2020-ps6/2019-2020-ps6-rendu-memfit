@@ -1,0 +1,5 @@
+@import "../../../../styles/variables";
+
+::ng-deep .mat-pseudo-checkbox-checked {
+  background: $blue !important;
+}

@@ -49,6 +49,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import {CreateAnswerComponent} from './answers/create-answer/create-answer.component';
 import {UpdateQuizSettingsComponent} from './quizzes/edit-quiz/update-quiz-settings/update-quiz-settings.component';
 import {PopUpDeleteQuizComponent} from './quizzes/edit-quiz/pop-up-delete-quiz/pop-up-delete-quiz.component';
+import { PatientQuizSelectionComponent } from './patients/manage/patient-quiz-selection/patient-quiz-selection.component';
 
 
 // @ts-ignore
@@ -84,7 +85,8 @@ import {PopUpDeleteQuizComponent} from './quizzes/edit-quiz/pop-up-delete-quiz/p
     ImageChoicePopupComponent,
     CreateAnswerComponent,
     UpdateQuizSettingsComponent,
-    PopUpDeleteQuizComponent
+    PopUpDeleteQuizComponent,
+    PatientQuizSelectionComponent
   ],
     imports: [
         OrderModule,
@@ -110,7 +112,7 @@ import {PopUpDeleteQuizComponent} from './quizzes/edit-quiz/pop-up-delete-quiz/p
     {provide: LOCALE_ID, useValue: "fr-FR"}
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogDeleteComponent, DialogManagementComponent, ImageChoicePopupComponent, DialogManagementComponent, PopUpDeleteQuizComponent]
+  entryComponents: [DialogDeleteComponent, DialogManagementComponent, ImageChoicePopupComponent, DialogManagementComponent, PopUpDeleteQuizComponent, PatientQuizSelectionComponent]
 })
 export class AppModule {
 }

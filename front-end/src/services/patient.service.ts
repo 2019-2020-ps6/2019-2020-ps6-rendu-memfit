@@ -70,6 +70,12 @@ export class PatientService {
     this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
   }
 
+  setQuizzesToPatient(quizzesId: number[], patient: Patient) {
+    const patientUrl = this.patientUrl + '/' + patient.id;
+    patient.quizzesId = quizzesId;
+    this.http.put<Patient>(patientUrl, patient, this.httpOptions).subscribe();
+  }
+
   removeQuizToPatient(quizId: number, patientId: number) {
     const patientUrl = this.patientUrl + '/' + patientId;
 

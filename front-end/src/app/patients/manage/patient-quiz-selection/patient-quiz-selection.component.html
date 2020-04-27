@@ -1,0 +1,19 @@
+<div id="pop-up-window">
+  <h1 mat-dialog-title>Gestion des quiz de {{this.patient.firstName}} {{this.patient.lastName}}</h1>
+  <div mat-dialog-content>
+    <div style="background-color: #f2f2f2; padding-top: .3em; padding-bottom: .3em; border-radius: 10px">
+      <mat-selection-list [(ngModel)]="selectedQuizzes" (ngModelChange)="onNgModelChange($event)" [ngModelOptions]="{standalone: true}">
+        <mat-list-option *ngFor="let q of quizzes" [value]="q">
+          {{q.name}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+    <br>
+
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annuler</button>
+    <button mat-button [mat-dialog-close]="selectedQuizzes" cdkFocusInitial>Valider</button>
+  </div>
+</div>

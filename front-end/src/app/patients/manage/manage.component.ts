@@ -10,6 +10,7 @@ import {QuizRecord} from '../../../models/quizrecord.model';
 import {formatDate} from '@angular/common';
 import {DialogManagementComponent} from "./dialog-management/dialog-management.component";
 import {fade} from "../../animations";
+import {PatientQuizSelectionComponent} from './patient-quiz-selection/patient-quiz-selection.component';
 
 @Component({
   selector: 'app-manage',
@@ -108,7 +109,6 @@ export class ManageComponent implements OnInit {
 
     if(patientRecords.length > 0) {
       this.lastQuizzPassed = this.myFormatDate(patientRecords[patientRecords.length - 1].id);
-      console.log(this.successPercentage);
       this.hasAnHistoric = true;
     }else{
       this.lastQuizzPassed = "Aucun quiz réalisé";
@@ -152,6 +152,24 @@ export class ManageComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       this.attribuedQuizNb = this.patientSelected.quizzesId.length;
+    });
+  }
+
+  openDialogQuizzes(): void {
+    const dialogRef = this.dialogPhoto.open(PatientQuizSelectionComponent, {
+      width: '600px',
+      data: {patient: this.patientSelected}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        let quizzesId: number[] = [];
+        for(let q of result) {
+          quizzesId.push(q.id);
+        }
+        this.patientService.setQuizzesToPatient(quizzesId, this.patientSelected);
+        this.attribuedQuizNb = this.patientSelected.quizzesId.length;
+      }
     });
   }
 

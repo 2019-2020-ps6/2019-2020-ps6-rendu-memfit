@@ -1,4 +1,4 @@
-<h1>Gestion des patients</h1>
+<h1 xmlns="http://www.w3.org/1999/html">Gestion des patients</h1>
 <hr>
 <br>
 <div class="container-fluid">
@@ -50,12 +50,12 @@
 
           <h2>{{patientString(patientSelected)}}</h2>
           <p><i>Profil créé le : {{myFormatDate(patientSelected.id)}}</i></p>
-          <h4>{{attribuedQuizNb}} quiz attribués</h4>
+          <h4>{{attribuedQuizNb}} quiz attribué<span *ngIf="attribuedQuizNb > 1">s</span> </h4>
           <h6>Dernier quiz joué : {{lastQuizzPassed}}</h6>
           <h6>Taux de réussite moyen : {{this.successPercentage}}</h6>
           <br>
           <div class="button-group">
-            <button class="btn btn-success w-100 btn-patients" (click)="openDialogManagement()">Gestion des quiz
+            <button class="btn btn-success w-100 btn-patients" (click)="openDialogQuizzes()">Gestion des quiz
             </button>
             <button [disabled]="!hasAnHistoric" routerLink="/quiz-record/{{patientSelected.id}}"
                     class="btn btn-info w-100 btn-patients">Historique des quiz
