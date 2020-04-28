@@ -82,11 +82,11 @@
             </div>
         </div>
         <div class="col-12 col-lg-auto text-center">
-          <h1 class="text-center">{{quiz.name}}</h1>
+          <h1 class="text-center mt-2">{{quiz.name}}</h1>
           <div *ngIf="quiz.theme">
-            <h5 class="text-center">{{quiz.theme}}</h5>
+            <h5 class="text-center mt-3">{{quiz.theme}}</h5>
           </div>
-          <button class="btn btn-warning p-4 px-2" (click)="toggleNextQuestion()">
+          <button class="btn btn-warning p-4 px-2 mt-3" (click)="toggleNextQuestion()">
             <div class="row align-items-center justify-content-between">
               <div class="col-auto"><h4 class="m-0">Commencer</h4></div>
               <div class="col-auto d-none d-md-block"><img class="img-fluid" src="assets/click.gif" alt="Félicitations"
