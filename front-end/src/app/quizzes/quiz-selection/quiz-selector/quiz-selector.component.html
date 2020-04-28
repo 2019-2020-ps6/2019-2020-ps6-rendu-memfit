@@ -11,9 +11,8 @@
     <app-quiz-card [patientId]="this.patientId" [quiz]="q"></app-quiz-card>
   </div>
 
-  <p *ngIf="this.quizList.length == 0" @fade class="centered">Pas encore de quiz pour ce patient...
-    <br/>
-    <br/>
-    <button class="btn btn-warning" routerLink="/patients/manage">Gérer les patients</button>
+  <p *ngIf="this.quizList.length == 0" @fade class="centered">Pas encore de quiz pour ce patient...<br><br>
+    <button class="btn btn-success" routerLink="/quiz/create"><i class="fas fa-plus"></i> &nbsp; Créer un quiz</button><br><br>
+    <button class="btn btn-warning" routerLink="/patients/manage"><i class="fas fa-users"></i> &nbsp; Gérer les patients</button>
   </p>
 </ng-container>
