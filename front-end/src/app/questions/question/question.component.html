@@ -55,7 +55,7 @@
 
     <mat-accordion>
       <div class="answer" *ngFor="let answer of question.answers; let i=index">
-        <mat-expansion-panel id="expansion-panel-answer">
+        <mat-expansion-panel id="expansion-panel-answer" (closed)="closingAnswerAccordionFCT()">
 
           <mat-expansion-panel-header>
             <mat-panel-title>

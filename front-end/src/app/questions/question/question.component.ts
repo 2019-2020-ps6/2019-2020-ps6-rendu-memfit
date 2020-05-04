@@ -89,6 +89,10 @@ export class QuestionComponent implements OnInit {
     this.editQuestionStatement = false;
   }
 
+  closingAnswerAccordionFCT() {
+    this.editAnswerStatement = false;
+  }
+
   editAnswerStatementFCT() {
     this.editAnswerStatement = true;
   }
@@ -119,7 +123,7 @@ export class QuestionComponent implements OnInit {
       this.updateAnswerEmit.emit(this.question.answers[index]);
     }
 
-    if(!(this.photoURLAnswers == '')){
+    if(!(this.photoURLAnswers == '') && !(this.photoURLAnswers == this.question.answers[index].image)){
       this.question.answers[index].image = this.photoURLAnswers;
       this.updateAnswerEmit.emit(this.question.answers[index]);
     }
