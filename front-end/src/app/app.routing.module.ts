@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { QuizListComponent } from './quizzes/quiz-list/quiz-list.component';
 import { EditQuizComponent } from './quizzes/edit-quiz/edit-quiz.component';
 import { IndexComponent } from './index/index.component';
 import { CreateQuizComponent } from './quizzes/create-quiz/create-quiz.component';
@@ -14,7 +13,6 @@ import {QuizRecordComponent} from "./quiz-record/quiz-record.component";
 const routes: Routes = [
     {path: '', component: IndexComponent},
     {path: 'upload', component: ImageUploaderComponent},
-    {path: 'quiz/', component: QuizListComponent},
     {path: 'quiz/show/:patientId/:quizId', component: QuizShowComponent},
     {path: 'quiz/edit/:id', component: EditQuizComponent},
     {path: 'quiz/create', component: CreateQuizComponent},
