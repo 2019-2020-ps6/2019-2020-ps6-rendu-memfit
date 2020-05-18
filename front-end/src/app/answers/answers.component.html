@@ -1,6 +1,9 @@
 <div class="answer card rounded-0 border shadow-lg">
-    <img ondragstart="return false;" class="card-img-top img-fluid" style="object-fit: contain; max-height: 39vh;" src="{{answer.image}}" alt="Image Réponse">
-  <div class="card-body bg-primary">
-    <h4 class="card-title text-center m-0">{{answer.statement}}</h4>
-  </div>
+  <img ondragstart="return false;" class="card-img-top img-fluid" style="object-fit: contain; max-height: 39vh;"
+       src="{{answer.image}}" alt="Image Réponse">
+  <ng-container *ngIf="answer.statement.trim() !=''">
+    <div class="card-body bg-primary">
+      <h4 class="card-title text-center m-0">{{answer.statement}}</h4>
+    </div>
+  </ng-container>
 </div>

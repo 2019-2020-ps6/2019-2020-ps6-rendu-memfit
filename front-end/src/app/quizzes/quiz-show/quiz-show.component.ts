@@ -51,7 +51,7 @@ export class QuizShowComponent implements OnInit {
       this.quizRecord = new QuizRecord();
       this.quizRecord.id =  Date.now();
       this.quizRecord.name = this.quiz.name;
-      this.quizRecord.patientId = parseInt(this.route.snapshot.paramMap.get('patientId')); // TODO: Change with pedro's patientId
+      this.quizRecord.patientId = parseInt(this.route.snapshot.paramMap.get('patientId'));
 
       this.quizService.startQuizRecord(this.quizRecord);
     }
@@ -62,7 +62,7 @@ export class QuizShowComponent implements OnInit {
 
       this.answerRecord = new AnswerRecord();
       this.answerRecord.id = Date.now();
-      this.answerRecord.quizRecordId = this.quizRecord.id, 10;
+      this.answerRecord.quizRecordId = this.quizRecord.id;
       this.answerRecord.question = this.currentQuestion.statement;
     } else {
       this.ended = true;

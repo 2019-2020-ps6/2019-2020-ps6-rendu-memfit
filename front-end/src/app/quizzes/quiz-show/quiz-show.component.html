@@ -1,6 +1,6 @@
 <ng-container *ngIf="quiz; else loadingModal">
 
-  <div class="container-fluid position-relative" style="height: 80vh" ondragstart="return false;">
+  <div class="container-fluid position-relative" style="height: 100vh" ondragstart="return false;">
     <ng-container *ngIf="started && !ended; else (ended && endModal) || startModal">
       <!--  <h1>{{quiz.name}}</h1>-->
       <h2 class="text-center mb-4">
